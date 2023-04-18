@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import dbConnection from "./database.js";
 import morgan from "morgan";
+import { routerUsers } from "./routes/users.routes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ class Server {
   }
 
   routes() {
+    this.app.use("/users", routerUsers);
   }
 
   async conexionBd() {
