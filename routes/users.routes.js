@@ -10,22 +10,24 @@ const {
 } = usersVali;
 
 const {
+  getUserId,
   loginUser,
   registerUser,
   getUsers,
   updateUser,
   activateUser,
-  deactivateUser,
+  inactiveUser,
   logoutUser,
 } = userCtrl;
 
 const routerUsers = Router();
 
+routerUsers.get("/:id",validateExistUser, getUserId);
 routerUsers.get("/", getUsers);
 routerUsers.post("/login", validateLoginUser, loginUser);
 routerUsers.post("/register", validateRegisterUser, registerUser);
 routerUsers.put("/activate/:id", validateExistUser, activateUser);
-routerUsers.put("/inactive/:id", validateExistUser, deactivateUser);
+routerUsers.put("/inactive/:id", validateExistUser, inactiveUser);
 routerUsers.put("/update/:id", validateUpdateUser, updateUser);
 routerUsers.get("/logout", logoutUser);
 

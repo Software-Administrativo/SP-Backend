@@ -4,6 +4,7 @@ import cors from "cors";
 import dbConnection from "./database.js";
 import morgan from "morgan";
 import { routerUsers } from "./routes/users.routes.js";
+import { routerPays } from "./routes/maintenance/pays.routes.js";
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ class Server {
 
   routes() {
     this.app.use("/users", routerUsers);
+    this.app.use("maintenance/pays",routerPays);
+    /* this.app.use("maintenance/category",routerCategory); */
   }
 
   async conexionBd() {

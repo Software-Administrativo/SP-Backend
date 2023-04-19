@@ -46,14 +46,14 @@ userCtrl.updateUser = async (req, res) => {
   const { id } = req.params;
   const { name, tpdocument, numdocument, role, password } = req.body;
   try {
-    await User.findByIdAndUpdate(id, {
+    const user = await User.findByIdAndUpdate(id, {
       name,
       tpdocument,
       numdocument,
       role,
       password,
     });
-    res.json({ msg: "Usuario actualizado correctamente" });
+    res.json({ msg: "Usuario actualizado correctamente", user });
   } catch (error) {
     res.json({ message: "No fue posible terminar la operacion" });
   }
@@ -69,6 +69,17 @@ userCtrl.getUsers = async (req, res) => {
   }
 };
 
+//get user by id in the db
+userCtrl.getUserId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    res.json({ user });
+  } catch (error) {
+    res.json({ message: "No fue posible terminar la operacion" });
+  }
+}
+
 //activate user in the db
 userCtrl.activateUser = async (req, res) => {
   const { id } = req.params;
@@ -81,7 +92,7 @@ userCtrl.activateUser = async (req, res) => {
 };
 
 //deactivate user in the db
-userCtrl.deactivateUser = async (req, res) => {
+userCtrl.inactiveUser = async (req, res) => {
   const { id } = req.params;
   try {
     await User.findByIdAndUpdate(id, { status: 1 });
