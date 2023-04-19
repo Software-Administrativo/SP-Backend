@@ -2,7 +2,10 @@ import { check } from "express-validator";
 import { validateFields } from "../middlewares/validateFields.js";
 import { userHelper } from "../helpers/user.helper.js";
 
-const { validateExistUser, validateExistUserById, ValidateUserByDocuAndId } =
+const { 
+  validateExistUser, 
+  validateExistUserById, 
+  validateUserByDocuAndId } =
   userHelper;
 
 const usersVali = {};
@@ -49,7 +52,7 @@ usersVali.validateUpdateUser = [
     .isString(),
   //pasar el id y el numero de documento para validar si el numero de documento ya existe pero no para el mismo id
   check("numdocument").custom(async (numdocument, { req }) => {
-    await ValidateUserByDocuAndId(numdocument, req.params.id);
+    await validateUserByDocuAndId(numdocument, req.params.id);
   }),
   check("role", "El rol es obligatorio").notEmpty().isString(),
   check("password", "La contraseña es obligatoria").notEmpty(),
