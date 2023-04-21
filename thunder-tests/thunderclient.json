@@ -501,5 +501,99 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "aba35ab3-c67b-490e-8ad4-0e9a08a0e21e",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "GetEpsId",
+    "url": "{{URI}}/maintenance/works/6442a6f92f388907210d259e",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-04-21T16:34:41.541Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "de149f7d-ac5a-4a5e-aa75-6863b27d28ee",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "AllWorks",
+    "url": "{{URI}}/maintenance/works",
+    "method": "GET",
+    "sortNum": 77500,
+    "created": "2023-04-21T16:34:41.542Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4cb0cde4-78a9-467e-981b-e82f643643e6",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "Register",
+    "url": "{{URI}}/maintenance/works/register",
+    "method": "POST",
+    "sortNum": 117500,
+    "created": "2023-04-21T16:34:41.543Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\" test 4\",\n  \"description\": \"Pago Mensual\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f58109c7-4af1-4dc0-86c2-be615824752b",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "ActiveWork",
+    "url": "{{URI}}/maintenance/works/active/6442a6f92f388907210d259e",
+    "method": "PUT",
+    "sortNum": 127500,
+    "created": "2023-04-21T16:34:41.544Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "91597a32-5d98-472f-8c39-315a1399763d",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "InactiveWork",
+    "url": "{{URI}}/maintenance/works/inactive/6442a6f92f388907210d259e",
+    "method": "PUT",
+    "sortNum": 137500,
+    "created": "2023-04-21T16:34:41.545Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "58a64011-d5a1-405d-9cd6-fe99190ba393",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eee3d135-3315-4b78-9ce0-321a09c90f77",
+    "name": "UpdateWork",
+    "url": "{{URI}}/maintenance/works/update/6442a6f92f388907210d259e",
+    "method": "PUT",
+    "sortNum": 147500,
+    "created": "2023-04-21T16:34:41.546Z",
+    "modified": "2023-04-21T16:34:41.541Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Labor test2\",\n  \"description\": \"Labor ...\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
