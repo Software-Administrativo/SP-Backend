@@ -22,7 +22,7 @@ const {
 
 const routerUsers = Router();
 
-routerUsers.get("/:id",validateExistUser, getUserId);
+routerUsers.get("/:id", validateExistUser, getUserId);
 routerUsers.get("/", getUsers);
 routerUsers.post("/login", validateLoginUser, loginUser);
 routerUsers.post("/register", validateRegisterUser, registerUser);

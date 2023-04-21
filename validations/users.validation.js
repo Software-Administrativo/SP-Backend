@@ -2,10 +2,7 @@ import { check } from "express-validator";
 import { validateFields } from "../middlewares/validateFields.js";
 import { userHelper } from "../helpers/user.helper.js";
 
-const { 
-  validateExistUser, 
-  validateExistUserById, 
-  validateUserByDocuAndId } =
+const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
   userHelper;
 
 const usersVali = {};

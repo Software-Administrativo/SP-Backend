@@ -17,7 +17,7 @@ const PaySquema = new Schema(
     },
     valor: {
       type: Number,
-        required: true,
+      required: true,
     },
     status: {
       type: Number,
@@ -29,6 +29,5 @@ const PaySquema = new Schema(
     timestamps: true,
   }
 );
-
 
 export default model("Pay", PaySquema);

@@ -78,7 +78,7 @@ userCtrl.getUserId = async (req, res) => {
   } catch (error) {
     res.json({ message: "No fue posible terminar la operacion" });
   }
-}
+};
 
 //activate user in the db
 userCtrl.activateUser = async (req, res) => {
