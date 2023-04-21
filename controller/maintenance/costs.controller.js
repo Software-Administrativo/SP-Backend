@@ -55,8 +55,8 @@ costsCtrl.updateCosts = async (req, res) => {
   }
 };
 
-//activate cost in the db
-costsCtrl.activateCosts = async (req, res) => {
+//active cost in the db
+costsCtrl.activeCosts = async (req, res) => {
   const { id } = req.params;
   try {
     await Cost.findByIdAndUpdate(id, { status: 0 });

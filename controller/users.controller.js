@@ -80,8 +80,8 @@ userCtrl.getUserId = async (req, res) => {
   }
 };
 
-//activate user in the db
-userCtrl.activateUser = async (req, res) => {
+//active user in the db
+userCtrl.activeUser = async (req, res) => {
   const { id } = req.params;
   try {
     await User.findByIdAndUpdate(id, { status: 0 });
@@ -91,7 +91,7 @@ userCtrl.activateUser = async (req, res) => {
   }
 };
 
-//deactivate user in the db
+//deactive user in the db
 userCtrl.inactiveUser = async (req, res) => {
   const { id } = req.params;
   try {

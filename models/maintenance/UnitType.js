@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
 
-const CostSquema = new Schema(
+
+const UnitTypeSquema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-
-    description: {
+    unittype: {
       type: String,
       default: "",
     },
@@ -22,4 +22,4 @@ const CostSquema = new Schema(
   }
 );
 
-export default model("Cost", CostSquema);
+export default model("UnitType", UnitTypeSquema);

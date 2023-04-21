@@ -15,7 +15,7 @@ const {
   registerUser,
   getUsers,
   updateUser,
-  activateUser,
+  activeUser,
   inactiveUser,
   logoutUser,
 } = userCtrl;
@@ -26,7 +26,7 @@ routerUsers.get("/:id", validateExistUser, getUserId);
 routerUsers.get("/", getUsers);
 routerUsers.post("/login", validateLoginUser, loginUser);
 routerUsers.post("/register", validateRegisterUser, registerUser);
-routerUsers.put("/activate/:id", validateExistUser, activateUser);
+routerUsers.put("/active/:id", validateExistUser, activeUser);
 routerUsers.put("/inactive/:id", validateExistUser, inactiveUser);
 routerUsers.put("/update/:id", validateUpdateUser, updateUser);
 routerUsers.get("/logout", logoutUser);

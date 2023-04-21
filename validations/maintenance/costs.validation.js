@@ -8,7 +8,7 @@ const costsVali = {};
 
 //validate if exist pay
 costsVali.validateExistCost = [
-  check("id", "El id es obligatorio").notEmpty().isString().exists(),
+  check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
     await validateExistCostById(id); // modificar por pay
@@ -18,20 +18,20 @@ costsVali.validateExistCost = [
 
 //validate fields for register pay
 costsVali.validateRegisterCost = [
-  check("name", "El nombre es obligatorio").notEmpty().isString(),
-  check("description", "La descripcion es obligatoria").notEmpty().isString(),
+  check("name", "El nombre es obligatorio").notEmpty(),
+  check("description", "La descripcion es obligatoria").notEmpty(),
   validateFields,
 ];
 
 //validate fields for update pay
 costsVali.validateUpdateCost = [
-  check("id", "El id es obligatorio").notEmpty().isString().exists(),
+  check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
     await validateExistCostById(id); // modificar por pay
   }),
-  check("name", "El nombre es obligatorio").notEmpty().isString(),
-  check("description", "La descripcion es obligatoria").notEmpty().isString(),
+  check("name", "El nombre es obligatorio").notEmpty(),
+  check("description", "La descripcion es obligatoria").notEmpty(),
   validateFields,
 ];
 

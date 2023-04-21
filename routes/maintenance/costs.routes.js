@@ -10,7 +10,7 @@ const {
   getCosts,
   registerCost,
   updateCosts,
-  activateCosts,
+  activeCosts,
   inactiveCosts,
 } = costsCtrl;
 
@@ -19,7 +19,7 @@ const routerCosts = Router();
 routerCosts.get("/:id", validateExistCost, getCostId);
 routerCosts.get("/", getCosts);
 routerCosts.post("/register", validateRegisterCost, registerCost);
-routerCosts.put("/active/:id", validateExistCost, activateCosts);
+routerCosts.put("/active/:id", validateExistCost, activeCosts);
 routerCosts.put("/inactive/:id", validateExistCost, inactiveCosts);
 routerCosts.put("/update/:id", validateUpdateCost, updateCosts);
 

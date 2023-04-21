@@ -59,8 +59,8 @@ paysCtrl.updatePays = async (req, res) => {
   }
 };
 
-//activate pay in the db
-paysCtrl.activatePays = async (req, res) => {
+//active pay in the db
+paysCtrl.activePays = async (req, res) => {
   const { id } = req.params;
   try {
     await Pay.findByIdAndUpdate(id, { status: 0 });

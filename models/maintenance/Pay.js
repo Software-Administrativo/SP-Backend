@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import bcryp from "bcryptjs";
 
 const PaySquema = new Schema(
   {
