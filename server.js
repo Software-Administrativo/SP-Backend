@@ -27,7 +27,7 @@ class Server {
   routes() {
     this.app.use("/users", routerUsers);
     this.app.use("/maintenance/pays", routerPays);
-    this.app.use("maintenance/costs", routerCosts);
+    this.app.use("/maintenance/costs", routerCosts);
   }
 
   async conexionBd() {

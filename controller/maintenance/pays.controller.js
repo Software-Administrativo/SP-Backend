@@ -33,8 +33,8 @@ paysCtrl.registerPay = async (req, res) => {
       description,
       valor,
     });
-    await newPay.save();
-    res.json({ msg: "Pago creado correctamente" });
+    const pay = await newPay.save();
+    res.json({ msg: "Pago creado correctamente", pay });
   } catch (error) {
     res.json({ message: "No fue posible terminar la operacion" });
   }
