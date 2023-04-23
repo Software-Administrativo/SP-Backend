@@ -4,6 +4,10 @@ import cors from "cors";
 import dbConnection from "./database.js";
 import morgan from "morgan";
 import { routerUsers } from "./routes/users.routes.js";
+import { routerPays } from "./routes/maintenance/pays.routes.js";
+import { routerCosts } from "./routes/maintenance/costs.routes.js";
+import { routerWorks } from "./routes/maintenance/works.routes.js";
+import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 
 dotenv.config();
 
@@ -23,7 +27,19 @@ class Server {
   }
 
   routes() {
+    this.app.get("/", (req, res) => {
+      res.send("Hello World!");
+    });
     this.app.use("/users", routerUsers);
+    this.app.use("/maintenance/pays", routerPays);
+    this.app.use("/maintenance/costs", routerCosts);
+    this.app.use("/maintenance/works", routerWorks);
+    this.app.use("/maintenance/unittypes", routerUnitTypes);
+    this.app.use("*", (req, res) => {
+      res.status(404).json({
+        msg: "Page not found",
+      });
+    });
   }
 
   async conexionBd() {

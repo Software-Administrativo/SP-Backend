@@ -1,23 +1,15 @@
 import { Schema, model } from "mongoose";
-import bcryp from "bcryptjs";
 
-const PaySquema = new Schema(
+const CostSquema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    tpcontrato: {
-      type: String,
-      required: true,
-    },
+
     description: {
       type: String,
       default: "",
-    },
-    valor: {
-      type: Number,
-        required: true,
     },
     status: {
       type: Number,
@@ -30,5 +22,4 @@ const PaySquema = new Schema(
   }
 );
 
-
-export default model("Pay", PaySquema);
+export default model("Cost", CostSquema);
