@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { categoryCtrl } from "../controller/inventory/category.controller.js";
-import { categoryVali } from "../validations/inventory/category.validator.js";
+import { categoryCtrl } from "../../controller/inventory/category.controller.js";
+import { categoryVali } from "../../validations/inventory/category.validation.js";
 
 const {
     validategetCategory,
@@ -25,5 +25,7 @@ const routerCategory = Router();
 
 routerCategory.get("/", getCategory);
 routerCategory.get("/:id", validategetCategory, getCategoryId);
+
+export { routerCategory };
 
 

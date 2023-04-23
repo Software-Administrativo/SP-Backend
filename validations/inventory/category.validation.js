@@ -1,6 +1,6 @@
 import { check } from "express-validator";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { categoryHelper } from "../../helpers/maintenance/category.helpers.js";
+import { categoryHelper } from "../../helpers/inventory/category.helper.js";
 
 const { validateExistCategoryById, } = categoryHelper;
 
