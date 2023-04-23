@@ -163,12 +163,12 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-20T12:00:41.910Z",
-    "modified": "2023-04-20T12:05:30.124Z",
+    "modified": "2023-04-22T17:15:51.498Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Jorge Luis\",\n  \"tpcontrato\": \"Pago Mensual\",\n  \"description\": \"test\",\n  \"valor\": 10000\n}",
+      "raw": "{\n  \"name\":\"Efectivo \",\n  \"description\": \" \"\n}",
       "form": []
     },
     "tests": []
@@ -210,12 +210,12 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-20T14:12:53.653Z",
-    "modified": "2023-04-21T12:34:43.144Z",
+    "modified": "2023-04-22T17:16:42.231Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Jorge Luis\",\n  \"tpcontrato\": \"Pago Mensual 123\",\n  \"description\": \"test\",\n  \"valor\": 1\n}",
+      "raw": "{\n  \"name\":\"Jorge Luis\",\n\n  \"description\": \"test\"\n\n}",
       "form": []
     },
     "tests": []

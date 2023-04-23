@@ -19,8 +19,8 @@ paysVali.validateExistPay = [
 //validate fields for register pay
 paysVali.validateRegisterPay = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
-  check("valor", "El rol es obligatorio").notEmpty().isNumeric(),
+/*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
+  check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
 
@@ -32,8 +32,8 @@ paysVali.validateUpdatePay = [
     await validateExistPayById(id); // modificar por pay
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
-  check("valor", "El rol es obligatorio").notEmpty().isNumeric(),
+/*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
+  check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
 

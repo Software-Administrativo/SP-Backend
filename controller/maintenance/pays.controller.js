@@ -29,9 +29,9 @@ paysCtrl.registerPay = async (req, res) => {
   try {
     const newPay = new Pay({
       name,
-      tpcontrato,
+      // tpcontrato,
       description,
-      valor,
+      // valor,
     });
     const pay = await newPay.save();
     res.json({ msg: "Pago creado correctamente", pay });
@@ -47,9 +47,9 @@ paysCtrl.updatePays = async (req, res) => {
   try {
     await Pay.findByIdAndUpdate(id, {
       name,
-      tpcontrato,
+      // tpcontrato,
       description,
-      valor,
+      // valor,
     });
 
     const pay = await Pay.findById(id);

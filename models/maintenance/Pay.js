@@ -6,18 +6,18 @@ const PaySquema = new Schema(
       type: String,
       required: true,
     },
-    tpcontrato: {
-      type: String,
-      required: true,
-    },
+    // tpcontrato: {
+    //   type: String,
+    //   required: true,
+    // },
     description: {
       type: String,
       default: "",
     },
-    valor: {
-      type: Number,
-      required: true,
-    },
+    // valor: {
+    //   type: Number,
+    //   required: true,
+    // },
     status: {
       type: Number,
       default: 0,
