@@ -8,7 +8,7 @@ costsCtrl.getCosts = async (req, res) => {
     const costs = await Cost.find({ status: 0 });
     res.json({ costs });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -19,7 +19,7 @@ costsCtrl.getCostId = async (req, res) => {
     const cost = await Cost.findById(id);
     res.json({ cost });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -34,7 +34,7 @@ costsCtrl.registerCost = async (req, res) => {
     const cost = await newCost.save();
     res.json({ msg: "Costo creado correctamente", cost });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -51,7 +51,7 @@ costsCtrl.updateCosts = async (req, res) => {
     const updateCost = await Cost.findById(id);
     res.json({ msg: "Costo actualizado correctamente", cost: updateCost });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -62,7 +62,7 @@ costsCtrl.activeCosts = async (req, res) => {
     await Cost.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Costo activado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -73,7 +73,7 @@ costsCtrl.inactiveCosts = async (req, res) => {
     await Cost.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Costo inactivado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

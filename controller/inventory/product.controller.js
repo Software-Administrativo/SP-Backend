@@ -8,7 +8,7 @@ productCtrl.getProduct = async (req, res) => {
         const product = await Product.find({ status: 0 });
         res.json({ product });
     } catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -19,7 +19,7 @@ product.getPoductId = async (req, res) => {
         const product = await Product.findById(id);
         res.json({ product });
     } catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -38,7 +38,7 @@ productCtrl.registerPoduct = async (req, res) => {
     await newProduct.save();
     res.json({ msg: "Producto creado correctamente" });
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -57,7 +57,7 @@ productCtrl.updatePoduct = async (req, res) => {
         });
     res.json({ msg: "Producto actualizado correctamente", product });
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -68,7 +68,7 @@ productCtrl.activateProduct = async (req, res) => {
         const product = await Product.findByIdAndUpdate(id, { status: 0 });
         res.json({ msg: "Poducto activado correctamente" , product});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -79,7 +79,7 @@ productCtrl.inactiveProduct = async (req, res) => {
         const product = await Product.findByIdAndUpdate(id, { status: 1 });
         res.json({ msg: "Producto inactivado correctamente" , product});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 export { productCtrl };

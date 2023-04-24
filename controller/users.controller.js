@@ -9,16 +9,16 @@ userCtrl.loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ tpdocument, numdocument });
     if (!user) {
-      return res.json({ message: "Credenciales incorrectas" });
+      return res.json({ msg: "Credenciales incorrectas" });
     }
     const matchPassword = await user.matchPassword(password);
     if (!matchPassword) {
-      return res.json({ message: "Credenciales incorrectas" });
+      return res.json({ msg: "Credenciales incorrectas" });
     }
     /* const token = await user.getJwtToken(); */
     res.json({ msg: "Usuario logueado correctamente", token: "token" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -37,7 +37,7 @@ userCtrl.registerUser = async (req, res) => {
     await newUser.save();
     res.status(201).json({ msg: "Usuario creado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -55,7 +55,7 @@ userCtrl.updateUser = async (req, res) => {
     });
     res.json({ msg: "Usuario actualizado correctamente", user });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -65,7 +65,7 @@ userCtrl.getUsers = async (req, res) => {
     const users = await User.find({ status: 0 });
     res.json(users);
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -76,7 +76,7 @@ userCtrl.getUserId = async (req, res) => {
     const user = await User.findById(id);
     res.json({ user });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -87,7 +87,7 @@ userCtrl.activeUser = async (req, res) => {
     await User.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Usuario activado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -98,7 +98,7 @@ userCtrl.inactiveUser = async (req, res) => {
     await User.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Usuario desactivado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -107,7 +107,7 @@ userCtrl.logoutUser = async (req, res) => {
   try {
     res.json({ msg: "Usuario deslogueado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

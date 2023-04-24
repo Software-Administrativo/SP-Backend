@@ -8,7 +8,7 @@ paysCtrl.getPays = async (req, res) => {
     const pays = await Pay.find({ status: 0 });
     res.json({ pays });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -19,7 +19,7 @@ paysCtrl.getPayId = async (req, res) => {
     const pay = await Pay.findById(id);
     res.json({ pay });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -36,7 +36,7 @@ paysCtrl.registerPay = async (req, res) => {
     const pay = await newPay.save();
     res.json({ msg: "Pago creado correctamente", pay });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -55,7 +55,7 @@ paysCtrl.updatePays = async (req, res) => {
     const pay = await Pay.findById(id);
     res.json({ msg: "Pago actualizado correctamente", pay });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -66,7 +66,7 @@ paysCtrl.activePays = async (req, res) => {
     await Pay.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Pago activado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -77,7 +77,7 @@ paysCtrl.inactivePays = async (req, res) => {
     await Pay.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Pago inactivado correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

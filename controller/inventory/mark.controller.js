@@ -8,7 +8,7 @@ markCtrl.getMarks = async (req, res) => {
         const mark = await Mark.find({ status: 0 });
         res.json({ mark });
     } catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -19,7 +19,7 @@ markCtrl.getMarkId = async (req, res) => {
         const mark = await Mark.findById(id);
         res.json({ mark });
     } catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -36,7 +36,7 @@ markCtrl.registerMark = async (req, res) => {
     await newMark.save();
     res.json({ msg: "MArca creada correctamente" });
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -53,7 +53,7 @@ markCtrl.updateMark = async (req, res) => {
         });
         res.json({ msg: "Marca actualizado correctamente" , mark});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -65,7 +65,7 @@ markCtrl.activateMark = async (req, res) => {
         const mark = await Mark.findByIdAndUpdate(id, { status: 0 });
         res.json({ msg: "Marca activada correctamente" , mark});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -76,7 +76,7 @@ markCtrl.inactiveMark = async (req, res) => {
         const mark = await Mark.findByIdAndUpdate(id, { status: 1 });
         res.json({ msg: "Marca inactivada correctamente" , mark});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 

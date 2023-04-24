@@ -8,7 +8,7 @@ unitTypesCtrl.getUnitTypes = async (req, res) => {
     const unitType = await UnitType.find({ status: 0 });
     res.json({ unitType });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -19,7 +19,7 @@ unitTypesCtrl.getUnitTypesId = async (req, res) => {
     const unitType = await UnitType.findById(id);
     res.json({ unitType });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -34,7 +34,7 @@ unitTypesCtrl.registerUnitTypes = async (req, res) => {
     const unitType = await newUnitType.save();
     res.json({ msg: "Tipo de unidad creada correctamente", unitType });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -51,7 +51,7 @@ unitTypesCtrl.updateUnitTypes = async (req, res) => {
     const updateUnitType = await UnitType.findById(id);
     res.json({ msg: "Tipo de unidad actualizada correctamente", unitType: updateUnitType });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -62,7 +62,7 @@ unitTypesCtrl.activeUnitTypes = async (req, res) => {
     await UnitType.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Tipo de unidad activada correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -73,7 +73,7 @@ unitTypesCtrl.inactiveUnitTypes = async (req, res) => {
     await UnitType.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Tipo de unidad inactivada correctamente" });
   } catch (error) {
-    res.json({ message: "No fue posible terminar la operacion" });
+    res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

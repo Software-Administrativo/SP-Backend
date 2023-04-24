@@ -7,7 +7,7 @@ cellarCtrl.getCellar = async (req, res) => {
         const cellar = await Cellar.find({ status: 0 });
         res.json({cellar});
     }catch (error) {
-        res.json({message:"No fue posible terminar la operacion" })
+        res.json({msg:"No fue posible terminar la operacion" })
     }
 }
 
@@ -18,7 +18,7 @@ cellarCtrl.getCellarId = async (req, res) => {
       const cellar = await Cellar.findById(id);
       res.json({ cellar })
     } catch (error) {
-      res.json({ message:"No fue posible terminar la operacion"})
+      res.json({ msg:"No fue posible terminar la operacion"})
     }
   }
 
@@ -36,7 +36,7 @@ cellarCtrl.registerCellar = async (req, res) => {
     await newCellar.save();
     res.json({ msg: "Bodega creada correctamente" });
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -54,7 +54,7 @@ cellarCtrl.updateCellar = async (req, res) => {
         });
         res.json({ msg: "Bodega actualizado correctamente" , cellar});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -65,7 +65,7 @@ cellarCtrl.activateCellar = async (req, res) => {
         const cellar = await Cellar.findByIdAndUpdate(id, { status: 0 });
         res.json({ msg: "Bodega activado correctamente" , cellar});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
@@ -76,7 +76,7 @@ cellarCtrl.inactiveCellar = async (req, res) => {
         const cellar = await Cellar.findByIdAndUpdate(id, { status: 1 });
         res.json({ msg: "Bodega inactivado correctamente" , cellar});
     }catch (error) {
-        res.json({ message: "No fue posible terminar la operacion" });
+        res.json({ msg: "No fue posible terminar la operacion" });
     }
 } 
 
