@@ -7,7 +7,7 @@ userCtrl.loginUser = async (req, res) => {
   const { tpdocument, numdocument, password } = req.body;
 
   try {
-    const user = await User.findOne({ tpdocument, numdocument });
+    const user = await User.findOne({ tpdocument, numdocument , status: 0});
     if (!user) {
       return res.json({ msg: "Credenciales incorrectas" });
     }
@@ -62,7 +62,7 @@ userCtrl.updateUser = async (req, res) => {
 //get all users actives in the db
 userCtrl.getUsers = async (req, res) => {
   try {
-    const users = await User.find({ status: 0 });
+    const users = await User.find();
     res.json(users);
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
