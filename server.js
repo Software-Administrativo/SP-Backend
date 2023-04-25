@@ -12,7 +12,8 @@ import { routerPays } from "./routes/maintenance/pays.routes.js";
 import { routerSpents } from "./routes/maintenance/spents.routes.js";
 import { routerWorks } from "./routes/maintenance/works.routes.js";
 import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
-import { routerEps } from "./routes/maintenance/eps.routes.js"; 
+import { routerEps } from "./routes/maintenance/eps.routes.js";
+import { routerTypeDocument } from "./routes/maintenance/typeDocument.routes.js";
 
 
 dotenv.config();
@@ -45,7 +46,8 @@ class Server {
     this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);
     this.app.use("/maintenance/unittypes", routerUnitTypes);
-    this.app.use("/maintenance/eps",routerEps)
+    this.app.use("/maintenance/eps",routerEps);
+    this.app.use("/maintenance/typedocument", routerTypeDocument);
     this.app.use("*", (req, res) => {
       res.status(404).json({
         msg: "Page not found",

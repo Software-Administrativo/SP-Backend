@@ -1,19 +1,20 @@
 import { check } from "express-validator";
 import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { paysHelper } from "../../helpers/maintenance/pay.helper.js";
+import { typeDocumentHelper } from "../../helpers/maintenance/typeDocument.helper.js";
 
-const { validateExistPayById } = paysHelper;
+const { validateExistTypeDocumentById } = typeDocumentHelper;
 const { validateToken } = webToken;
 
-const paysVali = {};
+const typeDocumentVali = {};
+const typeDocument = ["CC", "CE", "TI", "RC", "PAS", "NIT", "NUIP", "TE"];
 
 //validate if exist pay
-paysVali.validateExistPay = [
+typeDocumentVali.validateExistTypeDocument = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
-    await validateExistPayById(id); // modificar por pay
+    await validateExistTypeDocumentById(id); // modificar por pay
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
@@ -22,31 +23,45 @@ paysVali.validateExistPay = [
 ];
 
 //validate fields for register pay
-paysVali.validateRegisterPay = [
+typeDocumentVali.validateRegisterTypeDocument = [
   check("name", "El nombre es obligatorio").notEmpty(),
+  check("name").custom(async (name) => {
+    if (!typeDocument.includes(name.toUpperCase())) {
+      throw new Error("El nombre no es valido");
+    }
+  }),
+     
+  check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
-
   validateFields,
 ];
 
 //validate fields for update pay
-paysVali.validateUpdatePay = [
+typeDocumentVali.validateUpdateTypeDocument = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
-    await validateExistPayById(id); // modificar por pay
+    await validateExistTypeDocumentById(id); // modificar por pay
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
   check("name", "El nombre es obligatorio").notEmpty(),
+  check("name").custom(async (name) => {
+    if (!typeDocument.includes(name.toUpperCase())) {
+      throw new Error("El nombre no es valido");
+    }
+  }),
+     
+  check("description", "La descripcion es obligatoria").notEmpty(),
+
   validateFields,
 ];
 
 //validate token 
-paysVali.validateToken =[
+typeDocumentVali.validateToken =[
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
@@ -54,4 +69,4 @@ paysVali.validateToken =[
 ]
 
 
-export { paysVali };
+export { typeDocumentVali };

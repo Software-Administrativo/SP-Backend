@@ -1004,5 +1004,129 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "4845d1af-672f-47e1-a2bf-0d32c23644db",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "GetTypeDocumentId",
+    "url": "{{URI}}/maintenance/typedocument/6448050ce8d51e4b307b847d",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-04-25T16:48:43.809Z",
+    "modified": "2023-04-25T16:51:56.193Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "07383f73-5645-4c28-8382-83573b4d1f3c",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "AllTypeDocuments",
+    "url": "{{URI}}/maintenance/typedocument",
+    "method": "GET",
+    "sortNum": 77500,
+    "created": "2023-04-25T16:48:43.810Z",
+    "modified": "2023-04-25T16:50:37.457Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "e2241c4e-b9b6-41de-9c53-91b2c8714453",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "Register",
+    "url": "{{URI}}/maintenance/typedocument/register",
+    "method": "POST",
+    "sortNum": 117500,
+    "created": "2023-04-25T16:48:43.811Z",
+    "modified": "2023-04-25T16:51:24.427Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"CC\",\n  \"description\": \"Cedula de Ciudadania\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "71564796-99df-4194-9156-7f23593e38d3",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "ActiveTypeDocument",
+    "url": "{{URI}}/maintenance/typedocument/active/6448050ce8d51e4b307b847d",
+    "method": "PUT",
+    "sortNum": 127500,
+    "created": "2023-04-25T16:48:43.812Z",
+    "modified": "2023-04-25T16:52:15.331Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8178ae73-fdd6-48de-a575-1d381e39123b",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "InactiveTypeDocument",
+    "url": "{{URI}}/maintenance/typedocument/inactive/6448050ce8d51e4b307b847d",
+    "method": "PUT",
+    "sortNum": 137500,
+    "created": "2023-04-25T16:48:43.813Z",
+    "modified": "2023-04-25T16:52:17.779Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4e472b00-a2a5-4854-98a9-f790c0dd2a38",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
+    "name": "UpdateTypeDocument",
+    "url": "{{URI}}/maintenance/typedocument/update/6448050ce8d51e4b307b847d",
+    "method": "PUT",
+    "sortNum": 147500,
+    "created": "2023-04-25T16:48:43.814Z",
+    "modified": "2023-04-25T16:53:54.973Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"TI\",\n  \"description\": \"targeta de Identidad\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

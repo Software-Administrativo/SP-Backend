@@ -27,8 +27,6 @@ epsVali.validateRegisterEps = [
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
-  /*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
-  check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
 
@@ -43,8 +41,6 @@ epsVali.validateUpdateEps = [
     await validateToken(token);
     }),
   check("name", "El nombre es obligatorio").notEmpty(),
-/*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
-  check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
 
