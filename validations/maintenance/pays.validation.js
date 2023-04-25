@@ -53,6 +53,7 @@ paysVali.validateToken =[
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
+    validateFields,
 ]
 
 

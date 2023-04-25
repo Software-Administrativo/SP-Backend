@@ -90,6 +90,7 @@ usersVali.validateToken =[
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
+    validateFields,
 ]
 
 export { usersVali };
