@@ -390,11 +390,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "GetPayId",
-    "url": "{{URI}}/maintenance/spents/6447e7a87df96e949cc6184f",
+    "url": "{{URI}}/maintenance/pays/6447e7a87df96e949cc6184f",
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-19T16:49:01.650Z",
-    "modified": "2023-04-25T14:46:40.325Z",
+    "modified": "2023-04-25T14:59:29.155Z",
     "headers": [
       {
         "name": "token",
@@ -409,11 +409,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "AllPays",
-    "url": "{{URI}}/maintenance/spents",
+    "url": "{{URI}}/maintenance/pays",
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-20T11:51:48.487Z",
-    "modified": "2023-04-25T14:46:15.891Z",
+    "modified": "2023-04-25T14:59:21.456Z",
     "headers": [
       {
         "name": "token",
@@ -428,11 +428,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "Register",
-    "url": "{{URI}}/maintenance/spents/register",
+    "url": "{{URI}}/maintenance/pays/register",
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-20T12:00:41.910Z",
-    "modified": "2023-04-25T14:45:51.712Z",
+    "modified": "2023-04-25T15:00:45.164Z",
     "headers": [
       {
         "name": "token",
@@ -442,7 +442,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Efectivo\",\n  \"description\": \" \"\n}",
+      "raw": "{\n  \"name\":\"Contado\",\n  \"description\": \" \"\n}",
       "form": []
     },
     "tests": []
@@ -452,11 +452,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "activePay",
-    "url": "{{URI}}/maintenance/spents/active/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/pays/active/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-20T14:04:12.743Z",
-    "modified": "2023-04-25T14:44:15.809Z",
+    "modified": "2023-04-25T14:59:35.831Z",
     "headers": [
       {
         "name": "token",
@@ -471,11 +471,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "InactivePay",
-    "url": "{{URI}}/maintenance/spents/inactive/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/pays/inactive/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-20T14:05:39.439Z",
-    "modified": "2023-04-25T14:44:18.885Z",
+    "modified": "2023-04-25T14:59:39.462Z",
     "headers": [
       {
         "name": "token",
@@ -490,11 +490,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "UpdatePay",
-    "url": "{{URI}}/maintenance/spents/update/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/pays/update/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-20T14:12:53.653Z",
-    "modified": "2023-04-25T14:47:13.839Z",
+    "modified": "2023-04-25T14:59:44.368Z",
     "headers": [
       {
         "name": "token",
@@ -514,11 +514,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "GetCostId",
-    "url": "{{URI}}/maintenance/costs/644281c887664ebb761a8f8e",
+    "url": "{{URI}}/maintenance/spents/644281c887664ebb761a8f8e",
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T12:21:23.455Z",
-    "modified": "2023-04-25T13:57:08.086Z",
+    "modified": "2023-04-25T14:59:55.152Z",
     "headers": [
       {
         "name": "token",
@@ -533,11 +533,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "AllCosts",
-    "url": "{{URI}}/maintenance/costs",
+    "url": "{{URI}}/maintenance/spents",
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T12:21:23.456Z",
-    "modified": "2023-04-25T13:58:26.504Z",
+    "modified": "2023-04-25T14:59:53.888Z",
     "headers": [
       {
         "name": "token",
@@ -552,11 +552,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "Register",
-    "url": "{{URI}}/maintenance/costs/register",
+    "url": "{{URI}}/maintenance/spents/register",
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T12:21:23.457Z",
-    "modified": "2023-04-25T13:58:32.162Z",
+    "modified": "2023-04-25T15:02:46.184Z",
     "headers": [
       {
         "name": "token",
@@ -566,7 +566,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Costo test\",\n  \"description\": \"Pago Mensual\"\n}",
+      "raw": "{\n  \"name\":\"Gastos test2\",\n  \"description\": \"Pago Mensual\"\n}",
       "form": []
     },
     "tests": []
@@ -576,11 +576,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "ActiveCost",
-    "url": "{{URI}}/maintenance/costs/active/644281c887664ebb761a8f8e",
+    "url": "{{URI}}/maintenance/spents/active/644281c887664ebb761a8f8e",
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T12:21:23.458Z",
-    "modified": "2023-04-25T13:58:36.722Z",
+    "modified": "2023-04-25T15:00:01.589Z",
     "headers": [
       {
         "name": "token",
@@ -595,11 +595,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "InactiveCost",
-    "url": "{{URI}}/maintenance/costs/inactive/644281c887664ebb761a8f8e",
+    "url": "{{URI}}/maintenance/spents/inactive/644281c887664ebb761a8f8e",
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T12:21:23.459Z",
-    "modified": "2023-04-25T13:58:41.638Z",
+    "modified": "2023-04-25T15:00:04.998Z",
     "headers": [
       {
         "name": "token",
@@ -614,11 +614,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
     "name": "UpdateCost",
-    "url": "{{URI}}/maintenance/costs/update/644287e1033acc58ae27e670",
+    "url": "{{URI}}/maintenance/spents/update/644287e1033acc58ae27e670",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T12:21:23.460Z",
-    "modified": "2023-04-25T13:58:47.352Z",
+    "modified": "2023-04-25T15:02:13.760Z",
     "headers": [
       {
         "name": "token",
@@ -628,7 +628,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Costo test123\",\n  \"description\": \"12347\"\n}",
+      "raw": "{\n  \"name\":\"Gastos test123\",\n  \"description\": \"12347\"\n}",
       "form": []
     },
     "tests": []
