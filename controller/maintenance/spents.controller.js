@@ -32,7 +32,7 @@ spentCtrl.registerSpent = async (req, res) => {
       description,
     });
     const spent = await newSpent.save();
-    res.json({ msg: "Spento creado correctamente", spent });
+    res.json({ msg: "Gasto creado correctamente", spent });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -49,7 +49,7 @@ spentCtrl.updateSpents = async (req, res) => {
     });
 
     const updateSpent = await Spent.findById(id);
-    res.json({ msg: "Spento actualizado correctamente", spent: updateSpent });
+    res.json({ msg: "Gasto actualizado correctamente", spent: updateSpent });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -60,7 +60,7 @@ spentCtrl.activeSpents = async (req, res) => {
   const { id } = req.params;
   try {
     await Spent.findByIdAndUpdate(id, { status: 0 });
-    res.json({ msg: "Spento activado correctamente" });
+    res.json({ msg: "Gasto activado correctamente" });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -71,7 +71,7 @@ spentCtrl.inactiveSpents = async (req, res) => {
   const { id } = req.params;
   try {
     await Spent.findByIdAndUpdate(id, { status: 1 });
-    res.json({ msg: "Spento inactivado correctamente" });
+    res.json({ msg: "Gasto inactivado correctamente" });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
