@@ -6,7 +6,7 @@ worksHelper.validateExistWorkById = async (id) => {
   try {
     const cost = await Work.findById(id);
     if (!cost) {
-      throw new Error(`La labor con el id ${id} no existe`);
+      throw new Error();
     }
   } catch (error) {
     throw new Error(`La labor con el id ${id} no existe`);

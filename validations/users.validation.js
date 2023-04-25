@@ -1,9 +1,11 @@
 import { check } from "express-validator";
+import webToken from "../middlewares/webToken.js";
 import { validateFields } from "../middlewares/validateFields.js";
 import { userHelper } from "../helpers/user.helper.js";
 
 const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
   userHelper;
+  const { validateToken } = webToken;
 
 const usersVali = {};
 
@@ -26,6 +28,9 @@ usersVali.validateRegisterUser = [
     "password",
     "La contraseña debe tener al menos una letra mayuscula, una minuscula y un numero"
   ).matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
 
@@ -53,6 +58,9 @@ usersVali.validateUpdateUser = [
     "password",
     "La contraseña debe tener al menos una letra mayuscula, una minuscula y un numero"
   ).matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
 
@@ -71,7 +79,17 @@ usersVali.validateExistUser = [
   check("id").custom(async (id) => {
     await validateExistUserById(id);
   }),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
+
+//validate token 
+usersVali.validateToken =[
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
+]
 
 export { usersVali };

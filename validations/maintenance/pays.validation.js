@@ -1,8 +1,10 @@
 import { check } from "express-validator";
+import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
 import { paysHelper } from "../../helpers/maintenance/pay.helper.js";
 
 const { validateExistPayById } = paysHelper;
+const { validateToken } = webToken;
 
 const paysVali = {};
 
@@ -13,13 +15,19 @@ paysVali.validateExistPay = [
   check("id").custom(async (id) => {
     await validateExistPayById(id); // modificar por pay
   }),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
 
 //validate fields for register pay
 paysVali.validateRegisterPay = [
   check("name", "El nombre es obligatorio").notEmpty(),
-/*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
+  /*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
   check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
@@ -31,10 +39,21 @@ paysVali.validateUpdatePay = [
   check("id").custom(async (id) => {
     await validateExistPayById(id); // modificar por pay
   }),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   check("name", "El nombre es obligatorio").notEmpty(),
 /*   check("tpcontrato", "El tipo de documento es obligatorio").notEmpty(),
   check("valor", "El rol es obligatorio").notEmpty().isNumeric(), */
   validateFields,
 ];
+
+//validate token 
+paysVali.validateToken =[
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
+]
+
 
 export { paysVali };

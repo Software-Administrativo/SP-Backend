@@ -2,7 +2,7 @@ import { Router } from "express";
 import { costsCtrl } from "../../controller/maintenance/costs.controller.js";
 import { costsVali } from "../../validations/maintenance/costs.validation.js";
 
-const { validateExistCost, validateRegisterCost, validateUpdateCost } =
+const { validateExistCost, validateRegisterCost, validateUpdateCost,validateToken } =
   costsVali;
 
 const {
@@ -17,7 +17,7 @@ const {
 const routerCosts = Router();
 
 routerCosts.get("/:id", validateExistCost, getCostId);
-routerCosts.get("/", getCosts);
+routerCosts.get("/",validateToken, getCosts);
 routerCosts.post("/register", validateRegisterCost, registerCost);
 routerCosts.put("/active/:id", validateExistCost, activeCosts);
 routerCosts.put("/inactive/:id", validateExistCost, inactiveCosts);

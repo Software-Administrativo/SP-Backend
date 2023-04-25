@@ -5,7 +5,7 @@ paysHelper.validateExistPayById = async (id) => {
   try {
     const pay = await Pay.findById(id);
     if (!pay) {
-      throw new Error(`El pago con el id ${id} no existe`);
+      throw new Error();
     }
   } catch (error) {
     throw new Error(`El pago con el id ${id} no existe`);

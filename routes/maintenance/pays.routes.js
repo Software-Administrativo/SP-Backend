@@ -2,7 +2,7 @@ import { Router } from "express";
 import { paysCtrl } from "../../controller/maintenance/pays.controller.js";
 import { paysVali } from "../../validations/maintenance/pays.validation.js";
 
-const { validateExistPay, validateRegisterPay, validateUpdatePay } = paysVali;
+const { validateExistPay, validateRegisterPay, validateUpdatePay,validateToken } = paysVali;
 
 const { getPayId, getPays, registerPay, updatePays, activePays, inactivePays } =
   paysCtrl;
@@ -10,7 +10,7 @@ const { getPayId, getPays, registerPay, updatePays, activePays, inactivePays } =
 const routerPays = Router();
 
 routerPays.get("/:id", validateExistPay, getPayId);
-routerPays.get("/", getPays);
+routerPays.get("/",validateToken, getPays);
 routerPays.post("/register", validateRegisterPay, registerPay);
 routerPays.put("/active/:id", validateExistPay, activePays);
 routerPays.put("/inactive/:id", validateExistPay, inactivePays);

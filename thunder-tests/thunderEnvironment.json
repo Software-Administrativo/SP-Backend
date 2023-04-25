@@ -11,6 +11,10 @@
       {
         "name": "URI",
         "value": "http://localhost:4500"
+      },
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VjMGRhMWMzOWViMjM5MTJlMzI3YyIsInJvbCI6IkFETUlOIiwiaWF0IjoxNjgyNDI3MjUyLCJleHAiOjE2ODUwMTkyNTJ9.mMTrOUtAkQXNPVibKXpmjHVMlmerpbMqTnlqJExsFSk"
       }
     ]
   }

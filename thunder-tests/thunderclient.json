@@ -8,8 +8,13 @@
     "method": "POST",
     "sortNum": 5312.5,
     "created": "2023-04-18T13:51:23.432Z",
-    "modified": "2023-04-18T16:10:03.057Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:30.101Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -46,8 +51,13 @@
     "method": "PUT",
     "sortNum": 7500,
     "created": "2023-04-18T15:19:08.272Z",
-    "modified": "2023-04-18T15:51:41.830Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:50.092Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -60,8 +70,13 @@
     "method": "PUT",
     "sortNum": 6250,
     "created": "2023-04-18T15:19:09.855Z",
-    "modified": "2023-04-18T16:11:52.167Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:41.604Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -74,8 +89,13 @@
     "method": "GET",
     "sortNum": 5156.3,
     "created": "2023-04-18T15:19:14.319Z",
-    "modified": "2023-04-18T16:12:18.879Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:23.505Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -88,8 +108,13 @@
     "method": "PUT",
     "sortNum": 5468.8,
     "created": "2023-04-18T16:08:40.853Z",
-    "modified": "2023-04-18T16:17:46.115Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:35.380Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -107,8 +132,13 @@
     "method": "POST",
     "sortNum": 17500,
     "created": "2023-04-18T16:17:54.542Z",
-    "modified": "2023-04-18T16:19:37.263Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:57.998Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -175,10 +205,15 @@
     "name": "GetUserId",
     "url": "{{URI}}/users/643ebc69c8ac5ce5668421d2",
     "method": "GET",
-    "sortNum": 27500,
+    "sortNum": 5078.1,
     "created": "2023-04-19T13:02:42.569Z",
-    "modified": "2023-04-23T20:12:21.761Z",
-    "headers": [],
+    "modified": "2023-04-25T13:55:23.061Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -359,8 +394,13 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-19T16:49:01.650Z",
-    "modified": "2023-04-20T14:05:07.259Z",
-    "headers": [],
+    "modified": "2023-04-25T13:57:31.377Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -373,8 +413,13 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-20T11:51:48.487Z",
-    "modified": "2023-04-20T11:52:03.563Z",
-    "headers": [],
+    "modified": "2023-04-25T13:57:36.401Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -387,12 +432,17 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-20T12:00:41.910Z",
-    "modified": "2023-04-22T17:15:51.498Z",
-    "headers": [],
+    "modified": "2023-04-25T13:50:02.502Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Efectivo \",\n  \"description\": \" \"\n}",
+      "raw": "{\n  \"name\":\"Contado test\",\n  \"description\": \" \"\n}",
       "form": []
     },
     "tests": []
@@ -406,8 +456,13 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-20T14:04:12.743Z",
-    "modified": "2023-04-21T12:31:10.791Z",
-    "headers": [],
+    "modified": "2023-04-25T13:57:51.203Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -420,8 +475,13 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-20T14:05:39.439Z",
-    "modified": "2023-04-20T14:06:46.210Z",
-    "headers": [],
+    "modified": "2023-04-25T13:57:57.240Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -434,12 +494,17 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-20T14:12:53.653Z",
-    "modified": "2023-04-22T17:16:42.231Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:09.662Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Jorge Luis\",\n\n  \"description\": \"test\"\n\n}",
+      "raw": "{\n  \"name\":\"Jorge Luis\",\n  \"description\": \"test\"\n}",
       "form": []
     },
     "tests": []
@@ -453,8 +518,13 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T12:21:23.455Z",
-    "modified": "2023-04-21T12:30:31.875Z",
-    "headers": [],
+    "modified": "2023-04-25T13:57:08.086Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -467,8 +537,13 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T12:21:23.456Z",
-    "modified": "2023-04-21T12:24:19.888Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:26.504Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -481,8 +556,13 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T12:21:23.457Z",
-    "modified": "2023-04-21T12:29:24.324Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:32.162Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -500,8 +580,13 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T12:21:23.458Z",
-    "modified": "2023-04-21T12:31:50.128Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:36.722Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -514,8 +599,13 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T12:21:23.459Z",
-    "modified": "2023-04-21T12:32:01.159Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:41.638Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -528,8 +618,13 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T12:21:23.460Z",
-    "modified": "2023-04-21T15:05:08.372Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:47.352Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -547,8 +642,13 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T13:02:25.075Z",
-    "modified": "2023-04-21T15:11:41.167Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:52.804Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -561,8 +661,13 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T13:02:25.076Z",
-    "modified": "2023-04-21T15:03:14.921Z",
-    "headers": [],
+    "modified": "2023-04-25T13:58:58.135Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -575,8 +680,13 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T13:02:25.077Z",
-    "modified": "2023-04-21T15:08:41.412Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:02.641Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -594,8 +704,13 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T13:02:25.078Z",
-    "modified": "2023-04-21T15:11:14.252Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:07.954Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -608,8 +723,13 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T13:02:25.079Z",
-    "modified": "2023-04-21T15:11:05.593Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:13.651Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -622,8 +742,13 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T13:02:25.080Z",
-    "modified": "2023-04-21T15:10:39.897Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:19.961Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -641,8 +766,13 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T15:17:49.067Z",
-    "modified": "2023-04-21T16:12:15.312Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:26.025Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -655,8 +785,13 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T15:17:49.068Z",
-    "modified": "2023-04-21T15:25:30.845Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:30.915Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -669,8 +804,13 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T15:17:49.069Z",
-    "modified": "2023-04-21T16:11:52.048Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:35.511Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -688,8 +828,13 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T15:17:49.070Z",
-    "modified": "2023-04-21T16:12:42.704Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:41.170Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -702,8 +847,13 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T15:17:49.071Z",
-    "modified": "2023-04-21T16:13:11.123Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:50.073Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -716,8 +866,13 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T15:17:49.072Z",
-    "modified": "2023-04-21T16:13:24.648Z",
-    "headers": [],
+    "modified": "2023-04-25T13:59:55.634Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -735,8 +890,13 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T16:34:41.541Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:01.266Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -749,8 +909,13 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T16:34:41.542Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:15.555Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -763,8 +928,13 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T16:34:41.543Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:21.090Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
@@ -782,8 +952,13 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T16:34:41.544Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:26.495Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -796,8 +971,13 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T16:34:41.545Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:37.182Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "tests": []
   },
@@ -810,8 +990,13 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T16:34:41.546Z",
-    "modified": "2023-04-21T16:34:41.541Z",
-    "headers": [],
+    "modified": "2023-04-25T14:00:42.518Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",

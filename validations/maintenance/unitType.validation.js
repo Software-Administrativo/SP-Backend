@@ -1,8 +1,10 @@
 import { check } from "express-validator";
+import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
 import { unitTypeHelper } from "../../helpers/maintenance/unitType.helper.js";
 
 const { validateExistUnitTypeById } = unitTypeHelper;
+const { validateToken } = webToken;
 
 const unitTypesVali = {};
 
@@ -13,6 +15,9 @@ unitTypesVali.validateExistUnitType = [
   check("id").custom(async (id) => {
     await validateExistUnitTypeById(id); // modificar por pay
   }),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
 
@@ -20,6 +25,9 @@ unitTypesVali.validateExistUnitType = [
 unitTypesVali.validateRegisterUnitType = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("unittype", "El tipo de unidad es obligatoria").notEmpty(),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
 
@@ -32,7 +40,17 @@ unitTypesVali.validateUpdateUnitType = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("unittype", "El tipo de unidad es obligatoria").notEmpty(),
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
   validateFields,
 ];
+
+//validate token 
+unitTypesVali.validateToken =[
+  check('token').custom(async (token) => {
+    await validateToken(token);
+    }),
+]
 
 export { unitTypesVali };

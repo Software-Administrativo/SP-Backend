@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import webToken from "../middlewares/webToken.js";
 
 const userCtrl = {};
 
@@ -15,8 +16,10 @@ userCtrl.loginUser = async (req, res) => {
     if (!matchPassword) {
       return res.json({ msg: "Credenciales incorrectas" });
     }
-    /* const token = await user.getJwtToken(); */
-    res.json({ msg: "Usuario logueado correctamente", token: "token" });
+
+    const token = await webToken.generateToken(user);
+
+    res.json({ msg: "Usuario logueado correctamente", token});
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }

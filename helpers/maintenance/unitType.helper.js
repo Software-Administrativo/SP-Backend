@@ -6,7 +6,7 @@ unitTypeHelper.validateExistUnitTypeById = async (id) => {
   try {
     const cost = await UnitType.findById(id);
     if (!cost) {
-      throw new Error(`El tipo de unidad con el id ${id} no existe`);
+      throw new Error();
     }
   } catch (error) {
     throw new Error(`El tipo de unidad  con el id ${id} no existe`);
