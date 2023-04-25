@@ -1,19 +1,19 @@
 import { check } from "express-validator";
 import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { costsHelper } from "../../helpers/maintenance/cost.helper.js";
+import { spentsHelper } from "../../helpers/maintenance/spents.helper.js";
 
-const { validateExistCostById } = costsHelper;
+const { validateExistSpendById } = spentsHelper;
 const { validateToken } = webToken;
 
-const costsVali = {};
+const spentsVali = {};
 
 //validate if exist pay
-costsVali.validateExistCost = [
+spentsVali.validateExistSpent = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
-    await validateExistCostById(id); // modificar por pay
+    await validateExistSpendById(id); // modificar por pay
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
@@ -22,7 +22,7 @@ costsVali.validateExistCost = [
 ];
 
 //validate fields for register pay
-costsVali.validateRegisterCost = [
+spentsVali.validateRegisterSpent = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
@@ -32,11 +32,11 @@ costsVali.validateRegisterCost = [
 ];
 
 //validate fields for update pay
-costsVali.validateUpdateCost = [
+spentsVali.validateUpdateSpent = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
   check("id").custom(async (id) => {
-    await validateExistCostById(id); // modificar por pay
+    await validateExistSpendById(id); // modificar por pay
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("description", "La descripcion es obligatoria").notEmpty(),
@@ -47,11 +47,11 @@ costsVali.validateUpdateCost = [
 ];
 
 //validate token 
-costsVali.validateToken =[
+spentsVali.validateToken =[
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
     validateFields,
 ]
 
-export { costsVali };
+export { spentsVali };

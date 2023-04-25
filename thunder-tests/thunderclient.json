@@ -390,11 +390,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "GetPayId",
-    "url": "{{URI}}/maintenance/pays/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/spents/6447e7a87df96e949cc6184f",
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-19T16:49:01.650Z",
-    "modified": "2023-04-25T13:57:31.377Z",
+    "modified": "2023-04-25T14:46:40.325Z",
     "headers": [
       {
         "name": "token",
@@ -409,11 +409,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "AllPays",
-    "url": "{{URI}}/maintenance/pays",
+    "url": "{{URI}}/maintenance/spents",
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-20T11:51:48.487Z",
-    "modified": "2023-04-25T13:57:36.401Z",
+    "modified": "2023-04-25T14:46:15.891Z",
     "headers": [
       {
         "name": "token",
@@ -428,11 +428,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "Register",
-    "url": "{{URI}}/maintenance/pays/register",
+    "url": "{{URI}}/maintenance/spents/register",
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-20T12:00:41.910Z",
-    "modified": "2023-04-25T13:50:02.502Z",
+    "modified": "2023-04-25T14:45:51.712Z",
     "headers": [
       {
         "name": "token",
@@ -442,7 +442,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Contado test\",\n  \"description\": \" \"\n}",
+      "raw": "{\n  \"name\":\"Efectivo\",\n  \"description\": \" \"\n}",
       "form": []
     },
     "tests": []
@@ -452,11 +452,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "activePay",
-    "url": "{{URI}}/maintenance/pays/active/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/spents/active/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-20T14:04:12.743Z",
-    "modified": "2023-04-25T13:57:51.203Z",
+    "modified": "2023-04-25T14:44:15.809Z",
     "headers": [
       {
         "name": "token",
@@ -471,11 +471,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "InactivePay",
-    "url": "{{URI}}/maintenance/pays/inactive/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/spents/inactive/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-20T14:05:39.439Z",
-    "modified": "2023-04-25T13:57:57.240Z",
+    "modified": "2023-04-25T14:44:18.885Z",
     "headers": [
       {
         "name": "token",
@@ -490,11 +490,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "853a01b6-232f-4af6-8e23-fb4754097b1e",
     "name": "UpdatePay",
-    "url": "{{URI}}/maintenance/pays/update/64412a8a027b9ee947b0ffff",
+    "url": "{{URI}}/maintenance/spents/update/64412a8a027b9ee947b0ffff",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-20T14:12:53.653Z",
-    "modified": "2023-04-25T13:58:09.662Z",
+    "modified": "2023-04-25T14:47:13.839Z",
     "headers": [
       {
         "name": "token",
@@ -504,7 +504,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Jorge Luis\",\n  \"description\": \"test\"\n}",
+      "raw": "{\n  \"name\":\"test\",\n  \"description\": \"test\"\n}",
       "form": []
     },
     "tests": []

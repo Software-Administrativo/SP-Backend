@@ -22,4 +22,4 @@ const CostSquema = new Schema(
   }
 );
 
-export default model("Cost", CostSquema);
+export default model("Spent", CostSquema);

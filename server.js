@@ -9,7 +9,7 @@ import { routerCategory } from "./routes/inventory/category.routes.js";
 import { routerMark } from "./routes/inventory/mark.routes.js";
 import { routerProduct } from "./routes/inventory/product.routes.js"; */
 import { routerPays } from "./routes/maintenance/pays.routes.js";
-import { routerCosts } from "./routes/maintenance/costs.routes.js";
+import { routerSpents } from "./routes/maintenance/spents.routes.js";
 import { routerWorks } from "./routes/maintenance/works.routes.js";
 import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 
@@ -41,7 +41,7 @@ class Server {
     this.app.use("inventory/mark", routerMark);
     this.app.use("inventory/product", routerProduct); */
     this.app.use("/maintenance/pays", routerPays);
-    this.app.use("/maintenance/costs", routerCosts);
+    this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);
     this.app.use("/maintenance/unittypes", routerUnitTypes);
     this.app.use("*", (req, res) => {
