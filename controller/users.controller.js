@@ -6,7 +6,6 @@ const userCtrl = {};
 //login user
 userCtrl.loginUser = async (req, res) => {
   const { tpdocument, numdocument, password } = req.body;
-
   try {
     const user = await User.findOne({ tpdocument, numdocument , status: 0});
     if (!user) {

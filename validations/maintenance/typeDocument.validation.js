@@ -25,7 +25,7 @@ typeDocumentVali.validateExistTypeDocument = [
 //validate fields for register pay
 typeDocumentVali.validateRegisterTypeDocument = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("name").custom(async (name) => {
+  check("name").custom((name) => {
     if (!typeDocument.includes(name.toUpperCase())) {
       throw new Error("El nombre no es valido");
     }
@@ -67,6 +67,5 @@ typeDocumentVali.validateToken =[
     }),
     validateFields,
 ]
-
 
 export { typeDocumentVali };

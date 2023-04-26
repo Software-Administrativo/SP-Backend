@@ -1010,11 +1010,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
     "name": "GetTypeDocumentId",
-    "url": "{{URI}}/maintenance/typedocument/6448050ce8d51e4b307b847d",
+    "url": "{{URI}}/maintenance/typedocument/64490f987792d850795ba517",
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-25T16:48:43.809Z",
-    "modified": "2023-04-25T16:51:56.193Z",
+    "modified": "2023-04-26T11:49:27.677Z",
     "headers": [
       {
         "name": "token",
@@ -1052,7 +1052,7 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-25T16:48:43.811Z",
-    "modified": "2023-04-25T16:51:24.427Z",
+    "modified": "2023-04-26T11:48:40.730Z",
     "headers": [
       {
         "name": "token",
@@ -1062,7 +1062,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"CC\",\n  \"description\": \"Cedula de Ciudadania\"\n}",
+      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Cedula de Ciudadania\"\n}",
       "form": []
     },
     "tests": []
@@ -1072,11 +1072,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
     "name": "ActiveTypeDocument",
-    "url": "{{URI}}/maintenance/typedocument/active/6448050ce8d51e4b307b847d",
+    "url": "{{URI}}/maintenance/typedocument/active/64490f987792d850795ba517",
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-25T16:48:43.812Z",
-    "modified": "2023-04-25T16:52:15.331Z",
+    "modified": "2023-04-26T11:50:07.630Z",
     "headers": [
       {
         "name": "token",
@@ -1110,11 +1110,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "f11e3413-e809-44dd-a6e7-2aef10a3383d",
     "name": "UpdateTypeDocument",
-    "url": "{{URI}}/maintenance/typedocument/update/6448050ce8d51e4b307b847d",
+    "url": "{{URI}}/maintenance/typedocument/update/64490f987792d850795ba517",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-25T16:48:43.814Z",
-    "modified": "2023-04-25T16:53:54.973Z",
+    "modified": "2023-04-26T11:49:51.848Z",
     "headers": [
       {
         "name": "token",
@@ -1124,7 +1124,131 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"TI\",\n  \"description\": \"targeta de Identidad\"\n}",
+      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Pasaporte\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7e563167-0c7b-4dce-a42c-6c3ebc1cd285",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "GetLot",
+    "url": "{{URI}}/maintenance/lots/64490f987792d850795ba517",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-04-26T11:50:17.021Z",
+    "modified": "2023-04-26T14:40:21.418Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "a9b7251d-9d99-48dd-8096-6493e2380b7d",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "AllLots",
+    "url": "{{URI}}/maintenance/lots",
+    "method": "GET",
+    "sortNum": 77500,
+    "created": "2023-04-26T11:50:17.022Z",
+    "modified": "2023-04-26T14:41:18.557Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "d5d9063e-8447-43dd-83ea-98f5dfc61640",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "Register",
+    "url": "{{URI}}/maintenance/typedocument/register",
+    "method": "POST",
+    "sortNum": 117500,
+    "created": "2023-04-26T11:50:17.023Z",
+    "modified": "2023-04-26T11:50:17.021Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Cedula de Ciudadania\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "8ca9a7ef-b08a-4e70-94ab-88c2ca678ada",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "ActiveLot",
+    "url": "{{URI}}/maintenance/typedocument/active/64490f987792d850795ba517",
+    "method": "PUT",
+    "sortNum": 127500,
+    "created": "2023-04-26T11:50:17.024Z",
+    "modified": "2023-04-26T11:50:17.021Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "32a35b11-5006-4189-b036-dcaad76a15d0",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "InactiveLot",
+    "url": "{{URI}}/maintenance/typedocument/inactive/6448050ce8d51e4b307b847d",
+    "method": "PUT",
+    "sortNum": 137500,
+    "created": "2023-04-26T11:50:17.025Z",
+    "modified": "2023-04-26T11:50:17.021Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6f52b91f-2557-4423-8fb5-f6e45ddb39a4",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
+    "name": "UpdateLot",
+    "url": "{{URI}}/maintenance/typedocument/update/64490f987792d850795ba517",
+    "method": "PUT",
+    "sortNum": 147500,
+    "created": "2023-04-26T11:50:17.026Z",
+    "modified": "2023-04-26T11:50:17.021Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Pasaporte\"\n}",
       "form": []
     },
     "tests": []

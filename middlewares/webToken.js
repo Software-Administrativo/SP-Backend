@@ -9,7 +9,9 @@ webToken.generateToken = async (user) => {
 
     const payload = {
         id:user._id,
-        rol:user.role}
+        rol:user.role,
+        name:user.name,
+        }
         console.log(payload)
 
     try{

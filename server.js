@@ -14,7 +14,7 @@ import { routerWorks } from "./routes/maintenance/works.routes.js";
 import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 import { routerEps } from "./routes/maintenance/eps.routes.js";
 import { routerTypeDocument } from "./routes/maintenance/typeDocument.routes.js";
-
+import { routerLots } from "./routes/maintenance/lots.routes.js";
 
 dotenv.config();
 
@@ -48,6 +48,7 @@ class Server {
     this.app.use("/maintenance/unittypes", routerUnitTypes);
     this.app.use("/maintenance/eps",routerEps);
     this.app.use("/maintenance/typedocument", routerTypeDocument);
+    this.app.use("/maintenance/lots", routerLots);
     this.app.use("*", (req, res) => {
       res.status(404).json({
         msg: "Page not found",
