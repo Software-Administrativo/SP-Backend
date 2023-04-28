@@ -1,8 +1,10 @@
 import { check } from "express-validator";
+import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
 import { categoryHelper } from "../../helpers/inventory/category.helper.js";
 
 const { validateExistCategoryById, } = categoryHelper;
+const { validateToken } = webToken;
 
 const categoryVali = {}
 
@@ -33,6 +35,14 @@ categoryVali.validateUpdateCategory = [
     check("name","El nombre de la categoria es obligatorio").notEmpty().isString(),
     check("descripcion","Descipcion de la categoria es obligatoria").notEmpty().isString(),
     validateFields,
+];
+
+//validate token 
+categoryVali.validateToken =[
+    check('token').custom(async (token) => {
+      await validateToken(token);
+      }),
+      validateFields,
 ];
 
 export { categoryVali }

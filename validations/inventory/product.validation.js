@@ -1,8 +1,10 @@
 import { check } from "express-validator";
+import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { productHelper } from "../../helpers/maintenance/product.helpers.js";
+import { productHelper } from "../../helpers/inventory/product.helpers.js";
 
 const { validateExistProductById, } = productHelper;
+const { validateToken } = webToken;
 
 const productVali = {}
 
@@ -35,4 +37,12 @@ productVali.validateUpdateProduct = [
     validateFields,
 ];
 
+//validate token 
+productVali.validateToken =[
+    check('token').custom(async (token) => {
+      await validateToken(token);
+      }),
+      validateFields,
+];
+  
 export { productVali }

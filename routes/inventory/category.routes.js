@@ -3,12 +3,10 @@ import { categoryCtrl } from "../../controller/inventory/category.controller.js"
 import { categoryVali } from "../../validations/inventory/category.validation.js";
 
 const {
-    validategetCategory,
-    validategetCategoryId,
-    validateregisterCategory,
-    validateupdateCategory,
-    validateactivateCategory,
-    validateinactivateCategory,
+    validateExistCategoryById,
+    validateRegisterCategory,
+    validateUpdateCategory,
+    validateToken,
 } = categoryVali;
 
 const {
@@ -23,8 +21,12 @@ const {
 
 const routerCategory = Router();
 
-routerCategory.get("/", getCategory);
-routerCategory.get("/:id", validategetCategory, getCategoryId);
+routerCategory.get("/:id",validateExistCategoryById, getCategoryId);
+routerCategory.get("/", validateToken, getCategory);
+routerCategory.post("/register", validateRegisterCategory,registerCategory);
+routerCategory.put("/activate/:id", validateExistCategoryById, activateCategory);
+routerCategory.put("/inactivate/:id", validateExistCategoryById, inactivateCategory);
+routerCategory.put("/update/:id", validateUpdateCategory, updateCategory);
 
 export { routerCategory };
 

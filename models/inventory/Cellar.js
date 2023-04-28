@@ -6,7 +6,7 @@ const CellarSchema = new Schema(
             type: String,
             required: true,
         },
-        estate: {
+        farm: {
             type: String,
             required: true,
         },

@@ -1,4 +1,15 @@
-const productHelper = {
+import Product from "../../models/inventory/Poduct.js";
+const productHelper = {};
 
-}
-export { productHelper }
+productHelper.validateExistProductById = async (id) => {
+    try {
+        const product = await Product.findById(id);
+        if (!product) {
+            throw new Error();
+        }
+    }catch (error){
+        throw new Error (`El producto con el id ${id} no existe`);
+    }
+};
+
+export { productHelper };

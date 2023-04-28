@@ -1,8 +1,11 @@
 import { check } from "express-validator";
+import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { cellarHelper } from "../../helpers/maintenance/cellar.helpers.js";
+import { cellarHelper } from "../../helpers/inventory/cellar.helper.js";
 
 const { validateExistCellarById, } = cellarHelper;
+const { validateToken } = webToken;
+
 const cellarVali = {}
 
 //Validate if exist cellar
@@ -32,6 +35,14 @@ cellarVali.validateUpdateCellarById = [
     check("name","El nombre de la marca es obligatorio").notEmpty().isString(),
     check("descripcion","Descripcion de la marca es obligatoria").notEmpty().isString(),
     validateFields,
+];
+
+//validate token 
+cellarVali.validateToken =[
+    check('token').custom(async (token) => {
+      await validateToken(token);
+      }),
+      validateFields,
 ];
 
 export { cellarVali }

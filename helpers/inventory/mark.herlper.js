@@ -1,4 +1,0 @@
-const markHelper = {
-
-}
-export { markHelper }
