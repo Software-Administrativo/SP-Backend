@@ -5,7 +5,7 @@ const lotsCtrl = {};
 //get all lots
 lotsCtrl.getLots = async (req, res) => {
   try {
-    const lots = await Lot.find({ status: 0 });
+    const lots = await Lot.find();
     res.json({ lots });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -25,7 +25,16 @@ lotsCtrl.getLotId = async (req, res) => {
 
 //register lot in the db
 lotsCtrl.registerLot = async (req, res) => {
-  const { name,areasize,lotestate,soildstate,classlote,fatherlot,sowingdensity,description } = req.body
+  const {
+    name,
+    areasize,
+    lotestate,
+    soildstate,
+    classlote,
+    fatherlot,
+    sowingdensity,
+    description,
+  } = req.body;
   try {
     const newLot = new Lot({
       name,
@@ -35,7 +44,7 @@ lotsCtrl.registerLot = async (req, res) => {
       classlote,
       fatherlot,
       sowingdensity,
-      description
+      description,
     });
     const lot = await newLot.save();
     res.json({ msg: "Lote creado correctamente", lot });
@@ -47,7 +56,16 @@ lotsCtrl.registerLot = async (req, res) => {
 //update lot in the db
 lotsCtrl.updateLots = async (req, res) => {
   const { id } = req.params;
-  const { name,areasize,lotestate,soildstate,classlote,fatherlot,sowingdensity,description } = req.body
+  const {
+    name,
+    areasize,
+    lotestate,
+    soildstate,
+    classlote,
+    fatherlot,
+    sowingdensity,
+    description,
+  } = req.body;
   try {
     await Lot.findByIdAndUpdate(id, {
       name,
@@ -57,7 +75,7 @@ lotsCtrl.updateLots = async (req, res) => {
       classlote,
       fatherlot,
       sowingdensity,
-      description
+      description,
     });
 
     const lot = await Lot.findById(id);
@@ -67,12 +85,33 @@ lotsCtrl.updateLots = async (req, res) => {
   }
 };
 
+//function for desactive a lot father and sons
+async function actionsFatherAndSons(lot,status) {
+  const lotSons = await Lot.find({ fatherlot: lot._id });
+  console.log('hijos',lotSons);
+
+  for (let i = 0; i < lotSons.length; i++) {
+    await Lot.findByIdAndUpdate(lotSons[i]._id, { status: status });
+  }
+
+  await Lot.findByIdAndUpdate(lot._id, { status: status });
+}
+
+
 //active lot in the db
 lotsCtrl.activePays = async (req, res) => {
   const { id } = req.params;
   try {
-    await Lot.findByIdAndUpdate(id, { status: 0 });
-    res.json({ msg: "Lote activado correctamente" });
+    const lot = await Lot.findById(id);
+
+    if (lot.classlote == "HIJO") {
+        await Lot.findByIdAndUpdate(id, { status: 0 });
+        res.json({ msg: "Lote HIJO activado correctamente" });
+    } else {
+      await actionsFatherAndSons(lot,0);
+      res.json({ msg: "Lote PADRE e HIJOS activados correctamente" });
+    }
+
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -82,8 +121,17 @@ lotsCtrl.activePays = async (req, res) => {
 lotsCtrl.inactivePays = async (req, res) => {
   const { id } = req.params;
   try {
-    await Lot.findByIdAndUpdate(id, { status: 1 });
-    res.json({ msg: "Lote inactivado correctamente" });
+    const lot = await Lot.findById(id);
+
+    if (lot.classlote == "HIJO") {
+        await Lot.findByIdAndUpdate(id, { status: 1 });
+        res.json({ msg: "Lote HIJO inactivado correctamente" });
+    } else {
+      console.log("entro");
+      await actionsFatherAndSons(lot,1);
+      res.json({ msg: "Lote PADRE e HIJOS inactivado correctamente" });
+    }
+
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }

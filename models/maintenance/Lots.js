@@ -24,8 +24,9 @@ const LotsSquema = new Schema(
         default: "PADRE",
     },
     fatherlot: {
-        type: String,
-        default: "",
+      type: Schema.Types.ObjectId,
+      ref: "Lot",
+      default: "",
     },
     sowingdensity: {
         type: Number,

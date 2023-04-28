@@ -513,7 +513,7 @@
     "_id": "72416218-85c9-4dee-b626-19e733af7b28",
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
-    "name": "GetCostId",
+    "name": "GetSpentId",
     "url": "{{URI}}/maintenance/spents/644281c887664ebb761a8f8e",
     "method": "GET",
     "sortNum": 67500,
@@ -532,7 +532,7 @@
     "_id": "b0300d79-747a-4959-9658-b955eef49ecb",
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
-    "name": "AllCosts",
+    "name": "AllSpent",
     "url": "{{URI}}/maintenance/spents",
     "method": "GET",
     "sortNum": 77500,
@@ -575,7 +575,7 @@
     "_id": "7cb8c018-53b0-4c15-bd32-db502dcc0e1b",
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
-    "name": "ActiveCost",
+    "name": "ActiveSpent",
     "url": "{{URI}}/maintenance/spents/active/644281c887664ebb761a8f8e",
     "method": "PUT",
     "sortNum": 127500,
@@ -594,7 +594,7 @@
     "_id": "2cae3fd7-1387-45aa-b7e7-d39cb9dac8c0",
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
-    "name": "InactiveCost",
+    "name": "InactiveSpent",
     "url": "{{URI}}/maintenance/spents/inactive/644281c887664ebb761a8f8e",
     "method": "PUT",
     "sortNum": 137500,
@@ -613,7 +613,7 @@
     "_id": "a11577b7-0fc3-44ec-a1a0-91c896ab55e4",
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "06cfeec5-2a6c-4633-ba5a-cb2e995693ef",
-    "name": "UpdateCost",
+    "name": "UpdateSpent",
     "url": "{{URI}}/maintenance/spents/update/644287e1033acc58ae27e670",
     "method": "PUT",
     "sortNum": 147500,
@@ -1172,11 +1172,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
     "name": "Register",
-    "url": "{{URI}}/maintenance/typedocument/register",
+    "url": "{{URI}}/maintenance/lots/register",
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-26T11:50:17.023Z",
-    "modified": "2023-04-26T11:50:17.021Z",
+    "modified": "2023-04-28T15:12:01.344Z",
     "headers": [
       {
         "name": "token",
@@ -1186,7 +1186,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Cedula de Ciudadania\"\n}",
+      "raw": "{\n  \"name\":\"Lote 2 hijo\",\n  \"areasize\":300,\n  \"lotestate\": \"DISPONIBLE\",\n  \"soildstate\":\"FERTIL\",\n  \"classlote\":\"HIJO\",\n  \"fatherlot\":\"644bc54417a36e6d869d7dab\",\n  \"sowingdensity\": 30,\n  \"description\": \"Test\"\n}",
       "form": []
     },
     "tests": []
@@ -1196,11 +1196,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
     "name": "ActiveLot",
-    "url": "{{URI}}/maintenance/typedocument/active/64490f987792d850795ba517",
+    "url": "{{URI}}/maintenance/lots/active/644bc54417a36e6d869d7dab",
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-26T11:50:17.024Z",
-    "modified": "2023-04-26T11:50:17.021Z",
+    "modified": "2023-04-28T14:59:12.688Z",
     "headers": [
       {
         "name": "token",
@@ -1215,11 +1215,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
     "name": "InactiveLot",
-    "url": "{{URI}}/maintenance/typedocument/inactive/6448050ce8d51e4b307b847d",
+    "url": "{{URI}}/maintenance/lots/inactive/644bc54417a36e6d869d7dab",
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-26T11:50:17.025Z",
-    "modified": "2023-04-26T11:50:17.021Z",
+    "modified": "2023-04-28T14:53:16.683Z",
     "headers": [
       {
         "name": "token",
@@ -1234,11 +1234,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "eb9fcab9-6e07-41d2-8732-e41a6202ec5f",
     "name": "UpdateLot",
-    "url": "{{URI}}/maintenance/typedocument/update/64490f987792d850795ba517",
+    "url": "{{URI}}/maintenance/lots/update/64490f987792d850795ba517",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-26T11:50:17.026Z",
-    "modified": "2023-04-26T11:50:17.021Z",
+    "modified": "2023-04-28T15:17:46.604Z",
     "headers": [
       {
         "name": "token",
@@ -1248,7 +1248,131 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"PAS\",\n  \"description\": \"Pasaporte\"\n}",
+      "raw": "{\n  \"name\":\"Lote 2 hijo\",\n  \"areasize\":300,\n  \"lotestate\": \"DISPONIBLE\",\n  \"soildstate\":\"FERTIL\",\n  \"classlote\":\"HIJO\",\n  \"fatherlot\":\"644bc54417a36e6d869d7dab\",\n  \"sowingdensity\": 30,\n  \"description\": \"Test\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "cfe5d755-6cb4-4db8-8237-30aa3dabd952",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "GetFarmId",
+    "url": "{{URI}}/maintenance/farm/644bf8ff92ec73c9fa60201c",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-04-28T15:35:30.698Z",
+    "modified": "2023-04-28T16:50:22.097Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "038895c7-6f0f-4ce3-9b99-b7de54f9f338",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "AllFarms",
+    "url": "{{URI}}/maintenance/farm",
+    "method": "GET",
+    "sortNum": 77500,
+    "created": "2023-04-28T15:35:30.699Z",
+    "modified": "2023-04-28T15:37:14.427Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b0feaf24-e834-429f-9ce5-87031afd0581",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "Register",
+    "url": "{{URI}}/maintenance/farm/register",
+    "method": "POST",
+    "sortNum": 117500,
+    "created": "2023-04-28T15:35:30.700Z",
+    "modified": "2023-04-28T16:48:44.534Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Lote 2 hijo\",\n  \"address\":\"ni idea\",\n  \"owner\":\"yo\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7a9f4175-2150-4204-b6eb-6f75d8a7390f",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "ActiveFarm",
+    "url": "{{URI}}/maintenance/farm/active/644bf8ff92ec73c9fa60201c",
+    "method": "PUT",
+    "sortNum": 127500,
+    "created": "2023-04-28T15:35:30.701Z",
+    "modified": "2023-04-28T16:51:33.214Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f5374e09-59bd-47a7-b802-8022bafa74fc",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "InactiveFarm",
+    "url": "{{URI}}/maintenance/farm/inactive/644bf8ff92ec73c9fa60201c",
+    "method": "PUT",
+    "sortNum": 137500,
+    "created": "2023-04-28T15:35:30.702Z",
+    "modified": "2023-04-28T16:50:43.982Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7d80bd53-8dd5-43a5-a0fb-27056ac4d5bf",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "fd86b5d5-4b64-4523-b4f3-a3f9074ae9b2",
+    "name": "UpdateFarm",
+    "url": "{{URI}}/maintenance/farm/update/644bf8ff92ec73c9fa60201c",
+    "method": "PUT",
+    "sortNum": 147500,
+    "created": "2023-04-28T15:35:30.703Z",
+    "modified": "2023-04-28T16:49:57.774Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Finca Napoleon\",\n  \"address\":\"ni idea\",\n  \"owner\":\"yo\"\n}",
       "form": []
     },
     "tests": []

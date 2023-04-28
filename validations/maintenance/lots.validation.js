@@ -8,12 +8,14 @@ const { validateToken } = webToken;
 
 const lotsVali = {};
 const statesLot = [
-  "EN DESAROLLO",
+  "DISPONIBLE",
+  "POR SEMBRAR",
   "EN SIEMBRA",
   "POR RECOLECTAR",
   "POR FERTILIZAR",
 ];
 const classLot = ["PADRE", "HIJO", "PADRE-HIJO"];
+const soilLot = ["FERTIL", "INFERTIL"];
 
 //validate if exist lot
 lotsVali.validateExistLot = [
@@ -32,31 +34,45 @@ lotsVali.validateExistLot = [
 lotsVali.validateRegisterLot = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("areasize", "El tamaño de area es obligatorio").notEmpty(),
-  check("areaSize", "El tamaño de area debe ser un numero").isNumeric(),
-  check("areaSize", "El tamaño de area debe ser mayor a 0").isFloat({ min: 0 }),
+  check("areasize", "El tamaño de area debe ser un numero").isNumeric(),
+  check("areasize", "El tamaño de area debe ser mayor a 0").isFloat({ min: 0 }),
   check("lotestate", "El estado del lote no puede estar vacio").notEmpty(),
   check("lotestate").custom((lotestate) => {
     if (!statesLot.includes(lotestate.toUpperCase())) {
       throw new Error("El estado del lote no es valido");
     }
+    return true;
   }),
+  check("soildstate", "El estado del suelo no puede estar vacio").notEmpty(),
+  check("soildstate").custom((soildstate) => {
+    if (!soilLot.includes(soildstate.toUpperCase())) {
+      throw new Error("El estado del suelo no es valido");
+    }
+    return true;
+  }),
+
   check("classlote", "La clase de lote es obligatoria").notEmpty(),
   check("classlote").custom((classlote) => {
     if (!classLot.includes(classlote.toUpperCase())) {
+      console.log("entro");
       throw new Error("El estado del lote no es valido");
     }
+    return true;
   }),
 
-  check("fatherlot").custom(async ({ req }) => {
-    if (
-      req.body.classlote.toUpperCase() === "HIJO" ||
-      req.body.classlote.toUpperCase() === "PADRE-HIJO"
-    ) {
-      if (req.body.fatherlot.toString().trim() == "") {
-        throw new Error("El lote padre es obligatorio");
+  check("fatherlot").custom(async (fatherlot,{req}) => {
+    if (fatherlot) {
+      if (
+        req.body.classlote.toUpperCase() === "HIJO" ||
+        req.body.classlote.toUpperCase() === "PADRE-HIJO"
+      ) {
+        if (fatherlot == "") {
+          throw new Error("El lote padre es obligatorio");
+        }
+        await validateExistLotFatherById(fatherlot);
       }
-      await validateExistLotFatherById(req.body.fatherlot);
     }
+    return true;
   }),
 
   check("sowingdensity", "La densidad de siembra es obligatoria").notEmpty(),
@@ -67,7 +83,6 @@ lotsVali.validateRegisterLot = [
   check("sowingdensity", "La densidad de siembra debe ser mayor a 0").isFloat({
     min: 0,
   }),
-
 
   check("token").custom(async (token) => {
     await validateToken(token);
@@ -92,7 +107,16 @@ lotsVali.validateUpdateLot = [
     if (!statesLot.includes(lotestate.toUpperCase())) {
       throw new Error("El estado del lote no es valido");
     }
+    return true;
   }),
+  check("soildstate", "El estado del suelo no puede estar vacio").notEmpty(),
+  check("soildstate").custom((soildstate) => {
+    if (!soilLot.includes(soildstate.toUpperCase())) {
+      throw new Error("El estado del suelo no es valido");
+    }
+    return true;
+  }),
+
   check("classlote", "La clase de lote es obligatoria").notEmpty(),
   check("classlote").custom((classlote) => {
     if (!statesLot.includes(classlote.toUpperCase())) {
@@ -110,6 +134,7 @@ lotsVali.validateUpdateLot = [
       }
       await validateExistLotFatherById(req.body.fatherlot);
     }
+    return true;
   }),
 
   check("sowingdensity", "La densidad de siembra es obligatoria").notEmpty(),
@@ -120,7 +145,6 @@ lotsVali.validateUpdateLot = [
   check("sowingdensity", "La densidad de siembra debe ser mayor a 0").isFloat({
     min: 0,
   }),
-
 
   check("token").custom(async (token) => {
     await validateToken(token);
