@@ -3,6 +3,7 @@ const cellarCtrl = {};
 
 //get all cellar
 cellarCtrl.getCellar = async (req, res) => {
+
     try {
         const cellar = await Cellar.find({ status: 0 });
         res.json({cellar});

@@ -37,7 +37,7 @@ class Server {
       res.send("Hello World!");
     });
     this.app.use("/users", routerUsers);
-     this.app.use("inventory/cellar", routerCellars);
+     this.app.use("/inventory/cellar", routerCellars);
 /*    this.app.use("inventory/category", routerCategory);
     this.app.use("inventory/mark", routerMark);
     this.app.use("inventory/product", routerProduct); */

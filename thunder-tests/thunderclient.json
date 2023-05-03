@@ -147,11 +147,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "AllCellar",
-    "url": "{{URI}}/inventory/cellars/allcellar",
+    "url": "{{URI}}/inventory/cellar",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-19T12:38:43.621Z",
-    "modified": "2023-04-28T15:43:57.023Z",
+    "modified": "2023-05-03T02:27:46.349Z",
     "headers": [
       {
         "name": "token",
