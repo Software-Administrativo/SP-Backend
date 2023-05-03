@@ -1,4 +1,4 @@
-import Mark from "../../models/maintenance/Mark.js";
+import Mark from "../../models/inventory/Mark.js";
 
 const markCtrl = {};
 

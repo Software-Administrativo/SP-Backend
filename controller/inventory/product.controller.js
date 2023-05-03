@@ -1,4 +1,4 @@
-import Product from "../../models/inventory/Product.js"
+import Product from "../../models/inventory/Poduct.js"
 
 const productCtrl = {};
 
@@ -13,7 +13,7 @@ productCtrl.getProduct = async (req, res) => {
 }
 
 //get product by id in the db
-product.getPoductId = async (req, res) => {
+productCtrl.getPoductId = async (req, res) => {
     const { id } = req.params;
     try {
         const product = await Product.findById(id);

@@ -1,7 +1,7 @@
 import { check } from "express-validator";
 import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { productHelper } from "../../helpers/inventory/product.helpers.js";
+import { productHelper } from "../../helpers/inventory/product.helper.js";
 
 const { validateExistProductById, } = productHelper;
 const { validateToken } = webToken;
