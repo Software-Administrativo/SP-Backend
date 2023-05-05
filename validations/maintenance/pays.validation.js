@@ -2,9 +2,10 @@ import { check } from "express-validator";
 import webToken from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
 import { paysHelper } from "../../helpers/maintenance/pay.helper.js";
+import { validate } from "uuid";
 
 const { validateExistPayById } = paysHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const paysVali = {};
 
@@ -27,7 +28,6 @@ paysVali.validateRegisterPay = [
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
-
   validateFields,
 ];
 
@@ -46,10 +46,11 @@ paysVali.validateUpdatePay = [
 ];
 
 //validate token 
-paysVali.validateToken =[
-  check('token').custom(async (token) => {
+paysVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ]
 

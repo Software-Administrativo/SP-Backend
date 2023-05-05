@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { unitTypeHelper } from "../../helpers/maintenance/unitType.helper.js";
 
 const { validateExistUnitTypeById } = unitTypeHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const unitTypesVali = {};
 
@@ -47,10 +47,11 @@ unitTypesVali.validateUpdateUnitType = [
 ];
 
 //validate token 
-unitTypesVali.validateToken =[
-  check('token').custom(async (token) => {
+unitTypesVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ]
 

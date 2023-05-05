@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { spentsHelper } from "../../helpers/maintenance/spents.helper.js";
 
 const { validateExistSpendById } = spentsHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const spentsVali = {};
 
@@ -47,11 +47,12 @@ spentsVali.validateUpdateSpent = [
 ];
 
 //validate token 
-spentsVali.validateToken = [
-  check('token').custom(async (token) => {
+spentsVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
-  validateFields,
+    validateFields,
 ]
 
 export { spentsVali };

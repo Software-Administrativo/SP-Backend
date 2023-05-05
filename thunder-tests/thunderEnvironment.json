@@ -15,6 +15,10 @@
       {
         "name": "token",
         "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VjMGRhMWMzOWViMjM5MTJlMzI3YyIsInJvbCI6IkFETUlOIiwibmFtZSI6IlRFU1QiLCJpYXQiOjE2ODI2ODQ0NjcsImV4cCI6MTY4NTI3NjQ2N30.ZxtvKZOa7rp0G7QbgB4B29LaA4sz3U3ozPvdQ70PUFk"
+      },
+      {
+        "name": "farm",
+        "value": "644bf8ff92ec73c9fa60201c"
       }
     ]
   }

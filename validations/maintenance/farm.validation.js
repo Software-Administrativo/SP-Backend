@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { farmHelper } from "../../helpers/maintenance/farm.helper.js";
 
 const { validateExistFarmById } = farmHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const farmVali = {};
 
@@ -52,11 +52,12 @@ farmVali.validateUpdateFarm = [
 ];
 
 //validate token
-farmVali.validateToken = [
-  check("token").custom(async (token) => {
+farmVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
-  validateFields,
-];
+    validateFields,
+]
 
 export { farmVali };

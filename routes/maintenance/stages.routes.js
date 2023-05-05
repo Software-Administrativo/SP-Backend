@@ -6,7 +6,7 @@ const {
     validateExistStage, 
     validateRegisterStage, 
     validateUpdateStage,
-    validateToken } =
+    validateHeaders } =
 stagesVali;
 
 const {
@@ -21,7 +21,7 @@ const {
 const routerStages = Router();
 
 routerStages.get("/:id", validateExistStage, getStageId);
-routerStages.get("/",validateToken, getStages);
+routerStages.get("/",validateHeaders, getStages);
 routerStages.post("/register", validateRegisterStage, registerStage);
 routerStages.put("/active/:id", validateExistStage, activeStages);
 routerStages.put("/inactive/:id", validateExistStage, inactiveStages);

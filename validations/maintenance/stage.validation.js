@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { stagesHelper } from "../../helpers/maintenance/stages.helper.js";
 
 const { validateExistStageById, validateExistLotById } = stagesHelper;
-const { validateToken } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const stagesVali = {};
 
@@ -55,9 +55,10 @@ stagesVali.validateUpdateStage = [
 ];
 
 //validate token 
-stagesVali.validateToken = [
-    check('token').custom(async (token) => {
+stagesVali.validateHeaders = [
+    check('token').custom(async (token, { req }) => {
         await validateToken(token);
+        await validateFarm(req.headers.farm);
     }),
     validateFields,
 ]

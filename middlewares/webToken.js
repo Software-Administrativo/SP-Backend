@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken'
 import User from "../models/User.js";
+import Farm from '../models/maintenance/Farm.js';
 
 const webToken = {}
 
 //get token 
 webToken.generateToken = async (user) => {
-
     const payload = {
         id:user._id,
         rol:user.role,
@@ -57,6 +57,20 @@ webToken.validateToken = async (token) => {
     }
 }
 
+//validate farm
+webToken.validateFarm = async (farm) => {
+    try {
+        if (!farm) {
+            throw new Error()
+        }
+        const result = await Farm.findById(farm, {status:0})
+        if (!result) {
+            throw new Error()
+        }
+    }catch (err) {
+        throw new Error('La finca es requerida, o no esta disponible')	
+    }
+}
 
 
 

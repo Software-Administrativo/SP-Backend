@@ -2,7 +2,7 @@ import { Router } from "express";
 import { worksCtrl } from "../../controller/maintenance/works.controller.js";
 import { worksVali } from "../../validations/maintenance/works.validation.js";
 
-const { validateExistWork, validateRegisterWork, validateUpdateWork,validateToken } =
+const { validateExistWork, validateRegisterWork, validateUpdateWork,validateHeaders } =
   worksVali;
 
 const {
@@ -17,7 +17,7 @@ const {
 const routerWorks = Router();
 
 routerWorks.get("/:id", validateExistWork, getWorkId);
-routerWorks.get("/",validateToken, getWorks);
+routerWorks.get("/",validateHeaders, getWorks);
 routerWorks.post("/register", validateRegisterWork, registerWork);
 routerWorks.put("/active/:id", validateExistWork, activeWorks);
 routerWorks.put("/inactive/:id", validateExistWork, inactiveWorks);

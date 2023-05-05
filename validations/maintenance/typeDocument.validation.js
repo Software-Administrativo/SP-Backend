@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { typeDocumentHelper } from "../../helpers/maintenance/typeDocument.helper.js";
 
 const { validateExistTypeDocumentById } = typeDocumentHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const typeDocumentVali = {};
 const typeDocument = ["CC", "CE", "TI", "RC", "PAS", "NIT", "NUIP", "TE"];
@@ -18,7 +18,7 @@ typeDocumentVali.validateExistTypeDocument = [
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   validateFields,
 ];
 
@@ -30,11 +30,11 @@ typeDocumentVali.validateRegisterTypeDocument = [
       throw new Error("El nombre no es valido");
     }
   }),
-     
+
   //check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   validateFields,
 ];
 
@@ -47,25 +47,26 @@ typeDocumentVali.validateUpdateTypeDocument = [
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("name").custom(async (name) => {
     if (!typeDocument.includes(name.toUpperCase())) {
       throw new Error("El nombre no es valido");
     }
   }),
-     
+
   //check("description", "La descripcion es obligatoria").notEmpty(),
 
   validateFields,
 ];
 
 //validate token 
-typeDocumentVali.validateToken =[
-  check('token').custom(async (token) => {
+typeDocumentVali.validateHeaders = [
+  check('token').custom(async (token, { req }) => {
     await validateToken(token);
-    }),
-    validateFields,
+    await validateFarm(req.headers.farm);
+  }),
+  validateFields,
 ]
 
 export { typeDocumentVali };

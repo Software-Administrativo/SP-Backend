@@ -5,7 +5,7 @@ import { userHelper } from "../helpers/user.helper.js";
 
 const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
   userHelper;
-  const { validateToken } = webToken;
+  const { validateToken,validateFarm } = webToken;
 
 const usersVali = {};
 
@@ -86,10 +86,11 @@ usersVali.validateExistUser = [
 ];
 
 //validate token 
-usersVali.validateToken =[
-  check('token').custom(async (token) => {
+usersVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ]
 

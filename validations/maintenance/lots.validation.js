@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { lotsHelper } from "../../helpers/maintenance/lots.helper.js";
 
 const { validateExistLotById, validateExistLotFatherById } = lotsHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const lotsVali = {};
 const statesLot = [
@@ -153,11 +153,11 @@ lotsVali.validateUpdateLot = [
 ];
 
 //validate token
-lotsVali.validateToken = [
-  check("token").custom(async (token) => {
+lotsVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
-  validateFields,
-];
-
+    validateFields,
+]
 export { lotsVali };

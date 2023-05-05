@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { worksHelper } from "../../helpers/maintenance/work.helper.js";
 
 const { validateExistWorkById } = worksHelper;
-const { validateToken } = webToken;
+const { validateToken,validateFarm } = webToken;
 
 const worksVali = {};
 
@@ -44,11 +44,11 @@ worksVali.validateUpdateWork = [
 ];
 
 //validate token 
-worksVali.validateToken =[
-  check('token').custom(async (token) => {
+worksVali.validateHeaders =[
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ]
-
 export { worksVali };
