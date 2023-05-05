@@ -26,16 +26,16 @@ markCtrl.getMarkId = async (req, res) => {
 
 //register mark in the db
 markCtrl.registerMark = async (req, res) => {
-    const { name,finca,description,valor } = req.body;
+    const { name,farm,category,description } = req.body;
     try {
         const newMark = new Mark({
             name,
-            finca,
-            description,
-            valor,
+            farm,
+            category,
+            description
         });
     await newMark.save();
-    res.json({ msg: "MArca creada correctamente" });
+    res.json({ msg: "Marca creada correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
@@ -44,13 +44,13 @@ markCtrl.registerMark = async (req, res) => {
 //update mark in the db
 markCtrl.updateMark = async (req, res) => {
     const { id } = req.params;
-    const { name,finca,description,valor } = req.body;
+    const { name,farm,category,description,  } = req.body;
     try {
         const mark = await Mark.findByIdAndUpdate(id, {
             name,
-            finca,
-            description,
-            valor,
+            farm,
+            category,
+            description,    
         });
         res.json({ msg: "Marca actualizado correctamente" , mark});
     }catch (error) {

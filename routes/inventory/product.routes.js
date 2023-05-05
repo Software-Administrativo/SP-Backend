@@ -7,7 +7,7 @@ const {
     validateRegisterProduct,
     validateUpdateProduct,
     validateToken,
-} = productVali
+} = productVali;
 
 const {
     getProduct,

@@ -2,10 +2,6 @@ import { Schema, model } from "mongoose";
 
 const ProductSchema = new Schema(
   {
-    code: {
-        type: Number,
-      required: true,
-    },
     name: {
       type: String,
       required: true,
@@ -14,17 +10,17 @@ const ProductSchema = new Schema(
         type: String,
         required: true,
     },
+    mark: {
+      type: String,
+      required: true,
+    },
     amount: {
-        type: Number,
+        type: String,
         required: true,
     },
     description: {
         type: String,
         required: true,
-    },
-    status: {
-        type: Number,
-        default: 0,
     },
   },
   {

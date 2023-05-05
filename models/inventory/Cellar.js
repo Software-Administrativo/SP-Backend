@@ -22,10 +22,6 @@ const CellarSchema = new Schema(
             type: Number,
             required: true,
         },
-        status: {
-            type: Number,
-            default: 0,
-        },
     },
     {
         //propiedad para crear la fecha de creacion y de actualizacion automaticamente 

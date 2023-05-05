@@ -25,15 +25,16 @@ cellarCtrl.getCellarId = async (req, res) => {
 
 //register cellar in the db
 cellarCtrl.registerCellar = async (req, res) => {
-    const { name,finca,tpcontrato,description,valor } = req.body;
+    const { name,farm,tpcontrato,description,valor } = req.body;
     try {
         const newCellar = new Cellar({
             name,
-            finca,
+            farm,
             tpcontrato,
             description,
-            valor,
+            valor
         });
+        console.log(newCellar)
     await newCellar.save();
     res.json({ msg: "Bodega creada correctamente" });
     }catch (error) {
@@ -44,11 +45,11 @@ cellarCtrl.registerCellar = async (req, res) => {
 //update cellar in the db
 cellarCtrl.updateCellar = async (req, res) => {
     const { id } = req.params;
-    const { name,finca,tpcontrato,description,valor } = req.body;
+    const { name,farm,tpcontrato,description,valor } = req.body;
     try {
         const cellar = await Cellar.findByIdAndUpdate(id, {
             name,
-            finca,
+            farm,
             tpcontrato,
             description,
             valor,

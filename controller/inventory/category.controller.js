@@ -47,7 +47,7 @@ categoryCtrl.updateCategory = async (req, res) => {
       name,
       description,
     });
-    res.json({msg: "Categotia actualizada con coorectamente", category});
+    res.json({msg: "Categoria actualizada con correctamente", category});
   }catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }

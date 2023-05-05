@@ -15,6 +15,9 @@ cellarVali.validateExistCellarById = [
     check("id").custom(async (id) => {
         await validateExistCellarById(id);
     }),
+    check('token').custom(async (token) => {
+        await validateToken(token);
+    }),
     validateFields,
 ];
 
@@ -31,6 +34,9 @@ cellarVali.validateUpdateCellarById = [
     check("id","El id no es valido").isMongoId(),
     check("id").custom(async (id) => {
         await validateExistCellarById(id);
+    }),
+    check('token').custom(async (token) => {
+        await validateToken(token);
     }),
     check("name","El nombre de la marca es obligatorio").notEmpty().isString(),
     check("descripcion","Descripcion de la marca es obligatoria").notEmpty().isString(),

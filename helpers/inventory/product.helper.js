@@ -1,4 +1,4 @@
-import Product from "../../models/inventory/Poduct.js";
+import Product from "../../models/inventory/Product.js";
 const productHelper = {};
 
 productHelper.validateExistProductById = async (id) => {

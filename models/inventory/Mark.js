@@ -6,17 +6,17 @@ const MarkSchema = new Schema(
             type: String,
             required: true,
         },
-        finca: {
+        farm: {
             type: String,
             required: true,
+        },
+        category: {
+            type: String,
+            default: true,
         },
         description: {
             type: String,
             required: true,
-        },
-        status: {
-            type: Number,
-            default: 0,
         },
     },
     {

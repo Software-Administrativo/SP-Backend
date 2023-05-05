@@ -149,9 +149,9 @@
     "name": "AllCellar",
     "url": "{{URI}}/inventory/cellar",
     "method": "GET",
-    "sortNum": 10000,
+    "sortNum": 7500,
     "created": "2023-04-19T12:38:43.621Z",
-    "modified": "2023-05-03T02:27:46.349Z",
+    "modified": "2023-05-05T15:12:44.324Z",
     "headers": [
       {
         "name": "token",
@@ -166,11 +166,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "ActivateCellar",
-    "url": "{{URI}}/inventory/cellars/activatecellar",
+    "url": "{{URI}}/inventory/cellar/activate",
     "method": "PUT",
     "sortNum": 67500,
     "created": "2023-04-19T12:51:08.149Z",
-    "modified": "2023-04-28T15:44:02.526Z",
+    "modified": "2023-05-05T13:34:13.829Z",
     "headers": [
       {
         "name": "token",
@@ -185,11 +185,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "InactiveCellar",
-    "url": "{{URI}}/inventoy/cellars/inactivecellar",
+    "url": "{{URI}}/inventory/cellar/inactive",
     "method": "PUT",
     "sortNum": 77500,
     "created": "2023-04-19T12:52:34.224Z",
-    "modified": "2023-04-28T15:44:07.898Z",
+    "modified": "2023-05-05T13:34:32.256Z",
     "headers": [
       {
         "name": "token",
@@ -204,11 +204,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "RegisterCellar",
-    "url": "{{URI}}/inventory/cellars/registercellar",
+    "url": "{{URI}}/inventory/cellar/register",
     "method": "POST",
     "sortNum": 38750,
     "created": "2023-04-19T12:58:42.250Z",
-    "modified": "2023-04-28T16:32:42.902Z",
+    "modified": "2023-05-05T15:31:24.902Z",
     "headers": [
       {
         "name": "token",
@@ -218,7 +218,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"A\",\n  \"description\":\"A\",\n  \"farm\":\"A\",\n  \"tpcontrato\":\"A\",\n  \"location\":\"A\"\n}",
+      "raw": "{\n  \"name\":\"A\",\n  \"description\":\"A\",\n  \"farm\":\"A\",\n  \"tpcontrato\":\"A\",\n  \"valor\": 20\n}",
       "form": []
     },
     "tests": []
@@ -247,11 +247,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "AllCategories",
-    "url": "{{URI}}/inventory/category/allcategory",
+    "url": "{{URI}}/inventory/category",
     "method": "GET",
     "sortNum": 127500,
     "created": "2023-04-19T13:22:37.866Z",
-    "modified": "2023-04-28T13:26:33.122Z",
+    "modified": "2023-05-05T13:37:04.921Z",
     "headers": [
       {
         "name": "token",
@@ -266,11 +266,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "RegisterCategory",
-    "url": "{{URI}}/inventory/category/registercategory",
+    "url": "{{URI}}/inventory/category/register",
     "method": "POST",
     "sortNum": 137500,
     "created": "2023-04-19T13:23:19.526Z",
-    "modified": "2023-04-28T15:09:10.280Z",
+    "modified": "2023-05-05T13:29:20.271Z",
     "headers": [
       {
         "name": "token",
@@ -290,11 +290,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "ActivateCategory",
-    "url": "{{URI}}/inventory/category/activatecategory",
+    "url": "{{URI}}/inventory/category/activate",
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-19T13:26:04.247Z",
-    "modified": "2023-04-28T13:26:44.727Z",
+    "modified": "2023-05-05T15:35:53.649Z",
     "headers": [
       {
         "name": "token",
@@ -309,11 +309,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "InactiveCategory",
-    "url": "{{URI}}/inventory/category/inactivecategory",
+    "url": "{{URI}}/inventory/category/inactivate",
     "method": "PUT",
     "sortNum": 167500,
     "created": "2023-04-19T13:29:12.152Z",
-    "modified": "2023-04-28T13:26:57.318Z",
+    "modified": "2023-05-05T13:37:09.031Z",
     "headers": [
       {
         "name": "token",
@@ -328,11 +328,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "4e1d512c-a41a-4209-8429-59e965577160",
     "name": "AllMarks",
-    "url": "{{URI}}/inventory/mark/allmarks",
+    "url": "{{URI}}/inventory/mark/",
     "method": "GET",
     "sortNum": 177500,
     "created": "2023-04-19T13:33:49.709Z",
-    "modified": "2023-04-28T13:27:46.820Z",
+    "modified": "2023-05-05T13:39:35.710Z",
     "headers": [
       {
         "name": "token",
@@ -347,11 +347,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "4e1d512c-a41a-4209-8429-59e965577160",
     "name": "RegisterMark",
-    "url": "{{URI}}/inventory/mark/registermark",
+    "url": "{{URI}}/inventory/mark/register",
     "method": "POST",
     "sortNum": 187500,
     "created": "2023-04-19T13:35:50.191Z",
-    "modified": "2023-04-28T13:46:54.899Z",
+    "modified": "2023-05-05T13:41:21.568Z",
     "headers": [
       {
         "name": "token",
@@ -361,7 +361,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"\",\n  \"farm\":\"\",\n  \"category\":\"\",\n  \"description\":\"\"\n}",
+      "raw": "{\n  \"name\":\"Jeff\",\n  \"farm\":\"123\",\n  \"category\":\"Agua de coco\",\n  \"description\":\"Agua de coco\"\n}",
       "form": []
     },
     "tests": []
@@ -371,11 +371,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "4e1d512c-a41a-4209-8429-59e965577160",
     "name": "ActivateMark",
-    "url": "{{URI}}/inventory/mark/activatemark",
+    "url": "{{URI}}/inventory/mark/activate/",
     "method": "PUT",
     "sortNum": 197500,
     "created": "2023-04-19T13:37:14.240Z",
-    "modified": "2023-04-28T13:28:12.527Z",
+    "modified": "2023-05-05T13:43:55.772Z",
     "headers": [
       {
         "name": "token",
@@ -390,11 +390,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "4e1d512c-a41a-4209-8429-59e965577160",
     "name": "InactiveMark",
-    "url": "{{URI}}/inventory/mark/inactivemark",
+    "url": "{{URI}}/inventory/mark/inactivate",
     "method": "PUT",
     "sortNum": 207500,
     "created": "2023-04-19T13:38:47.681Z",
-    "modified": "2023-04-28T13:28:19.621Z",
+    "modified": "2023-05-05T13:43:23.630Z",
     "headers": [
       {
         "name": "token",
@@ -409,11 +409,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "AllProducts",
-    "url": "{{URI}}/inventory/products/allproducts",
+    "url": "{{URI}}/inventory/product",
     "method": "GET",
     "sortNum": 217500,
     "created": "2023-04-19T13:42:37.106Z",
-    "modified": "2023-04-28T13:28:55.647Z",
+    "modified": "2023-05-05T13:59:42.965Z",
     "headers": [
       {
         "name": "token",
@@ -428,11 +428,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "RegisterProduct",
-    "url": "{{URI}}/inventory/products/registerproduct",
+    "url": "{{URI}}/inventory/product/register/",
     "method": "POST",
     "sortNum": 227500,
     "created": "2023-04-19T13:43:41.906Z",
-    "modified": "2023-04-28T13:29:03.812Z",
+    "modified": "2023-05-05T13:54:22.229Z",
     "headers": [
       {
         "name": "token",
@@ -440,6 +440,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"WTF\",\n  \"category\":\"One\",\n  \"amount\":\"XD\",\n  \"description\":\"WTF\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -447,11 +452,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "ActiveProduct",
-    "url": "{{URI}}/inventory/products/activeproduct",
+    "url": "{{URI}}/inventory/product/activate/321",
     "method": "PUT",
     "sortNum": 237500,
     "created": "2023-04-19T13:44:39.394Z",
-    "modified": "2023-04-28T13:29:12.601Z",
+    "modified": "2023-05-05T14:39:52.532Z",
     "headers": [
       {
         "name": "token",
@@ -466,11 +471,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "InactiveProducts",
-    "url": "{{URI}}/inventory/products/inactiveproducts",
+    "url": "{{URI}}/inventory/product/inactivate/321",
     "method": "PUT",
     "sortNum": 247500,
     "created": "2023-04-19T13:46:20.418Z",
-    "modified": "2023-04-28T13:29:21.942Z",
+    "modified": "2023-05-05T13:50:00.885Z",
     "headers": [
       {
         "name": "token",
@@ -551,7 +556,7 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-20T14:04:12.743Z",
-    "modified": "2023-04-25T14:59:35.831Z",
+    "modified": "2023-05-05T15:15:37.507Z",
     "headers": [
       {
         "name": "token",
@@ -1105,11 +1110,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "UpdateCellar",
-    "url": "{{URI}}/inventory/cellars/update",
+    "url": "{{URI}}/inventory/cellar/update/",
     "method": "PUT",
     "sortNum": 287500,
     "created": "2023-04-25T16:36:18.041Z",
-    "modified": "2023-04-28T15:44:36.191Z",
+    "modified": "2023-05-05T16:44:45.973Z",
     "headers": [
       {
         "name": "token",
@@ -1119,7 +1124,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"\",\n  \"description\":\"\",\n  \"farm\":\"\",\n  \"tpcontrato\":\"\",\n  \"location\":\"\"\n}",
+      "raw": "{\n  \"name\":\"E\",\n  \"description\":\"EEE\",\n  \"farm\":\"E\",\n  \"tpcontrato\":\"EE\",\n  \"valor\": 20\n}",
       "form": []
     },
     "tests": []
@@ -1129,11 +1134,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "bdbd1333-a3c0-4912-8282-496bcc19fae3",
     "name": "GetCellarId",
-    "url": "{{URI}}/inventory/cellar/23423423423423",
+    "url": "{{URI}}/inventory/cellar/",
     "method": "GET",
     "sortNum": 5000,
     "created": "2023-04-25T16:43:05.312Z",
-    "modified": "2023-04-28T16:38:01.455Z",
+    "modified": "2023-05-05T15:11:56.977Z",
     "headers": [
       {
         "name": "token",
@@ -1148,11 +1153,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "GetCategoryId",
-    "url": "{{URI}}/inventory/category",
+    "url": "{{URI}}/inventory/category/",
     "method": "GET",
     "sortNum": 63750,
     "created": "2023-04-25T16:45:01.548Z",
-    "modified": "2023-04-28T13:26:31.315Z",
+    "modified": "2023-05-05T15:14:25.510Z",
     "headers": [
       {
         "name": "token",
@@ -1167,11 +1172,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "0969123a-b17a-4ca1-87c8-ec9f2c25e0e3",
     "name": "UpdateCategory",
-    "url": "{{URI}}/invetory/category/update",
+    "url": "{{URI}}/inventory/category/update/643ec0da1c39eb23912e327c",
     "method": "PUT",
     "sortNum": 327500,
     "created": "2023-04-25T16:46:03.084Z",
-    "modified": "2023-04-28T13:27:09.592Z",
+    "modified": "2023-05-05T16:30:15.023Z",
     "headers": [
       {
         "name": "token",
@@ -1179,6 +1184,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"X\",\n  \"description\":\"XX\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -1186,11 +1196,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "4e1d512c-a41a-4209-8429-59e965577160",
     "name": "GetMarkId",
-    "url": "{{URI}}/category/mark",
+    "url": "{{URI}}/inventory/mark",
     "method": "GET",
     "sortNum": 88750,
     "created": "2023-04-25T16:47:07.293Z",
-    "modified": "2023-04-28T13:27:23.300Z",
+    "modified": "2023-05-05T15:36:05.565Z",
     "headers": [
       {
         "name": "token",
@@ -1209,7 +1219,7 @@
     "method": "PUT",
     "sortNum": 347500,
     "created": "2023-04-25T16:49:30.784Z",
-    "modified": "2023-04-28T13:47:20.750Z",
+    "modified": "2023-05-05T16:12:23.826Z",
     "headers": [
       {
         "name": "token",
@@ -1219,7 +1229,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"A\",\n  \"farm\":\"A\",\n  \"category\":\"A\",\n  \"description\":\"A\"\n}",
+      "raw": "{\n  \"name\":\"CCC\",\n  \"farm\":\"C\",\n  \"category\":\"CCCC\",\n  \"description\":\"cCc\"\n}",
       "form": []
     },
     "tests": []
@@ -1229,11 +1239,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "GetProductId",
-    "url": "{{URI}}/inventory/products",
+    "url": "{{URI}}/inventory/product",
     "method": "GET",
     "sortNum": 108750,
     "created": "2023-04-25T16:50:17.008Z",
-    "modified": "2023-04-28T13:28:38.981Z",
+    "modified": "2023-05-05T14:48:12.525Z",
     "headers": [
       {
         "name": "token",
@@ -1248,11 +1258,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "df0d3ab1-ae5a-4bd5-aac4-c39da666a366",
     "name": "UpdateProducts",
-    "url": "{{URI}}/inventory/products/update",
+    "url": "{{URI}}/inventory/product/update",
     "method": "PUT",
     "sortNum": 367500,
     "created": "2023-04-25T16:52:51.061Z",
-    "modified": "2023-04-28T13:48:15.778Z",
+    "modified": "2023-05-05T16:04:05.759Z",
     "headers": [
       {
         "name": "token",
@@ -1262,7 +1272,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"code\":\"A\",\n  \"name\":\"A\",\n  \"description\":\"A\",\n  \"amount\":\"A\"\n}",
+      "raw": "{\n  \"name\":\"A\",\n  \"category\":\"AA\",\n  \"mark\":\"A\",\n  \"amount\":\"A\",\n  \"description\":\"A\"\n}",
       "form": []
     },
     "tests": []
