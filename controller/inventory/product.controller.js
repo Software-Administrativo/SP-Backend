@@ -4,6 +4,7 @@ const productCtrl = {};
 
 //get all products
 productCtrl.getProduct = async (req, res) => {
+    
     try {
         const product = await Product.find({ status: 0 });
         res.json({ product });

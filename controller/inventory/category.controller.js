@@ -3,6 +3,7 @@ const categoryCtrl = {};
 
 //get all category
 categoryCtrl.getCategory = async (req, res) => {
+
   try {
     const category = await Category.find({ status: 0 });
     res.json({category});

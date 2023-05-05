@@ -10,7 +10,7 @@ const categoryVali = {}
 
 //Validate if exist category 
 categoryVali.validateExistCategoryById = [
-    check("id","El id es obligatorio ").notEmpty().isString().exists(),
+    check("id","El id es obligatorio ").notEmpty().isString(),
     check("id","El id no es valido").isMongoId(),
     check("id").custom(async (id) => {
         await validateExistCategoryById(id);

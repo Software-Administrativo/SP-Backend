@@ -4,6 +4,7 @@ const markCtrl = {};
 
 //get all marks
 markCtrl.getMarks = async (req, res) => {
+    
     try {
         const mark = await Mark.find({ status: 0 });
         res.json({ mark });
