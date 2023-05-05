@@ -5,14 +5,12 @@ const webToken = {}
 
 //get token 
 webToken.generateToken = async (user) => {
-    console.log(user)
 
     const payload = {
         id:user._id,
         rol:user.role,
         name:user.name,
         }
-        console.log(payload)
 
     try{
     const token = jwt.sign(
@@ -23,7 +21,6 @@ webToken.generateToken = async (user) => {
             algorithm: 'HS256',
         })
 
-    console.log(token)
     return token
     } catch (err) {
         console.log(err)

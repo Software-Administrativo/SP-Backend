@@ -17,17 +17,17 @@ spentsVali.validateExistSpent = [
   }),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   validateFields,
 ];
 
 //validate fields for register pay
 spentsVali.validateRegisterSpent = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   validateFields,
 ];
 
@@ -39,19 +39,19 @@ spentsVali.validateUpdateSpent = [
     await validateExistSpendById(id); // modificar por pay
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
+  }),
   validateFields,
 ];
 
 //validate token 
-spentsVali.validateToken =[
+spentsVali.validateToken = [
   check('token').custom(async (token) => {
     await validateToken(token);
-    }),
-    validateFields,
+  }),
+  validateFields,
 ]
 
 export { spentsVali };

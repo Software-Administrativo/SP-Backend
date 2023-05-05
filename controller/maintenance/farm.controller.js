@@ -5,7 +5,7 @@ const farmCtrl = {};
 //get all farm
 farmCtrl.getFarms = async (req, res) => {
   try {
-    const farms = await Farm.find({ status: 0 });
+    const farms = await Farm.find();
     res.json({ farms });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

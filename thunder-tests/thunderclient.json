@@ -1376,5 +1376,129 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "ae8712b5-dc5f-4bb0-b82e-db174a0dfe9c",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "GetStageId",
+    "url": "{{URI}}/maintenance/stage/645500b06726760bb73ee8de",
+    "method": "GET",
+    "sortNum": 67500,
+    "created": "2023-05-05T13:02:54.661Z",
+    "modified": "2023-05-05T13:13:27.483Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4b2c0997-5e8d-4b89-8a53-4574c8816b19",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "AllStages",
+    "url": "{{URI}}/maintenance/stage",
+    "method": "GET",
+    "sortNum": 77500,
+    "created": "2023-05-05T13:02:54.662Z",
+    "modified": "2023-05-05T13:12:40.743Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5bb00868-71d1-4dba-8c1b-e82e28745add",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "Register",
+    "url": "{{URI}}/maintenance/stage/register",
+    "method": "POST",
+    "sortNum": 117500,
+    "created": "2023-05-05T13:02:54.663Z",
+    "modified": "2023-05-05T13:12:16.449Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Etapa 1\",\n  \"description\":\"etapa test\",\n  \"lot\":\"644bc54417a36e6d869d7dab\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4ad7da5e-97d5-4290-9ed3-f856c67c967e",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "ActiveStage",
+    "url": "{{URI}}/maintenance/stage/active/645500b06726760bb73ee8de",
+    "method": "PUT",
+    "sortNum": 127500,
+    "created": "2023-05-05T13:02:54.664Z",
+    "modified": "2023-05-05T13:13:44.692Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "63b1d244-ee00-4d0c-8882-cdfcfe2d1df4",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "InactiveStage",
+    "url": "{{URI}}/maintenance/stage/inactive/645500b06726760bb73ee8de",
+    "method": "PUT",
+    "sortNum": 137500,
+    "created": "2023-05-05T13:02:54.665Z",
+    "modified": "2023-05-05T13:13:58.024Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "29dbff0e-291b-474d-8a92-17f011e3adbc",
+    "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
+    "containerId": "45e20198-9b3a-4ea7-a57e-12b2cb2d7a55",
+    "name": "UpdateStage",
+    "url": "{{URI}}/maintenance/stage/update/645500b06726760bb73ee8de",
+    "method": "PUT",
+    "sortNum": 147500,
+    "created": "2023-05-05T13:02:54.666Z",
+    "modified": "2023-05-05T13:15:18.082Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Etapa 1\",\n  \"description\":\"etapa test\",\n  \"lot\":\"644bc54417a36e6d869d7dab\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

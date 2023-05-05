@@ -5,7 +5,7 @@ const unitTypesCtrl = {};
 //get all unit Types in the db
 unitTypesCtrl.getUnitTypes = async (req, res) => {
   try {
-    const unitType = await UnitType.find({ status: 0 });
+    const unitType = await UnitType.find();
     res.json({ unitType });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

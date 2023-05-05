@@ -5,7 +5,7 @@ const epsCtrl = {};
 //get all eps
 epsCtrl.getEps = async (req, res) => {
   try {
-    const eps = await Eps.find({ status: 0 });
+    const eps = await Eps.find();
     res.json({ eps });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

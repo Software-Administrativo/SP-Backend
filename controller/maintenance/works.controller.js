@@ -5,7 +5,7 @@ const worksCtrl = {};
 //get all works
 worksCtrl.getWorks = async (req, res) => {
   try {
-    const works = await Work.find({ status: 0 });
+    const works = await Work.find();
     res.json({ works });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

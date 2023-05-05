@@ -5,7 +5,7 @@ const typeDocumentCtrl = {};
 //get all type of documents
 typeDocumentCtrl.getTypeDocuments = async (req, res) => {
   try {
-    const typeDocuments = await TypeDocument.find({ status: 0 });
+    const typeDocuments = await TypeDocument.find();
     res.json({ typeDocuments });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

@@ -24,7 +24,7 @@ worksVali.validateExistWork = [
 //validate fields for register pay
 worksVali.validateRegisterWork = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
@@ -39,7 +39,7 @@ worksVali.validateUpdateWork = [
     await validateExistWorkById(id); // modificar por pay
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
   validateFields,
 ];
 

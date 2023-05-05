@@ -31,7 +31,7 @@ typeDocumentVali.validateRegisterTypeDocument = [
     }
   }),
      
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
   check('token').custom(async (token) => {
     await validateToken(token);
     }),
@@ -55,7 +55,7 @@ typeDocumentVali.validateUpdateTypeDocument = [
     }
   }),
      
-  check("description", "La descripcion es obligatoria").notEmpty(),
+  //check("description", "La descripcion es obligatoria").notEmpty(),
 
   validateFields,
 ];

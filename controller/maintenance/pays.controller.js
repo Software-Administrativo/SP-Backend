@@ -5,7 +5,7 @@ const paysCtrl = {};
 //get all pays
 paysCtrl.getPays = async (req, res) => {
   try {
-    const pays = await Pay.find({ status: 0 });
+    const pays = await Pay.find();
     res.json({ pays });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

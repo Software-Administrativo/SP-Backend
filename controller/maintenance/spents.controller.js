@@ -5,7 +5,7 @@ const spentCtrl = {};
 //get all spents
 spentCtrl.getSpents = async (req, res) => {
   try {
-    const spents = await Spent.find({ status: 0 });
+    const spents = await Spent.find();
     res.json({ spents });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
