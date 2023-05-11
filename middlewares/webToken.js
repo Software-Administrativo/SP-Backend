@@ -10,6 +10,7 @@ webToken.generateToken = async (user) => {
         id:user._id,
         rol:user.role,
         name:user.name,
+        farms:user.farms
         }
 
     try{
@@ -23,7 +24,6 @@ webToken.generateToken = async (user) => {
 
     return token
     } catch (err) {
-        console.log(err)
         throw new Error('Error al generar el token')
     }
 }
@@ -44,7 +44,6 @@ webToken.validateToken = async (token) => {
             process.env.JWT_SECRET,
             { algorithm: 'HS256' }
             )
-        console.log(result)
 
         let user = await User.findById(result.id)
 

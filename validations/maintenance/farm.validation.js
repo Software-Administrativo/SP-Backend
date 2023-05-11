@@ -55,7 +55,7 @@ farmVali.validateUpdateFarm = [
 farmVali.validateHeaders =[
   check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    await validateFarm(req.headers.farm);
+    // await validateFarm(req.headers.farm);
   }),
     validateFields,
 ]

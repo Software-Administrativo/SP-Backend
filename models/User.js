@@ -24,10 +24,21 @@ const UserSquema = new Schema(
       type: String,
       required: true,
     },
-    status: {
-      type: Number,
-      default: 0,
-    },
+
+    //farms es un arreglo que contiene objetos y cada objeto es una finca con su id y estatus
+    farms: [
+      {
+        farm: {
+          type: Schema.Types.ObjectId,
+          ref: "Farm",
+        },
+        status: {
+          type: Number,
+          default: 0,
+        },
+      },
+
+    ],
   },
   {
     //propiedad para crear la fecha de creacion y de actualizacion actuamaticamnete

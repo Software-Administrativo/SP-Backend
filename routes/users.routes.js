@@ -7,7 +7,7 @@ const {
   validateRegisterUser,
   validateExistUser,
   validateUpdateUser,
-  validateHeaders
+  validateHeaders,
 } = usersVali;
 
 const {
@@ -23,13 +23,13 @@ const {
 
 const routerUsers = Router();
 
+routerUsers.get("/logout", validateHeaders, logoutUser);
 routerUsers.get("/:id", validateExistUser, getUserId);
-routerUsers.get("/",validateHeaders, getUsers);
+routerUsers.get("/", validateHeaders, getUsers);
 routerUsers.post("/login", validateLoginUser, loginUser);
 routerUsers.post("/register", validateRegisterUser, registerUser);
 routerUsers.put("/active/:id", validateExistUser, activeUser);
 routerUsers.put("/inactive/:id", validateExistUser, inactiveUser);
 routerUsers.put("/update/:id", validateUpdateUser, updateUser);
-routerUsers.get("/logout",validateHeaders, logoutUser);
 
 export { routerUsers };

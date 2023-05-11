@@ -7,8 +7,9 @@ const userCtrl = {};
 userCtrl.loginUser = async (req, res) => {
   const { tpdocument, numdocument, password } = req.body;
   try {
-    const user = await User.findOne({ tpdocument, numdocument , status: 0});
-    if (!user) {
+    const user = await User.findOne({ tpdocument, numdocument, status: 0 });
+    console.log(user);
+    if (!user && user.farms.length == 0) {
       return res.json({ msg: "Credenciales incorrectas" });
     }
     const matchPassword = await user.matchPassword(password);
@@ -18,7 +19,7 @@ userCtrl.loginUser = async (req, res) => {
 
     const token = await webToken.generateToken(user);
 
-    res.json({ msg: "Usuario logueado correctamente", token});
+    res.json({ msg: "Usuario logueado correctamente", token });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -26,7 +27,7 @@ userCtrl.loginUser = async (req, res) => {
 
 //register new user in the db
 userCtrl.registerUser = async (req, res) => {
-  const { name, tpdocument, numdocument, role, password } = req.body;
+  const { name, tpdocument, numdocument, role, password, farms } = req.body;
   try {
     const newUser = new User({
       name,
@@ -34,6 +35,7 @@ userCtrl.registerUser = async (req, res) => {
       numdocument,
       role,
       password,
+      farms,
     });
     newUser.password = await newUser.encryptPassword(password);
     await newUser.save();
@@ -46,16 +48,32 @@ userCtrl.registerUser = async (req, res) => {
 //update user in the db
 userCtrl.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, tpdocument, numdocument, role, password } = req.body;
+  const { name, tpdocument, numdocument, role, password, farms } = req.body;
+
+  const passwordEncrypt = new User({ password });
+  passwordEncrypt.password = await passwordEncrypt.encryptPassword(password);
+
   try {
-    const user = await User.findByIdAndUpdate(id, {
-      name,
-      tpdocument,
-      numdocument,
-      role,
-      password,
-    });
-    res.json({ msg: "Usuario actualizado correctamente", user });
+    const user = await findById(id);
+    if (user.role == "SUPER") {
+      await User.findByIdAndUpdate(id, {
+        name,
+        tpdocument,
+        numdocument,
+        password: passwordEncrypt.password,
+        farms,
+      });
+    } else {
+      await User.findByIdAndUpdate(id, {
+        name,
+        tpdocument,
+        numdocument,
+        role,
+        password: passwordEncrypt.password,
+        farms,
+      });
+    }
+    res.json({ msg: "Usuario actualizado correctamente" });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -63,8 +81,9 @@ userCtrl.updateUser = async (req, res) => {
 
 //get all users actives in the db
 userCtrl.getUsers = async (req, res) => {
+  const {farm} = req.headers
   try {
-    const users = await User.find();
+    const users = await User.find({farms: farm });
     res.json(users);
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

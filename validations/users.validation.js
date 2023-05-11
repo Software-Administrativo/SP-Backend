@@ -9,16 +9,23 @@ const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
 
 const usersVali = {};
 
+const roles = ["ADMIN", "OPERADOR"];
+
 //validate fields for register user
 usersVali.validateRegisterUser = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
-  check("numdocument").custom(async (numdocument) => {
-    await validateExistUser(numdocument);
+  check("numdocument").custom(async (numdocument, { req }) => {
+    await validateExistUser(numdocument, req.headers.farm);
   }),
 
   check("role", "El rol es obligatorio").notEmpty(),
+  check("role").custom(async (role) => {
+    if (!roles.includes(role)) {
+      throw new Error("El rol no es valido");
+    }
+  }),
   check("password", "La contraseña es obligatoria").notEmpty(),
   check(
     "password",
@@ -28,9 +35,19 @@ usersVali.validateRegisterUser = [
     "password",
     "La contraseña debe tener al menos una letra mayuscula, una minuscula y un numero"
   ).matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/),
-  check('token').custom(async (token) => {
+
+  check("farms", "La finca es obligatoria").notEmpty(),
+  check("farms").custom(async (farms) => {
+    if (farms.length > 0) {
+      for (let i = 0; i < farms.length; i++) {
+        await validateFarm(farms[i].farm);
+      }
+    }
+  }),
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -38,8 +55,8 @@ usersVali.validateRegisterUser = [
 usersVali.validateUpdateUser = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
-  check("id").custom(async (id) => {
-    await validateExistUserById(id);
+  check("id").custom(async (id, { req }) => {
+    await validateExistUserById(id, req.headers.farm);
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
@@ -58,9 +75,18 @@ usersVali.validateUpdateUser = [
     "password",
     "La contraseña debe tener al menos una letra mayuscula, una minuscula y un numero"
   ).matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/),
-  check('token').custom(async (token) => {
+  check("farms", "La finca es obligatoria").notEmpty(),
+  check("farms").custom(async (farms) => {
+    if (farms.length > 0) {
+      for (let i = 0; i < farms.length; i++) {
+        await validateFarm(farms[i].farm);
+      }
+    }
+  }),
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -76,18 +102,20 @@ usersVali.validateLoginUser = [
 usersVali.validateExistUser = [
   check("id", "El id es obligatorio").notEmpty().exists(),
   check("id", "El id no es valido").isMongoId(),
-  check("id").custom(async (id) => {
-    await validateExistUserById(id);
+  check("id").custom(async (id, { req }) => {
+    await validateExistUserById(id, req.headers.farm);
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
 //validate token 
 usersVali.validateHeaders =[
   check('token').custom(async (token, {req}) => {
+    console.log(req.headers.farm);
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),

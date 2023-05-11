@@ -100,8 +100,8 @@ lotsVali.validateUpdateLot = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("areasize", "El tamaño de area es obligatorio").notEmpty(),
-  check("areaSize", "El tamaño de area debe ser un numero").isNumeric(),
-  check("areaSize", "El tamaño de area debe ser mayor a 0").isFloat({ min: 0 }),
+  check("areasize", "El tamaño de area debe ser un numero").isNumeric(),
+  check("areasize", "El tamaño de area debe ser mayor a 0").isFloat({ min: 0 }),
   check("lotestate", "El estado del lote no puede estar vacio").notEmpty(),
   check("lotestate").custom((lotestate) => {
     if (!statesLot.includes(lotestate.toUpperCase())) {
@@ -119,20 +119,21 @@ lotsVali.validateUpdateLot = [
 
   check("classlote", "La clase de lote es obligatoria").notEmpty(),
   check("classlote").custom((classlote) => {
-    if (!statesLot.includes(classlote.toUpperCase())) {
+    if (!classLot.includes(classlote.toUpperCase())) {
       throw new Error("El estado del lote no es valido");
     }
+    return true;
   }),
 
-  check("fatherlot").custom(async ({ req }) => {
+  check("fatherlot").custom(async (fatherlot,{ req }) => {
     if (
       req.body.classlote.toUpperCase() === "HIJO" ||
       req.body.classlote.toUpperCase() === "PADRE-HIJO"
     ) {
-      if (req.body.fatherlot.toString().trim() == "") {
+      if (fatherlot.toString().trim() == "") {
         throw new Error("El lote padre es obligatorio");
       }
-      await validateExistLotFatherById(req.body.fatherlot);
+      await validateExistLotFatherById(fatherlot);
     }
     return true;
   }),
@@ -156,7 +157,7 @@ lotsVali.validateUpdateLot = [
 lotsVali.validateHeaders =[
   check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    await validateFarm(req.headers.farm);
+    /* await validateFarm(req.headers.farm); */
   }),
     validateFields,
 ]
