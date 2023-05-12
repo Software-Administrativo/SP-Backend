@@ -2,51 +2,11 @@ import User from "../models/User.js";
 
 const userHelper = {};
 
-userHelper.validateExistUser = async (document,farm) => {
+userHelper.validateExistUser = async (document) => {
   try {
 
-    /* 
-    {
-    name: {
-      type: String,
-      required: true,
-    },
-    tpdocument: {
-      type: String,
-      required: true,
-    },
-    numdocument: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    role: {
-      type: String,
-      default: "ADMIN",
-    },
-    password: {
-      type: String,
-      required: true,
-    },
 
-    //farms es un arreglo que contiene objetos y cada objeto es una finca con su id y estatus
-    farms: [
-      {
-        farm: {
-          type: Schema.Types.ObjectId,
-          ref: "Farm",
-        },
-        status: {
-          type: Number,
-          default: 0,
-        },
-      },
-
-    ],
-  },
-    */
-
-    const user = await User.findOne({ numdocument: document, farms: farm });
+    const user = await User.findOne({ numdocument: document});
     console.log('user',user)
 
     if (user) {
@@ -63,6 +23,7 @@ userHelper.validateExistUserById = async (id,farm) => {
   try {
     //search user by id and farm //farms: [ { status: 0, _id: new ObjectId("645c7705f193f332d5a760bc") } ]
     const user = await User.findById(id)
+    console.log('user',user)
     const existUserFarm = user.farms.find(f => f._id == farm)
     console.log('existUserFarm',existUserFarm)
     console.log('user',user)

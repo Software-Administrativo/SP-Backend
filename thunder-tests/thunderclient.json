@@ -101,7 +101,7 @@
     "method": "GET",
     "sortNum": 5156.3,
     "created": "2023-04-18T15:19:14.319Z",
-    "modified": "2023-05-11T03:20:53.795Z",
+    "modified": "2023-05-12T14:01:30.654Z",
     "headers": [
       {
         "name": "token",
@@ -124,7 +124,7 @@
     "method": "PUT",
     "sortNum": 5468.8,
     "created": "2023-04-18T16:08:40.853Z",
-    "modified": "2023-05-11T04:55:00.023Z",
+    "modified": "2023-05-12T14:58:58.344Z",
     "headers": [
       {
         "name": "token",
@@ -138,7 +138,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"SUPER\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"19499843545\",\n  \"role\":\"SUPER\",\n  \"farms\":[{\n    \"farm\":\"644bf8ff92ec73c9fa60201c\"\n    }],\n  \"password\":\"123Admin\"\n}",
+      "raw": "{\n  \"name\":\"SUPER\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"19499843545\",\n  \"role\":\"SUPER\",\n  \"farms\":[{\n    \"farm\":\"644bf8ff92ec73c9fa60201c\"\n    },\n    {\n      \"farm\":\"6456f212f4929b21c7546993\"\n    }\n    ],\n  \"password\":\"123Admin\"\n}",
       "form": []
     },
     "tests": []
@@ -227,11 +227,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "292a426c-b5db-44f9-8ccd-8656b4b6cced",
     "name": "GetUserId",
-    "url": "{{URI}}/users/643ebc69c8ac5ce5668421d2",
+    "url": "{{URI}}/users/643ec0da1c39eb23912e327c",
     "method": "GET",
     "sortNum": 5078.1,
     "created": "2023-04-19T13:02:42.569Z",
-    "modified": "2023-05-11T03:45:32.270Z",
+    "modified": "2023-05-12T16:03:42.047Z",
     "headers": [
       {
         "name": "token",

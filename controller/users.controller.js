@@ -53,8 +53,9 @@ userCtrl.updateUser = async (req, res) => {
   const passwordEncrypt = new User({ password });
   passwordEncrypt.password = await passwordEncrypt.encryptPassword(password);
 
+
   try {
-    const user = await findById(id);
+    const user = await User.findById(id);
     if (user.role == "SUPER") {
       await User.findByIdAndUpdate(id, {
         name,
@@ -73,8 +74,10 @@ userCtrl.updateUser = async (req, res) => {
         farms,
       });
     }
+
     res.json({ msg: "Usuario actualizado correctamente" });
   } catch (error) {
+    console.log(error);
     res.json({ msg: "No fue posible terminar la operacion" });
   }
 };

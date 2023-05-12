@@ -17,7 +17,7 @@ usersVali.validateRegisterUser = [
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
   check("numdocument").custom(async (numdocument, { req }) => {
-    await validateExistUser(numdocument, req.headers.farm);
+    await validateExistUser(numdocument);
   }),
 
   check("role", "El rol es obligatorio").notEmpty(),
@@ -40,7 +40,7 @@ usersVali.validateRegisterUser = [
   check("farms").custom(async (farms) => {
     if (farms.length > 0) {
       for (let i = 0; i < farms.length; i++) {
-        await validateFarm(farms[i].farm);
+        await validateFarm(farms[i]);
       }
     }
   }),
@@ -79,7 +79,7 @@ usersVali.validateUpdateUser = [
   check("farms").custom(async (farms) => {
     if (farms.length > 0) {
       for (let i = 0; i < farms.length; i++) {
-        await validateFarm(farms[i].farm);
+        await validateFarm(farms[i]);
       }
     }
   }),
