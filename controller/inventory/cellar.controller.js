@@ -3,9 +3,9 @@ const cellarCtrl = {};
 
 //get all cellar
 cellarCtrl.getCellar = async (req, res) => {
-
+    const { farm} = req.headers;
     try {
-        const cellar = await Cellar.find();
+        const cellar = await Cellar.find({farm});
         res.json({cellar});
     }catch (error) {
         res.json({msg:"No fue posible terminar la operacion" })
@@ -25,7 +25,8 @@ cellarCtrl.getCellarId = async (req, res) => {
 
 //register cellar in the db
 cellarCtrl.registerCellar = async (req, res) => {
-    const { name,farm,tpcontrato,description,valor } = req.body;
+    const { name,tpcontrato,description,valor } = req.body;
+    const { farm} = req.headers;
     try {
         const newCellar = new Cellar({
             name,
@@ -45,7 +46,8 @@ cellarCtrl.registerCellar = async (req, res) => {
 //update cellar in the db
 cellarCtrl.updateCellar = async (req, res) => {
     const { id } = req.params;
-    const { name,farm,tpcontrato,description,valor } = req.body;
+    const { name,tpcontrato,description,valor } = req.body;
+    const { farm} = req.headers;
     try {
         await Cellar.findByIdAndUpdate(id, {
             name,

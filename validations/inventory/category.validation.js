@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { categoryHelper } from "../../helpers/inventory/category.helper.js";
 
 const { validateExistCategoryById, } = categoryHelper;
-const { validateToken } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const categoryVali = {};
 
@@ -15,18 +15,20 @@ categoryVali.validateExistCategoryById = [
     check("id").custom(async (id) => {
         await validateExistCategoryById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
 //Validate fields for register category 
 categoryVali.validateRegisterCategory = [
     check("name","El nombre de la categoria es obligatorio").notEmpty(),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
@@ -37,18 +39,20 @@ categoryVali.validateUpdateCategory = [
     check("id").custom(async (id) => {
         await validateExistCategoryById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
     check("name","El nombre de la categoria es obligatorio").notEmpty().isString(),
    // check("descripcion","Descripcion de la categoria es obligatoria").notEmpty().isString(),
+   check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
 //validate token 
-categoryVali.validateToken =[
-    check('token').custom(async (token) => {
-      await validateToken(token);
+categoryVali.validateHeaders =[
+    check('token').custom(async (token, {req}) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
       }),
       validateFields,
 ];

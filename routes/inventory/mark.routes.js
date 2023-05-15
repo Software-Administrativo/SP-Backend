@@ -6,7 +6,7 @@ const {
     validateExistMarkById,
     validateRegisterMark,
     validateUpdateMark,
-    validateToken,
+    validateHeaders,
 } = markVali;
 
 const {
@@ -21,7 +21,7 @@ const {
 const routerMark = Router();
 
 routerMark.get("/:id", validateExistMarkById, getMarkId);
-routerMark.get("/", validateToken, getMarks);
+routerMark.get("/", validateHeaders, getMarks);
 routerMark.post("/register", validateRegisterMark, registerMark);
 routerMark.put("/activate/:id", validateExistMarkById, activateMark);
 routerMark.put("/inactivate/:id", validateExistMarkById, inactiveMark);

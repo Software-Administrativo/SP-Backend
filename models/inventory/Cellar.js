@@ -7,9 +7,10 @@ const CellarSchema = new Schema(
             required: true,
         },
         farm: {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: "Farm",
             required: true,
-        },
+          },
         tpcontrato:{
             type: String,
             required: true,

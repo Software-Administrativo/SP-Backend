@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { cellarHelper } from "../../helpers/inventory/cellar.helper.js";
 
 const { validateExistCellarById, } = cellarHelper;
-const { validateToken } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const cellarVali = {}
 
@@ -15,9 +15,10 @@ cellarVali.validateExistCellarById = [
     check("id").custom(async (id) => {
         await validateExistCellarById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
@@ -25,9 +26,10 @@ cellarVali.validateExistCellarById = [
 cellarVali.validateRegisterCellarById = [
     check("name","El nombre de la bodega es obligatorio").notEmpty(),
     check("descripcion","Descripcion de la bodega es obligatoria"),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields
 ];
 
@@ -38,18 +40,20 @@ cellarVali.validateUpdateCellarById = [
     check("id").custom(async (id) => {
         await validateExistCellarById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
     check("name","El nombre de la marca es obligatorio").notEmpty().isString(),
     //check("descripcion","Descripcion de la marca es obligatoria").notEmpty().isString(),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
 //validate token 
-cellarVali.validateToken =[
-    check('token').custom(async (token) => {
-      await validateToken(token);
+cellarVali.validateHeaders =[
+    check('token').custom(async (token, {req}) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
       }),
       validateFields,
 ];

@@ -6,7 +6,7 @@ const {
     validateExistCategoryById,
     validateRegisterCategory,
     validateUpdateCategory,
-    validateToken,
+    validateHeaders,
 } = categoryVali;
 
 const {
@@ -21,7 +21,7 @@ const {
 const routerCategory = Router();
 
 routerCategory.get("/:id",validateExistCategoryById, getCategoryId);
-routerCategory.get("/", validateToken, getCategory);
+routerCategory.get("/", validateHeaders, getCategory);
 routerCategory.post("/register", validateRegisterCategory,registerCategory);
 routerCategory.put("/activate/:id", validateExistCategoryById, activateCategory);
 routerCategory.put("/inactivate/:id", validateExistCategoryById, inactivateCategory);

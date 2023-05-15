@@ -3,9 +3,9 @@ const productCtrl = {};
 
 //get all products
 productCtrl.getProduct = async (req, res) => {
-    
+    const { farm} = req.headers;
     try {
-        const product = await Product.find();
+        const product = await Product.find({farm});
         res.json({ product });
     } catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -27,6 +27,7 @@ productCtrl.getPoductId = async (req, res) => {
 //register product in the db
 productCtrl.registerProduct = async (req, res) => {
     const { name,category,amount,description,mark } = req.body;
+    const { farm} = req.headers;
     try {
         const newProduct = new Product({
             name,
@@ -34,6 +35,7 @@ productCtrl.registerProduct = async (req, res) => {
             amount,
             description,
             mark,
+            farm
         });
         //console.log(newProduct);
         const product = await newProduct.save();
@@ -48,9 +50,10 @@ productCtrl.registerProduct = async (req, res) => {
 productCtrl.updateProduct = async (req, res) => {
     const { id } = req.params;
     const { name,category,mark,amount,description } = req.body;
+    const { farm} = req.headers;
     try {
         await Product.findByIdAndUpdate(id,{
-            
+            farm,
             name,
             category,
             mark,
