@@ -4,8 +4,9 @@ const worksCtrl = {};
 
 //get all works
 worksCtrl.getWorks = async (req, res) => {
+  const { farm } = req.headers;
   try {
-    const works = await Work.find();
+    const works = await Work.find({ farm });
     res.json({ works });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,10 +27,12 @@ worksCtrl.getWorkId = async (req, res) => {
 //register works in the db
 worksCtrl.registerWork = async (req, res) => {
   const { name, description } = req.body;
+  const { farm } = req.headers;
   try {
     const newWork = new Work({
       name,
       description,
+      farm,
     });
     const works = await newWork.save();
     res.json({ msg: "Labor creado correctamente", works });
@@ -42,10 +45,12 @@ worksCtrl.registerWork = async (req, res) => {
 worksCtrl.updateWorks = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
+  const { farm } = req.headers;
   try {
     await Work.findByIdAndUpdate(id, {
       name,
       description,
+      farm,
     });
 
     const updateWork = await Work.findById(id);

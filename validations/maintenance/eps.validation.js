@@ -15,18 +15,20 @@ epsVali.validateExistEps = [
   check("id").custom(async (id) => {
     await validateExistEpsById(id); // modificar por Eps
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
 //validate fields for register Eps
 epsVali.validateRegisterEps = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -37,10 +39,11 @@ epsVali.validateUpdateEps = [
   check("id").custom(async (id) => {
     await validateExistEpsById(id); // modificar por Eps
   }),
-  check('token').custom(async (token) => {
-    await validateToken(token);
-    }),
   check("name", "El nombre es obligatorio").notEmpty(),
+  check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 

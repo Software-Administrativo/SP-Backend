@@ -4,8 +4,9 @@ const peopleCtrl = {};
 
 //get all people
 peopleCtrl.getPeoples = async (req, res) => {
+    const { farm } = req.headers;
     try {
-        const people = await People.find();
+        const people = await People.find({ farm });
         res.json({ people });
     } catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,6 +27,7 @@ peopleCtrl.getPeopleId = async (req, res) => {
 //register people in the db
 peopleCtrl.registerPeople = async (req, res) => {
     const { name, tpdct, document, phone, eps, tipePeople } = req.body;
+    const { farm } = req.headers;
     try {
         const newPeople = new People({
             name,
@@ -33,7 +35,8 @@ peopleCtrl.registerPeople = async (req, res) => {
             document,
             phone,
             eps,
-            tipePeople
+            tipePeople,
+            farm,
         });
         const people = await newPeople.save();
         res.json({ msg: "Persona creada correctamente", people });
@@ -46,6 +49,7 @@ peopleCtrl.registerPeople = async (req, res) => {
 peopleCtrl.updatePeoples = async (req, res) => {
     const { id } = req.params;
     const { name, tpdct, document, phone, eps, tipePeople } = req.body;
+    const { farm } = req.headers;
     try {
         await People.findByIdAndUpdate(id, {
             name,
@@ -53,8 +57,8 @@ peopleCtrl.updatePeoples = async (req, res) => {
             document,
             phone,
             eps,
-            tipePeople
-
+            tipePeople,
+            farm,
         });
 
         const updatePeople = await People.findById(id);

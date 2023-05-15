@@ -4,8 +4,9 @@ const stagesCtrl = {};
 
 //get all stages
 stagesCtrl.getStages = async (req, res) => {
+  const { farm } = req.headers;
   try {
-    const stages = await Stage.find();
+    const stages = await Stage.find({ farm });
     res.json({ stages });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,11 +27,13 @@ stagesCtrl.getStageId = async (req, res) => {
 //register stage in the db
 stagesCtrl.registerStage = async (req, res) => {
   const { name, description,lot } = req.body;
+  const { farm } = req.headers;
   try {
     const newStage = new Stage({
       name,
       description,
-      lot
+      lot,
+      farm
     });
     const stage = await newStage.save();
     res.json({ msg: "Etapa creado correctamente", stage });
@@ -43,11 +46,13 @@ stagesCtrl.registerStage = async (req, res) => {
 stagesCtrl.updateStages = async (req, res) => {
   const { id } = req.params;
   const { name, description,lot } = req.body;
+  const { farm } = req.headers;
   try {
     await Stage.findByIdAndUpdate(id, {
       name,
       description,
-      lot
+      lot,
+      farm
     });
 
     const updateStage = await Stage.findById(id);

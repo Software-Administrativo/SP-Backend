@@ -4,8 +4,9 @@ const unitTypesCtrl = {};
 
 //get all unit Types in the db
 unitTypesCtrl.getUnitTypes = async (req, res) => {
+  const { farm } = req.headers;
   try {
-    const unitType = await UnitType.find();
+    const unitType = await UnitType.find({ farm });
     res.json({ unitType });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,10 +27,12 @@ unitTypesCtrl.getUnitTypesId = async (req, res) => {
 //register one unit Type in the db
 unitTypesCtrl.registerUnitTypes = async (req, res) => {
   const { name, unittype } = req.body;
+  const { farm } = req.headers;
   try {
     const newUnitType = new UnitType({
       name,
       unittype,
+      farm,
     });
     const unitType = await newUnitType.save();
     res.json({ msg: "Tipo de unidad creada correctamente", unitType });
@@ -42,10 +45,12 @@ unitTypesCtrl.registerUnitTypes = async (req, res) => {
 unitTypesCtrl.updateUnitTypes = async (req, res) => {
   const { id } = req.params;
   const { name, unittype } = req.body;
+  const { farm } = req.headers;
   try {
     await UnitType.findByIdAndUpdate(id, {
       name,
       unittype,
+      farm,
     });
 
     const updateUnitType = await UnitType.findById(id);

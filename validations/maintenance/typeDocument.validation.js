@@ -16,8 +16,9 @@ typeDocumentVali.validateExistTypeDocument = [
   check("id").custom(async (id) => {
     await validateExistTypeDocumentById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -32,8 +33,9 @@ typeDocumentVali.validateRegisterTypeDocument = [
   }),
 
   //check("description", "La descripcion es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -45,17 +47,17 @@ typeDocumentVali.validateUpdateTypeDocument = [
   check("id").custom(async (id) => {
     await validateExistTypeDocumentById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
-    await validateToken(token);
-  }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("name").custom(async (name) => {
     if (!typeDocument.includes(name.toUpperCase())) {
       throw new Error("El nombre no es valido");
     }
   }),
-
   //check("description", "La descripcion es obligatoria").notEmpty(),
+  check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
 
   validateFields,
 ];

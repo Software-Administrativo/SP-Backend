@@ -4,8 +4,9 @@ const epsCtrl = {};
 
 //get all eps
 epsCtrl.getEps = async (req, res) => {
+  const { farm } = req.headers;
   try {
-    const eps = await Eps.find();
+    const eps = await Eps.find({ farm });
     res.json({ eps });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,11 +27,13 @@ epsCtrl.getEpsId = async (req, res) => {
 //register eps in the db
 epsCtrl.registerEps = async (req, res) => {
   const { name, description, observation } = req.body;
+  const { farm } = req.headers;
   try {
     const newEps = new Eps({
       name,
       description,
       observation,
+      farm,
     });
     const eps = await newEps.save();
     res.json({ msg: "Eps creado correctamente", eps });
@@ -43,11 +46,13 @@ epsCtrl.registerEps = async (req, res) => {
 epsCtrl.updateEps = async (req, res) => {
   const { id } = req.params;
   const { name, description, observation } = req.body;
+  const { farm } = req.headers;
   try {
     await Eps.findByIdAndUpdate(id, {
       name,
       description,
       observation,
+      farm,
     });
 
     const eps = await eps.findById(id);

@@ -15,9 +15,10 @@ worksVali.validateExistWork = [
   check("id").custom(async (id) => {
     await validateExistWorkById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -25,9 +26,10 @@ worksVali.validateExistWork = [
 worksVali.validateRegisterWork = [
   check("name", "El nombre es obligatorio").notEmpty(),
   //check("description", "La descripcion es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -40,6 +42,10 @@ worksVali.validateUpdateWork = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   //check("description", "La descripcion es obligatoria").notEmpty(),
+  check("token").custom(async (token, { req }) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 

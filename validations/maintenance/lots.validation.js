@@ -24,8 +24,9 @@ lotsVali.validateExistLot = [
   check("id").custom(async (id) => {
     await validateExistLotById(id);
   }),
-  check("token").custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -84,8 +85,9 @@ lotsVali.validateRegisterLot = [
     min: 0,
   }),
 
-  check("token").custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
 
   validateFields,
@@ -147,8 +149,9 @@ lotsVali.validateUpdateLot = [
     min: 0,
   }),
 
-  check("token").custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -157,7 +160,7 @@ lotsVali.validateUpdateLot = [
 lotsVali.validateHeaders =[
   check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    /* await validateFarm(req.headers.farm); */
+    await validateFarm(req.headers.farm);
   }),
     validateFields,
 ]

@@ -4,8 +4,9 @@ const typeDocumentCtrl = {};
 
 //get all type of documents
 typeDocumentCtrl.getTypeDocuments = async (req, res) => {
+  const {farm} = req.headers;
   try {
-    const typeDocuments = await TypeDocument.find();
+    const typeDocuments = await TypeDocument.find({ farm });
     res.json({ typeDocuments });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,10 +27,12 @@ typeDocumentCtrl.getTypeDocumentId = async (req, res) => {
 //register type of document in the db
 typeDocumentCtrl.registerTypeDocument = async (req, res) => {
   const { name, tpcontrato, description, valor } = req.body;
+  const {farm} = req.headers;
   try {
     const newTypeDocument = new TypeDocument({
       name,
       description,
+      farm,
     });
     const typeDocument = await newTypeDocument.save();
     res.json({ msg: "Tipo de documento creado correctamente", typeDocument });
@@ -42,12 +45,14 @@ typeDocumentCtrl.registerTypeDocument = async (req, res) => {
 typeDocumentCtrl.updateTypeDocuments = async (req, res) => {
   const { id } = req.params;
   const { name, tpcontrato, description, valor } = req.body;
+  const {farm} = req.headers;
   try {
     await TypeDocument.findByIdAndUpdate(id, {
       name,
       // tpcontrato,
       description,
       // valor,
+      farm,
     });
 
     const typeDocument = await TypeDocument.findById(id);

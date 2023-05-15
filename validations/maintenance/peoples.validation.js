@@ -35,8 +35,9 @@ peoplesVali.validateRegisterPeople = [
         await validateExistEpsById(eps);
     }),
     check("tipePeople", "El tipo de persona es obligatorio").notEmpty(),
-    check('token').custom(async (token) => {
-        await validateToken(token);
+    check('token').custom(async (token, {req}) => {
+      await validateToken(token);
+      await validateFarm(req.headers.farm);
     }),
     validateFields,
 ];
@@ -60,8 +61,9 @@ peoplesVali.validateUpdatePeople = [
         await validateExistEpsById(eps);
     }),
     check("tipePeople", "El tipo de persona es obligatorio").notEmpty(),
-    check('token').custom(async (token) => {
-        await validateToken(token);
+    check('token').custom(async (token, {req}) => {
+      await validateToken(token);
+      await validateFarm(req.headers.farm);
     }),
     validateFields,
 ];

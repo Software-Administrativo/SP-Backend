@@ -15,9 +15,10 @@ unitTypesVali.validateExistUnitType = [
   check("id").custom(async (id) => {
     await validateExistUnitTypeById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -25,9 +26,10 @@ unitTypesVali.validateExistUnitType = [
 unitTypesVali.validateRegisterUnitType = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("unittype", "El tipo de unidad es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -40,9 +42,10 @@ unitTypesVali.validateUpdateUnitType = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("unittype", "El tipo de unidad es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 

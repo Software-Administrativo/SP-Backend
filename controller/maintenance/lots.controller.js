@@ -4,8 +4,9 @@ const lotsCtrl = {};
 
 //get all lots
 lotsCtrl.getLots = async (req, res) => {
+  const {farm} = req.headers;
   try {
-    const lots = await Lot.find();
+    const lots = await Lot.find({ farm });
     res.json({ lots });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -35,6 +36,7 @@ lotsCtrl.registerLot = async (req, res) => {
     sowingdensity,
     description,
   } = req.body;
+  const { farm } = req.headers;
   try {
     const newLot = new Lot({
       name,
@@ -45,6 +47,7 @@ lotsCtrl.registerLot = async (req, res) => {
       fatherlot,
       sowingdensity,
       description,
+      farm,
     });
     const lot = await newLot.save();
     res.json({ msg: "Lote creado correctamente", lot });
@@ -56,6 +59,7 @@ lotsCtrl.registerLot = async (req, res) => {
 //update lot in the db
 lotsCtrl.updateLots = async (req, res) => {
   const { id } = req.params;
+  const {farm} = req.headers;
   const {
     name,
     areasize,
@@ -76,6 +80,7 @@ lotsCtrl.updateLots = async (req, res) => {
       fatherlot,
       sowingdensity,
       description,
+      farm,
     });
 
     const lot = await Lot.findById(id);

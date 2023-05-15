@@ -12,6 +12,11 @@ const WorkSquema = new Schema(
       type: String,
       default: "",
     },
+    farm: {
+      type: Schema.Types.ObjectId,
+      ref: "Farm",
+      required: true,
+    },
     status: {
       type: Number,
       default: 0,

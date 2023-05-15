@@ -5,7 +5,7 @@ import { paysHelper } from "../../helpers/maintenance/pay.helper.js";
 import { validate } from "uuid";
 
 const { validateExistPayById } = paysHelper;
-const { validateToken,validateFarm } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const paysVali = {};
 
@@ -16,7 +16,7 @@ paysVali.validateExistPay = [
   check("id").custom(async (id) => {
     await validateExistPayById(id); // modificar por pay
   }),
-  check('token').custom(async (token, {req}) => {
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
@@ -26,7 +26,7 @@ paysVali.validateExistPay = [
 //validate fields for register pay
 paysVali.validateRegisterPay = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check('token').custom(async (token, {req}) => {
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
@@ -41,20 +41,20 @@ paysVali.validateUpdatePay = [
     await validateExistPayById(id); // modificar por pay
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
-  check('token').custom(async (token, {req}) => {
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
 
-//validate token 
-paysVali.validateHeaders =[
-  check('token').custom(async (token, {req}) => {
+//validate token
+paysVali.validateHeaders = [
+  check("token").custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
-    validateFields,
-]
+  validateFields,
+];
 
 export { paysVali };
