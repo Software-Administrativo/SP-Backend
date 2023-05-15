@@ -8,11 +8,7 @@ const CategorySchema = new Schema(
     },
     description: {
       type: String,
-      default: "",
-    },
-    status: {
-      type: Number,
-      default: 0,
+      required: true,
     },
   },
   {
@@ -20,4 +16,4 @@ const CategorySchema = new Schema(
     timestamps: true,
   }
 );
-export default model("Category", CategorySchema)
+export default model("Category",CategorySchema)

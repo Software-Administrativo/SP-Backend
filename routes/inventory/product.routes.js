@@ -12,19 +12,19 @@ const {
 const {
     getProduct,
     getPoductId,
-    registerProduct,
-    updateProduct,
+    registerPoduct,
+    updatePoduct,
     activateProduct,
     inactiveProduct,
 } = productCtrl;
 
 const routerProduct = Router ();
 
-routerProduct.get("/:id", validateExistProductById, getPoductId);
+routerProduct.get("/id:", validateExistProductById, getPoductId);
 routerProduct.get("/", validateToken, getProduct);
-routerProduct.post("/register", validateRegisterProduct, registerProduct);
+routerProduct.post("/register", validateRegisterProduct, registerPoduct);
 routerProduct.put("/activate/:id", validateExistProductById, activateProduct);
 routerProduct.put("/inactivate/:id", validateExistProductById, inactiveProduct);
-routerProduct.put("/update/:id", validateUpdateProduct, updateProduct);
+routerProduct.put("/update", validateUpdateProduct, updatePoduct);
 
 export { routerProduct };

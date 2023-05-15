@@ -42,7 +42,7 @@ markVali.validateUpdateMark = [
         await validateToken(token);
     }),
     check("name","El nombre de la marca es obligatorio").notEmpty().isString(),
-    //check("descripcion","Descipcion de la marca es obligatoria").notEmpty().isString(),
+    check("descripcion","Descipcion de la marca es obligatoria").notEmpty().isString(),
     validateFields,
 ];
 
