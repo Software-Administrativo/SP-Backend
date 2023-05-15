@@ -7,9 +7,10 @@ const MarkSchema = new Schema(
             required: true,
         },
         farm: {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: "Farm",
             required: true,
-        },
+          },
         category: {
             type: String,
             default: true,

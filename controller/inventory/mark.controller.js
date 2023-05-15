@@ -4,9 +4,9 @@ const markCtrl = {};
 
 //get all marks
 markCtrl.getMarks = async (req, res) => {
-    
+    const { farm} = req.headers;
     try {
-        const mark = await Mark.find();
+        const mark = await Mark.find({farm});
         res.json({ mark });
     } catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,7 +26,8 @@ markCtrl.getMarkId = async (req, res) => {
 
 //register mark in the db
 markCtrl.registerMark = async (req, res) => {
-    const { name,farm,category,description } = req.body;
+    const { name,category,description } = req.body;
+    const { farm} = req.headers;
     try {
         const newMark = new Mark({
             name,
@@ -44,7 +45,8 @@ markCtrl.registerMark = async (req, res) => {
 //update mark in the db
 markCtrl.updateMark = async (req, res) => {
     const { id } = req.params;
-    const { name,farm,category,description,  } = req.body;
+    const { name,category,description,  } = req.body;
+    const { farm} = req.headers;
     try {
         await Mark.findByIdAndUpdate(id, {
             name,

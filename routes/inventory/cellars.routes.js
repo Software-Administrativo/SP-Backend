@@ -6,7 +6,7 @@ const {
     validateExistCellarById,
     validateRegisterCellarById,
     validateUpdateCellarById,
-    validateToken,
+    validateHeaders,
 } = cellarVali;
 
 const {
@@ -21,7 +21,7 @@ const {
 const routerCellars = Router();
 
 routerCellars.get("/:id",validateExistCellarById, getCellarId);
-routerCellars.get("/", validateToken, getCellar);
+routerCellars.get("/", validateHeaders, getCellar);
 routerCellars.post("/register", validateRegisterCellarById, registerCellar);
 routerCellars.put("/activate/:id", validateExistCellarById, activateCellar);
 routerCellars.put("/inactive/:id", validateExistCellarById, inactiveCellar);

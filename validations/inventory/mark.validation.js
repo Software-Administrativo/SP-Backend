@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { markHelper } from "../../helpers/inventory/mark.helper.js";
 
 const { validateExistMarkById } = markHelper;
-const { validateToken } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const markVali = {}
 
@@ -15,9 +15,10 @@ markVali.validateExistMarkById = [
     check("id").custom(async (id) => {
         await validateExistMarkById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-        }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields,
 ];
 
@@ -25,9 +26,10 @@ markVali.validateExistMarkById = [
 markVali.validateRegisterMark = [
     check("name","El nombre de la marca es obligatorio").notEmpty().isString().exists(),
     check("descripcion","Descripcion de la marca es obligatoria"),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-        }),
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
     validateFields
 ];
 
@@ -38,20 +40,21 @@ markVali.validateUpdateMark = [
     check("id").custom(async (id) => {
         await validateExistMarkById(id);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-    }),
     check("name","El nombre de la marca es obligatorio").notEmpty().isString(),
     //check("descripcion","Descipcion de la marca es obligatoria").notEmpty().isString(),
+    check('token').custom(async (token, {req}) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
+      }),
     validateFields,
 ];
 
 //validate token 
-markVali.validateToken =[
-    check('token').custom(async (token) => {
-      await validateToken(token);
-      }),
+markVali.validateHeaders =[
+    check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
       validateFields,
 ];
-
 export { markVali }

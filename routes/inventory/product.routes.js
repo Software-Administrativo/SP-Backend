@@ -6,7 +6,7 @@ const {
     validateExistProductById,
     validateRegisterProduct,
     validateUpdateProduct,
-    validateToken,
+    validateHeaders,
 } = productVali;
 
 const {
@@ -21,7 +21,7 @@ const {
 const routerProduct = Router ();
 
 routerProduct.get("/:id", validateExistProductById, getPoductId);
-routerProduct.get("/", validateToken, getProduct);
+routerProduct.get("/", validateHeaders, getProduct);
 routerProduct.post("/register", validateRegisterProduct, registerProduct);
 routerProduct.put("/activate/:id", validateExistProductById, activateProduct);
 routerProduct.put("/inactivate/:id", validateExistProductById, inactiveProduct);

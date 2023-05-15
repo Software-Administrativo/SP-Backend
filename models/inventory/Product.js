@@ -22,6 +22,11 @@ const ProductSchema = new Schema(
         type: String,
         required: true,
     },
+    farm: {
+      type: Schema.Types.ObjectId,
+      ref: "Farm",
+      required: true,
+    },
     status: {
       type: Number,
       default: 0,
