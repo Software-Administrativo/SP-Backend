@@ -5,7 +5,7 @@ const cellarCtrl = {};
 cellarCtrl.getCellar = async (req, res) => {
 
     try {
-        const cellar = await Cellar.find({ status: 0 });
+        const cellar = await Cellar.find();
         res.json({cellar});
     }catch (error) {
         res.json({msg:"No fue posible terminar la operacion" })
@@ -35,8 +35,8 @@ cellarCtrl.registerCellar = async (req, res) => {
             valor
         });
         console.log(newCellar)
-    await newCellar.save();
-    res.json({ msg: "Bodega creada correctamente" });
+        const cellar = await newCellar.save();
+    res.json({ msg: "Bodega creada correctamente",cellar });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
@@ -47,13 +47,14 @@ cellarCtrl.updateCellar = async (req, res) => {
     const { id } = req.params;
     const { name,farm,tpcontrato,description,valor } = req.body;
     try {
-        const cellar = await Cellar.findByIdAndUpdate(id, {
+        await Cellar.findByIdAndUpdate(id, {
             name,
             farm,
             tpcontrato,
             description,
             valor,
         });
+        const cellar =  await Cellar.findById(id);
         res.json({ msg: "Bodega actualizado correctamente" , cellar});
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -64,8 +65,8 @@ cellarCtrl.updateCellar = async (req, res) => {
 cellarCtrl.activateCellar = async (req, res) => {
     const { id } = req.params;
     try {
-        const cellar = await Cellar.findByIdAndUpdate(id, { status: 0 });
-        res.json({ msg: "Bodega activado correctamente" , cellar});
+        await Cellar.findByIdAndUpdate(id, { status: 0 });
+        res.json({ msg: "Bodega activado correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
@@ -75,8 +76,8 @@ cellarCtrl.activateCellar = async (req, res) => {
 cellarCtrl.inactiveCellar = async (req, res) => {
     const { id } = req.params;
     try {
-        const cellar = await Cellar.findByIdAndUpdate(id, { status: 1 });
-        res.json({ msg: "Bodega inactivado correctamente" , cellar});
+        await Cellar.findByIdAndUpdate(id, { status: 1 });
+        res.json({ msg: "Bodega inactivado correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }

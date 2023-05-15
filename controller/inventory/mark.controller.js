@@ -6,7 +6,7 @@ const markCtrl = {};
 markCtrl.getMarks = async (req, res) => {
     
     try {
-        const mark = await Mark.find({ status: 0 });
+        const mark = await Mark.find();
         res.json({ mark });
     } catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -46,12 +46,13 @@ markCtrl.updateMark = async (req, res) => {
     const { id } = req.params;
     const { name,farm,category,description,  } = req.body;
     try {
-        const mark = await Mark.findByIdAndUpdate(id, {
+        await Mark.findByIdAndUpdate(id, {
             name,
             farm,
             category,
             description,    
         });
+        const mark = await Mark.findById(id);
         res.json({ msg: "Marca actualizado correctamente" , mark});
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -63,8 +64,8 @@ markCtrl.updateMark = async (req, res) => {
 markCtrl.activateMark = async (req, res) => {
     const { id } = req.params;
     try {
-        const mark = await Mark.findByIdAndUpdate(id, { status: 0 });
-        res.json({ msg: "Marca activada correctamente" , mark});
+        await Mark.findByIdAndUpdate(id, { status: 0 });
+        res.json({ msg: "Marca activada correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
@@ -74,8 +75,8 @@ markCtrl.activateMark = async (req, res) => {
 markCtrl.inactiveMark = async (req, res) => {
     const { id } = req.params;
     try {
-        const mark = await Mark.findByIdAndUpdate(id, { status: 1 });
-        res.json({ msg: "Marca inactivada correctamente" , mark});
+        await Mark.findByIdAndUpdate(id, { status: 1 });
+        res.json({ msg: "Marca inactivada correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }

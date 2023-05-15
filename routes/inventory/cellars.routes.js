@@ -23,8 +23,8 @@ const routerCellars = Router();
 routerCellars.get("/:id",validateExistCellarById, getCellarId);
 routerCellars.get("/", validateToken, getCellar);
 routerCellars.post("/register", validateRegisterCellarById, registerCellar);
-routerCellars.put("/activate", validateExistCellarById, activateCellar);
-routerCellars.put("/inactive", validateExistCellarById, inactiveCellar);
-routerCellars.put("/update", validateUpdateCellarById, updateCellar);
+routerCellars.put("/activate/:id", validateExistCellarById, activateCellar);
+routerCellars.put("/inactive/:id", validateExistCellarById, inactiveCellar);
+routerCellars.put("/update/:id", validateUpdateCellarById, updateCellar);
 
 export { routerCellars };

@@ -24,7 +24,6 @@ productVali.validateExistProductById = [
 //Validate fields for register product 
 productVali.validateRegisterProduct = [
     check("name","El nombre del producto es obligatorio").notEmpty(),
-    //check("descripcion","Descripcion del producto es obligatoria"),
     check('token').custom(async (token) => {
         await validateToken(token);
     }),
@@ -42,7 +41,7 @@ productVali.validateUpdateProduct = [
         await validateToken(token);
         }),
     check("name","El nombre del producto es obligatorio").notEmpty().isString(),
-    check("descripcion","Descipcion del producto es obligatoria").notEmpty().isString(),
+    //check("descripcion","Descipcion del producto es obligatoria").notEmpty().isString(),
     validateFields,
 ];
 

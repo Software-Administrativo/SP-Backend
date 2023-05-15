@@ -23,8 +23,8 @@ const routerMark = Router();
 routerMark.get("/:id", validateExistMarkById, getMarkId);
 routerMark.get("/", validateToken, getMarks);
 routerMark.post("/register", validateRegisterMark, registerMark);
-routerMark.put("/activate", validateExistMarkById, activateMark);
-routerMark.put("/inactivate", validateExistMarkById, inactiveMark);
-routerMark.put("/update", validateUpdateMark, updateMark);
+routerMark.put("/activate/:id", validateExistMarkById, activateMark);
+routerMark.put("/inactivate/:id", validateExistMarkById, inactiveMark);
+routerMark.put("/update/:id", validateUpdateMark, updateMark);
 
 export { routerMark };

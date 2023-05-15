@@ -6,7 +6,7 @@ import { categoryHelper } from "../../helpers/inventory/category.helper.js";
 const { validateExistCategoryById, } = categoryHelper;
 const { validateToken } = webToken;
 
-const categoryVali = {}
+const categoryVali = {};
 
 //Validate if exist category 
 categoryVali.validateExistCategoryById = [
@@ -27,14 +27,12 @@ categoryVali.validateRegisterCategory = [
     check('token').custom(async (token) => {
         await validateToken(token);
     }),
-    check('token').custom(async (token) => {
-        await validateToken(token);
-        }),
-    validateFields,];
+    validateFields,
+];
 
 //validate fields for update category
 categoryVali.validateUpdateCategory = [
-    check("id","El id es obligatorio").notEmpty().isString().exists(),
+    check("id","El id es obligatorio").notEmpty().exists(),
     check("id","El id no es valido").isMongoId(),
     check("id").custom(async (id) => {
         await validateExistCategoryById(id);
@@ -43,7 +41,7 @@ categoryVali.validateUpdateCategory = [
         await validateToken(token);
     }),
     check("name","El nombre de la categoria es obligatorio").notEmpty().isString(),
-    check("descripcion","Descripcion de la categoria es obligatoria").notEmpty().isString(),
+   // check("descripcion","Descripcion de la categoria es obligatoria").notEmpty().isString(),
     validateFields,
 ];
 
@@ -54,5 +52,4 @@ categoryVali.validateToken =[
       }),
       validateFields,
 ];
-
 export { categoryVali }

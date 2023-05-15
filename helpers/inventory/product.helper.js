@@ -11,5 +11,4 @@ productHelper.validateExistProductById = async (id) => {
         throw new Error (`El producto con el id ${id} no existe`);
     }
 };
-
 export { productHelper };
