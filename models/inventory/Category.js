@@ -8,12 +8,16 @@ const CategorySchema = new Schema(
     },
     description: {
       type: String,
-      required: true,
+      default: "",
     },
     status: {
       type: Number,
       default: 0,
-    }
+    },
+  },
+  {
+    //propiedad para crear la fecha de creacion y de actualizacion automaticamente
+    timestamps: true,
   }
-)
-export default model("Category",CategorySchema)
+);
+export default model("Category", CategorySchema)

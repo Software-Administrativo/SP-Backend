@@ -3,21 +3,24 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import dbConnection from "./database.js";
 import morgan from "morgan";
+
 import { routerUsers } from "./routes/user/users.routes.js";
-/* import { routerCellars } from "./routes/inventory/cellars.routes.js";
-import { routerCategory } from "./routes/inventory/category.routes.js";
-import { routerMark } from "./routes/inventory/mark.routes.js";
-import { routerProduct } from "./routes/inventory/product.routes.js"; */
+import { routerLots } from "./routes/maintenance/lots.routes.js";
+import { routerFarm } from "./routes/maintenance/farm.routes.js";
+import { routerStages } from "./routes/maintenance/stages.routes.js";
+import { routerPeople } from "./routes/maintenance/people.routes.js";
 import { routerPays } from "./routes/maintenance/pays.routes.js";
 import { routerSpents } from "./routes/maintenance/spents.routes.js";
 import { routerWorks } from "./routes/maintenance/works.routes.js";
 import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 import { routerEps } from "./routes/maintenance/eps.routes.js";
 import { routerTypeDocument } from "./routes/maintenance/typeDocument.routes.js";
-import { routerLots } from "./routes/maintenance/lots.routes.js";
-import { routerFarm } from "./routes/maintenance/farm.routes.js";
-import { routerStages } from "./routes/maintenance/stages.routes.js";
-import { routerPeople } from "./routes/maintenance/people.routes.js";
+
+import { routerCellars } from "./routes/inventory/cellars.routes.js";
+import { routerCategory } from "./routes/inventory/category.routes.js";
+import { routerMark } from "./routes/inventory/mark.routes.js";
+import { routerProduct } from "./routes/inventory/product.routes.js"; 
+
 
 dotenv.config();
 
@@ -41,10 +44,10 @@ class Server {
       res.send("Hello World!");
     });
     this.app.use("/users", routerUsers);
-/*     this.app.use("inventory/cellar", routerCellars);
-    this.app.use("inventory/category", routerCategory);
-    this.app.use("inventory/mark", routerMark);
-    this.app.use("inventory/product", routerProduct); */
+     this.app.use("/inventory/cellar", routerCellars);
+    this.app.use("/inventory/category", routerCategory);
+    this.app.use("/inventory/mark", routerMark);
+    this.app.use("/inventory/product", routerProduct); 
     this.app.use("/maintenance/pays", routerPays);
     this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);

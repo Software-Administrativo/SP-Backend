@@ -4,7 +4,7 @@ const categoryCtrl = {};
 //get all category
 categoryCtrl.getCategory = async (req, res) => {
   try {
-    const category = await Category.find({ status: 0 });
+    const category = await Category.find();
     res.json({category});
   }catch (error) {
     res.json({msg: "No fue posible terminar la operacion" })
@@ -20,9 +20,9 @@ categoryCtrl.getCategoryId = async (req, res) => {
   } catch (error) {
     res.json({ msg:"No fue posible terminar la operacion"})
   }
-}
+};
 
-//register pay in the db
+//register category in the db
 categoryCtrl.registerCategory = async (req, res) => {
   const {name, description} = req.body;
   try {
@@ -30,23 +30,24 @@ categoryCtrl.registerCategory = async (req, res) => {
       name, 
       description,
     });
-    await newCategory.save();
-    res.json({ msg: "Categoia creada correctamente" });
+    const category = await newCategory.save();
+    res.json({ msg: "Categoria creada correctamente", category });
   }catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
-}
+};
 
 //Update category in the db
 categoryCtrl.updateCategory = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
   try{
-    const category = await Category.findByIdAndUpdate(id, {
+    await Category.findByIdAndUpdate(id, {
       name,
       description,
     });
-    res.json({msg: "Categotia actualizada con coorectamente", category});
+    const category = await Category.findById(id);
+    res.json({msg: "Categoria actualizada con correctamente", category});
   }catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -56,8 +57,8 @@ categoryCtrl.updateCategory = async (req, res) => {
 categoryCtrl.activateCategory = async (req, res) => {
   const { id } = req.params;
   try {
-    const category = await Category.findByIdAndUpdate(id, { status: 0});
-    res.json({ msg: "Categoria activada coorectamente ", category});
+    await Category.findByIdAndUpdate(id, { status: 0});
+    res.json({ msg: "Categoria activada coorectamente "});
   }catch (error) {
     res.json({ msg: "No fue posible terminar la operacion"});
   }
@@ -67,8 +68,8 @@ categoryCtrl.activateCategory = async (req, res) => {
 categoryCtrl.inactivateCategory = async (req, res) => {
   const { id } = req.params;
   try {
-    const category = await Category.findByIdAndUpdate(id, { status: 1});
-    res.json({ msg: "Categoria inactivada correctamente ", category});
+    await Category.findByIdAndUpdate(id, { status: 1});
+    res.json({ msg: "Categoria inactivada correctamente "});
   }catch (error) {
     res.json({ msg: "No fue posible terminar la operacion"});
   }

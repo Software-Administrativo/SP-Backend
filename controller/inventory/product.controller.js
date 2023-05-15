@@ -1,11 +1,11 @@
 import Product from "../../models/inventory/Product.js"
-
 const productCtrl = {};
 
 //get all products
 productCtrl.getProduct = async (req, res) => {
+    
     try {
-        const product = await Product.find({ status: 0 });
+        const product = await Product.find();
         res.json({ product });
     } catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -13,48 +13,52 @@ productCtrl.getProduct = async (req, res) => {
 }
 
 //get product by id in the db
-product.getPoductId = async (req, res) => {
+productCtrl.getPoductId = async (req, res) => {
     const { id } = req.params;
     try {
         const product = await Product.findById(id);
         res.json({ product });
     } catch (error) {
+        
         res.json({ msg: "No fue posible terminar la operacion" });
     }
-}
+};
 
 //register product in the db
-productCtrl.registerPoduct = async (req, res) => {
-    const { code,name,category,mark,amount,description,valor } = req.body;
+productCtrl.registerProduct = async (req, res) => {
+    const { name,category,amount,description,mark } = req.body;
     try {
-        const newProduct = new Pay({
-            code,
+        const newProduct = new Product({
             name,
             category,
-            mark,
             amount,
             description,
+            mark,
         });
-    await newProduct.save();
-    res.json({ msg: "Producto creado correctamente" });
+        //console.log(newProduct);
+        const product = await newProduct.save();
+    res.json({ msg: "Producto creado correctamente", product });
     }catch (error) {
+        console.log(error);
         res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
 
-//update product in the db
-productCtrl.updatePoduct = async (req, res) => {
+//update product in the db 
+productCtrl.updateProduct = async (req, res) => {
     const { id } = req.params;
-    const { code,name,category,mark,amount,description,valor } = req.body;
+    const { name,category,mark,amount,description } = req.body;
     try {
-        const product = await Product.findByIdAndUpdate(id,{
-            code,
+        await Product.findByIdAndUpdate(id,{
+            
             name,
             category,
             mark,
             amount,
             description,
         });
+
+        const product = await Product.findById(id);
     res.json({ msg: "Producto actualizado correctamente", product });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
@@ -65,8 +69,8 @@ productCtrl.updatePoduct = async (req, res) => {
 productCtrl.activateProduct = async (req, res) => {
     const { id } = req.params;
     try {
-        const product = await Product.findByIdAndUpdate(id, { status: 0 });
-        res.json({ msg: "Poducto activado correctamente" , product});
+        await Product.findByIdAndUpdate(id, { status: 0 });
+        res.json({ msg: "Producto activado correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
@@ -76,8 +80,8 @@ productCtrl.activateProduct = async (req, res) => {
 productCtrl.inactiveProduct = async (req, res) => {
     const { id } = req.params;
     try {
-        const product = await Product.findByIdAndUpdate(id, { status: 1 });
-        res.json({ msg: "Producto inactivado correctamente" , product});
+        await Product.findByIdAndUpdate(id, { status: 1 });
+        res.json({ msg: "Producto inactivado correctamente" });
     }catch (error) {
         res.json({ msg: "No fue posible terminar la operacion" });
     }

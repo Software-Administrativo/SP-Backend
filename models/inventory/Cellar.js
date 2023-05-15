@@ -6,7 +6,7 @@ const CellarSchema = new Schema(
             type: String,
             required: true,
         },
-        estate: {
+        farm: {
             type: String,
             required: true,
         },
@@ -26,6 +26,10 @@ const CellarSchema = new Schema(
             type: Number,
             default: 0,
         },
-    }
-)
+    },
+    {
+        //propiedad para crear la fecha de creacion y de actualizacion automaticamente 
+        timestamps: true,
+      }
+);
 export default model ("Cellar",CellarSchema)
