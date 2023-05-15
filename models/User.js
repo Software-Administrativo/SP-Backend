@@ -23,8 +23,6 @@ const UserSquema = new Schema(
       type: String,
       required: true,
     },
-
-    //farms es un arreglo que contiene objetos y cada objeto es una finca con su id y estatus
     farms: [
       {
           type: Schema.Types.ObjectId,

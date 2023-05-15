@@ -1,4 +1,5 @@
 import Farm from "../../models/maintenance/Farm.js";
+import User from "../../models/User.js";
 
 const farmCtrl = {};
 
@@ -72,7 +73,25 @@ farmCtrl.activeFarms = async (req, res) => {
 farmCtrl.inactiveFarms = async (req, res) => {
   const { id } = req.params;
   try {
-    await Farm.findByIdAndUpdate(id, { status: 1 });
+    let newUsers = [];
+    //search all users with the farm id 
+    const users = await User.find({
+      farms: id,
+      status: 0,
+    });
+
+    //for each user, remove the farm id and update the user
+    for (let user of users) {
+      const index = user.farms.indexOf(id);
+      user.farms.splice(index, 1);
+      if (user.farms.length === 0 && user.role !== "SUPER") user.status = 1;
+      newUsers.push(user);
+    }
+    for (let user of newUsers) {
+       await User.findByIdAndUpdate(user._id, user);
+    }
+
+    await Farm.findByIdAndUpdate(id, { status: 1 }); 
     res.json({ msg: "Finca inactivada correctamente" });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

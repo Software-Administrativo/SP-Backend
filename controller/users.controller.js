@@ -117,7 +117,12 @@ userCtrl.getUserId = async (req, res) => {
 userCtrl.activeUser = async (req, res) => {
   const { id } = req.params;
   try {
+    const user = await User.findById(id)
+    if(!user.farms.length == 0 && user.role != "SUPER"){
+      return res.json({ msg: "El usuario debe tener al menos una finca asignada" });
+    }
     await User.findByIdAndUpdate(id, { status: 0 });
+
     res.json({ msg: "Usuario activado correctamente" });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
