@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import dbConnection from "./database.js";
 import morgan from "morgan";
-import { routerUsers } from "./routes/users.routes.js";
+import { routerUsers } from "./routes/user/users.routes.js";
 /* import { routerCellars } from "./routes/inventory/cellars.routes.js";
 import { routerCategory } from "./routes/inventory/category.routes.js";
 import { routerMark } from "./routes/inventory/mark.routes.js";

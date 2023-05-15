@@ -1,7 +1,7 @@
 import { check } from "express-validator";
-import webToken from "../middlewares/webToken.js";
-import { validateFields } from "../middlewares/validateFields.js";
-import { userHelper } from "../helpers/user.helper.js";
+import webToken from "../../middlewares/webToken.js";
+import { validateFields } from "../../middlewares/validateFields.js";
+import { userHelper } from "../../helpers/user/user.helper.js";
 
 const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
   userHelper;

@@ -1,5 +1,5 @@
 import Farm from "../../models/maintenance/Farm.js";
-import User from "../../models/User.js";
+import User from "../../models/user/User.js";
 
 const farmCtrl = {};
 

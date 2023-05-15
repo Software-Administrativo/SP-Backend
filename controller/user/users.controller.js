@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import webToken from "../middlewares/webToken.js";
+import User from "../../models/user/User.js";
+import webToken from "../../middlewares/webToken.js";
 
 const userCtrl = {};
 

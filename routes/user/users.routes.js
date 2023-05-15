@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { userCtrl } from "../controller/users.controller.js";
-import { usersVali } from "../validations/users.validation.js";
+import { userCtrl } from "../../controller/user/users.controller.js";
+import { usersVali } from "../../validations/user/users.validation.js";
 
 const {
   validateLoginUser,

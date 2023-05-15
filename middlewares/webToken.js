@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import User from "../models/User.js";
+import User from "../models/user/User.js";
 import Farm from '../models/maintenance/Farm.js';
 
 const webToken = {}
