@@ -15,8 +15,9 @@ spentsVali.validateExistSpent = [
   check("id").custom(async (id) => {
     await validateExistSpendById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -25,8 +26,9 @@ spentsVali.validateExistSpent = [
 spentsVali.validateRegisterSpent = [
   check("name", "El nombre es obligatorio").notEmpty(),
   //check("description", "La descripcion es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];
@@ -40,8 +42,9 @@ spentsVali.validateUpdateSpent = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   //check("description", "La descripcion es obligatoria").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
+    await validateFarm(req.headers.farm);
   }),
   validateFields,
 ];

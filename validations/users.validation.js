@@ -17,7 +17,7 @@ usersVali.validateRegisterUser = [
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
   check("numdocument").custom(async (numdocument, { req }) => {
-    await validateExistUser(numdocument);
+    await validateExistUser(numdocument, req.headers.farm);
   }),
 
   check("role", "El rol es obligatorio").notEmpty(),

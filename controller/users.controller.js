@@ -7,7 +7,11 @@ const userCtrl = {};
 userCtrl.loginUser = async (req, res) => {
   const { tpdocument, numdocument, password } = req.body;
   try {
-    const user = await User.findOne({ tpdocument, numdocument, status: 0 });
+    const user = await User.findOne({
+      tpdocument,
+      numdocument,
+      status: 0,
+    }).populate("farms");
     console.log(user);
     if (!user && user.farms.length == 0) {
       return res.json({ msg: "Credenciales incorrectas" });
@@ -19,7 +23,11 @@ userCtrl.loginUser = async (req, res) => {
 
     const token = await webToken.generateToken(user);
 
-    res.json({ msg: "Usuario logueado correctamente", token });
+    res.json({
+      msg: "Usuario logueado correctamente",
+      token,
+      farms: user.farms,
+    });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -53,7 +61,6 @@ userCtrl.updateUser = async (req, res) => {
   const passwordEncrypt = new User({ password });
   passwordEncrypt.password = await passwordEncrypt.encryptPassword(password);
 
-
   try {
     const user = await User.findById(id);
     if (user.role == "SUPER") {
@@ -84,20 +91,22 @@ userCtrl.updateUser = async (req, res) => {
 
 //get all users actives in the db
 userCtrl.getUsers = async (req, res) => {
-  const {farm} = req.headers
+  const { farm } = req.headers;
   try {
-    const users = await User.find({farms: farm });
+    const users = await User.find({ farms: farm });
     res.json(users);
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
+
+
 //get user by id in the db
 userCtrl.getUserId = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("farms");
     res.json({ user });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });

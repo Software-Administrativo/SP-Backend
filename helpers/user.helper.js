@@ -2,14 +2,15 @@ import User from "../models/User.js";
 
 const userHelper = {};
 
-userHelper.validateExistUser = async (document) => {
+userHelper.validateExistUser = async (document,farm) => {
   try {
 
 
     const user = await User.findOne({ numdocument: document});
     console.log('user',user)
+    const existUserFarm = user.farms.find(f => f._id == farm)
 
-    if (user) {
+    if (user && existUserFarm) {
       throw new Error("El usuario ya existe");
     }
   } catch (error) {

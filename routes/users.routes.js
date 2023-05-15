@@ -15,6 +15,7 @@ const {
   loginUser,
   registerUser,
   getUsers,
+  getFarmsUser,
   updateUser,
   activeUser,
   inactiveUser,

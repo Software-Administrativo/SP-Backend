@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 5312.5,
     "created": "2023-04-18T13:51:23.432Z",
-    "modified": "2023-05-11T03:45:52.225Z",
+    "modified": "2023-05-15T03:05:40.092Z",
     "headers": [
       {
         "name": "token",
@@ -22,7 +22,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"TEST2\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"19499\",\n  \"role\":\"ADMIN\",\n  \"farms\":[\"644bf8ff92ec73c9fa60201c\"],\n  \"password\":\"fA12345\"\n}",
+      "raw": "{\n  \"name\":\"TEST3\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"1949922\",\n  \"role\":\"ADMIN\",\n  \"farms\":[\"644bf8ff92ec73c9fa60201c\",\"6456f212f4929b21c7546993\"],\n  \"password\":\"fA12345\"\n}",
       "form": []
     },
     "tests": []
@@ -120,11 +120,11 @@
     "colId": "f3c95948-562a-4df5-95eb-62012b04de3b",
     "containerId": "292a426c-b5db-44f9-8ccd-8656b4b6cced",
     "name": "UpdateUser",
-    "url": "{{URI}}/users/update/643ec0da1c39eb23912e327c",
+    "url": "{{URI}}/users/update/6445919e81d2712980e2bffd",
     "method": "PUT",
     "sortNum": 5468.8,
     "created": "2023-04-18T16:08:40.853Z",
-    "modified": "2023-05-12T14:58:58.344Z",
+    "modified": "2023-05-15T03:10:06.988Z",
     "headers": [
       {
         "name": "token",
@@ -138,7 +138,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"SUPER\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"19499843545\",\n  \"role\":\"SUPER\",\n  \"farms\":[{\n    \"farm\":\"644bf8ff92ec73c9fa60201c\"\n    },\n    {\n      \"farm\":\"6456f212f4929b21c7546993\"\n    }\n    ],\n  \"password\":\"123Admin\"\n}",
+      "raw": "{\n  \"name\":\"pass:123Admin\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"12345678\",\n  \"role\":\"ADMIN\",\n  \"farms\":[\"644bf8ff92ec73c9fa60201c\",\"6456f212f4929b21c7546993\"],\n  \"password\":\"123Admin\"\n}",
       "form": []
     },
     "tests": []
@@ -422,7 +422,7 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-19T16:49:01.650Z",
-    "modified": "2023-05-11T04:34:10.460Z",
+    "modified": "2023-05-15T03:16:53.738Z",
     "headers": [
       {
         "name": "token",
@@ -468,7 +468,7 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-20T12:00:41.910Z",
-    "modified": "2023-05-11T04:34:47.886Z",
+    "modified": "2023-05-15T03:20:30.625Z",
     "headers": [
       {
         "name": "token",
@@ -482,7 +482,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Contado\",\n  \"description\": \" \"\n}",
+      "raw": "{\n  \"name\":\"Contado 2\",\n  \"description\": \" \",\n  \"farm\":\"644bf8ff92ec73c9fa60201c\"\n}",
       "form": []
     },
     "tests": []
@@ -542,7 +542,7 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-20T14:12:53.653Z",
-    "modified": "2023-05-11T04:35:11.608Z",
+    "modified": "2023-05-15T03:34:46.000Z",
     "headers": [
       {
         "name": "token",
@@ -556,7 +556,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Efectivo\",\n  \"description\": \"\"\n}",
+      "raw": "{\n  \"name\":\"Efectivo\",\n  \"description\": \"\",\n  \"farm\":\"644bf8ff92ec73c9fa60201c\"\n}",
       "form": []
     },
     "tests": []
@@ -570,11 +570,15 @@
     "method": "GET",
     "sortNum": 67500,
     "created": "2023-04-21T12:21:23.455Z",
-    "modified": "2023-04-25T14:59:55.152Z",
+    "modified": "2023-05-15T03:36:02.355Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],
@@ -589,11 +593,15 @@
     "method": "GET",
     "sortNum": 77500,
     "created": "2023-04-21T12:21:23.456Z",
-    "modified": "2023-04-25T14:59:53.888Z",
+    "modified": "2023-05-15T03:36:15.989Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],
@@ -608,11 +616,15 @@
     "method": "POST",
     "sortNum": 117500,
     "created": "2023-04-21T12:21:23.457Z",
-    "modified": "2023-04-25T15:02:46.184Z",
+    "modified": "2023-05-15T03:36:30.420Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],
@@ -632,11 +644,15 @@
     "method": "PUT",
     "sortNum": 127500,
     "created": "2023-04-21T12:21:23.458Z",
-    "modified": "2023-04-25T15:00:01.589Z",
+    "modified": "2023-05-15T03:36:41.892Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],
@@ -651,11 +667,15 @@
     "method": "PUT",
     "sortNum": 137500,
     "created": "2023-04-21T12:21:23.459Z",
-    "modified": "2023-04-25T15:00:04.998Z",
+    "modified": "2023-05-15T03:36:50.196Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],
@@ -670,11 +690,15 @@
     "method": "PUT",
     "sortNum": 147500,
     "created": "2023-04-21T12:21:23.460Z",
-    "modified": "2023-04-25T15:02:13.760Z",
+    "modified": "2023-05-15T03:37:05.109Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
       }
     ],
     "params": [],

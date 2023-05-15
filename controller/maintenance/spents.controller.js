@@ -4,8 +4,9 @@ const spentCtrl = {};
 
 //get all spents
 spentCtrl.getSpents = async (req, res) => {
+  const { farm } = req.headers;
   try {
-    const spents = await Spent.find();
+    const spents = await Spent.find({ farm });
     res.json({ spents });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -26,10 +27,12 @@ spentCtrl.getSpentId = async (req, res) => {
 //register spent in the db
 spentCtrl.registerSpent = async (req, res) => {
   const { name, description } = req.body;
+  const { farm } = req.headers;
   try {
     const newSpent = new Spent({
       name,
       description,
+      farm,
     });
     const spent = await newSpent.save();
     res.json({ msg: "Gasto creado correctamente", spent });
@@ -42,10 +45,12 @@ spentCtrl.registerSpent = async (req, res) => {
 spentCtrl.updateSpents = async (req, res) => {
   const { id } = req.params;
   const { name, description } = req.body;
+  const { farm } = req.headers;
   try {
     await Spent.findByIdAndUpdate(id, {
       name,
       description,
+      farm,
     });
 
     const updateSpent = await Spent.findById(id);

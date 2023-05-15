@@ -14,7 +14,6 @@ const UserSquema = new Schema(
     numdocument: {
       type: String,
       required: true,
-      unique: true,
     },
     role: {
       type: String,

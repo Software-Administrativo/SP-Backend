@@ -16,18 +16,20 @@ paysVali.validateExistPay = [
   check("id").custom(async (id) => {
     await validateExistPayById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
 //validate fields for register pay
 paysVali.validateRegisterPay = [
   check("name", "El nombre es obligatorio").notEmpty(),
-  check('token').custom(async (token) => {
+  check('token').custom(async (token, {req}) => {
     await validateToken(token);
-    }),
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -38,10 +40,11 @@ paysVali.validateUpdatePay = [
   check("id").custom(async (id) => {
     await validateExistPayById(id); // modificar por pay
   }),
-  check('token').custom(async (token) => {
-    await validateToken(token);
-    }),
   check("name", "El nombre es obligatorio").notEmpty(),
+  check('token').custom(async (token, {req}) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
   validateFields,
 ];
 
@@ -53,6 +56,5 @@ paysVali.validateHeaders =[
   }),
     validateFields,
 ]
-
 
 export { paysVali };
