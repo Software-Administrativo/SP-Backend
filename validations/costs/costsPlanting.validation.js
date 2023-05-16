@@ -1,7 +1,7 @@
 import { check } from "express-validator";
 import webToken  from "../../middlewares/webToken.js";
 import { validateFields } from "../../middlewares/validateFields.js";
-import { costsHelper  } from "../../helpers/costs/costsPlanting.js";
+import { costsHelper  } from "../../helpers/costs/costsPlanting.helper.js";
 
 const { validateExistCostsById } = costsHelper;
 const { validateToken, validateFarm } = webToken;
