@@ -5,6 +5,7 @@ import dbConnection from "./database.js";
 import morgan from "morgan";
 
 import { routerUsers } from "./routes/user/users.routes.js";
+
 import { routerLots } from "./routes/maintenance/lots.routes.js";
 import { routerFarm } from "./routes/maintenance/farm.routes.js";
 import { routerStages } from "./routes/maintenance/stages.routes.js";
@@ -15,12 +16,16 @@ import { routerWorks } from "./routes/maintenance/works.routes.js";
 import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 import { routerEps } from "./routes/maintenance/eps.routes.js";
 import { routerTypeDocument } from "./routes/maintenance/typeDocument.routes.js";
+import { routerClient } from "./routes/maintenance/client.routes.js";
 
 import { routerCellars } from "./routes/inventory/cellars.routes.js";
 import { routerCategory } from "./routes/inventory/category.routes.js";
 import { routerMark } from "./routes/inventory/mark.routes.js";
 import { routerProduct } from "./routes/inventory/product.routes.js"; 
 
+import { routerOrder } from "./routes/orders/orders.routes.js";
+
+import { routerModelTrans } from "./routes/transformation/modelTrans.routes.js";
 
 dotenv.config();
 
@@ -44,10 +49,12 @@ class Server {
       res.send("Hello World!");
     });
     this.app.use("/users", routerUsers);
-     this.app.use("/inventory/cellar", routerCellars);
+
+    this.app.use("/inventory/cellar", routerCellars);
     this.app.use("/inventory/category", routerCategory);
     this.app.use("/inventory/mark", routerMark);
     this.app.use("/inventory/product", routerProduct); 
+
     this.app.use("/maintenance/pays", routerPays);
     this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);
@@ -58,6 +65,12 @@ class Server {
     this.app.use("/maintenance/farm", routerFarm);
     this.app.use("/maintenance/stage", routerStages);
     this.app.use("/maintenance/people", routerPeople);
+    this.app.use("/maintenance/client", routerClient);
+
+    this.app.use("/orders", routerOrder);
+
+    this.app.use("/transformation/modeltrans", routerModelTrans);
+
     this.app.use("*", (req, res) => {
       res.status(404).json({
         msg: "Page not found",
