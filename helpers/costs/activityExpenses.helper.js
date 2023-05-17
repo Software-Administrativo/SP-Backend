@@ -1,4 +1,4 @@
-import ActivityExpenses from "../../models/costs"
+import ActivityExpenses from "../../models/costs/activityExpenses.js"
 const activityExpensesHelper = {};
 
 activityExpensesHelper.validateExistActivityExpensesById = async (id) => {
