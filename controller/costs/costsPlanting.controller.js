@@ -1,8 +1,8 @@
-import Costs from "../../models/costs/CostsPlanting.js"
+import Costs from "../../models/costs/costsPlanting.js"
 const costsCtrl = {};
 
 //get all costs of planting
-costCtrl.getCosts = async (req,res) => {
+costsCtrl.getCosts = async (req,res) => {
   try {
     const costs = await Costs.find();
     res.json({costs}); 

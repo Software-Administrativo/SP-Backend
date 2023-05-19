@@ -21,6 +21,12 @@ import { routerCategory } from "./routes/inventory/category.routes.js";
 import { routerMark } from "./routes/inventory/mark.routes.js";
 import { routerProduct } from "./routes/inventory/product.routes.js"; 
 
+// costs 
+import ActivityExpenses from "../../models/costs/activityExpenses.js"
+import AdminExpenses from "../../models/costs/adminExpenses.js";
+import Costs from "../../models/costs/costsPlanting.js";
+import TypeExpenses from "../../models/costs/typeExpenses.js";
+
 
 dotenv.config();
 
@@ -58,6 +64,16 @@ class Server {
     this.app.use("/maintenance/farm", routerFarm);
     this.app.use("/maintenance/stage", routerStages);
     this.app.use("/maintenance/people", routerPeople);
+    
+    //costs
+    this.app.use("/costs/activityExpenses",);
+    this.app.use("/costs/adminExpenses",);
+    this.app.use("/costs/costsPlanting",);
+    this.app.use("/costs/typeExpenses",);
+
+
+
+
     this.app.use("*", (req, res) => {
       res.status(404).json({
         msg: "Page not found",

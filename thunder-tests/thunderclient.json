@@ -2084,9 +2084,9 @@
     "name": "AllCostsPlanting",
     "url": "{{URI}}/costs/costsplanting",
     "method": "GET",
-    "sortNum": 10000,
+    "sortNum": 9375,
     "created": "2023-05-15T15:39:43.152Z",
-    "modified": "2023-05-16T15:39:44.795Z",
+    "modified": "2023-05-19T15:10:21.709Z",
     "headers": [
       {
         "name": "token",
@@ -2128,11 +2128,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "RegisterCostsPlanting",
-    "url": "{{URI}}/costs/costsplanting/register",
+    "url": "{{URI}}/costs/coststplanting/register",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-17T03:41:03.758Z",
-    "modified": "2023-05-17T04:01:20.399Z",
+    "modified": "2023-05-19T11:59:39.877Z",
     "headers": [
       {
         "name": "token",
@@ -2157,10 +2157,10 @@
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "InactivateCostsPlanting",
     "url": "{{URI}}/costs/costsplanting",
-    "method": "GET",
+    "method": "PUT",
     "sortNum": 40000,
     "created": "2023-05-17T03:41:52.709Z",
-    "modified": "2023-05-17T03:41:52.709Z",
+    "modified": "2023-05-19T12:12:19.175Z",
     "headers": [
       {
         "name": "token",
@@ -2180,10 +2180,10 @@
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "ActivateCostsPlanting",
     "url": "{{URI}}/costs/costsplanting",
-    "method": "GET",
+    "method": "PUT",
     "sortNum": 45000,
     "created": "2023-05-17T03:42:43.885Z",
-    "modified": "2023-05-17T03:42:57.183Z",
+    "modified": "2023-05-19T12:12:20.968Z",
     "headers": [
       {
         "name": "token",
@@ -2203,10 +2203,10 @@
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "UpdateCostsPlanting",
     "url": "{{URI}}/costs/costsplanting",
-    "method": "GET",
+    "method": "PUT",
     "sortNum": 55000,
     "created": "2023-05-17T03:43:03.332Z",
-    "modified": "2023-05-17T03:43:03.332Z",
+    "modified": "2023-05-19T12:12:23.431Z",
     "headers": [
       {
         "name": "token",
@@ -2225,215 +2225,400 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "AllTypeExpenses",
-    "url": "",
+    "url": "{{URI}}/costs/typeexpenses",
     "method": "GET",
     "sortNum": 690000,
     "created": "2023-05-17T03:43:35.789Z",
-    "modified": "2023-05-17T03:43:35.789Z",
-    "headers": []
+    "modified": "2023-05-19T12:13:36.509Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "f5001702-984b-4e0b-aeac-e4ff3eb7fe87",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "TypeExpensesById",
-    "url": "",
+    "url": "{{URI}}/costs/typeexpenses/:id",
     "method": "GET",
     "sortNum": 700000,
     "created": "2023-05-17T03:43:52.028Z",
-    "modified": "2023-05-17T03:43:52.028Z",
-    "headers": []
+    "modified": "2023-05-19T12:14:05.310Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "c688dd45-da0d-4488-9448-a07a81959246",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
-    "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
+    "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "RegisterTypeExpenses",
-    "url": "",
-    "method": "GET",
-    "sortNum": 710000,
+    "url": "{{URI}}/costs/typeexpenses",
+    "method": "POST",
+    "sortNum": 25000,
     "created": "2023-05-17T03:44:31.283Z",
-    "modified": "2023-05-17T03:44:31.283Z",
-    "headers": []
+    "modified": "2023-05-19T15:10:29.749Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "b3a44bfb-996e-4334-8d58-375325b5bef0",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "ActiveTypeExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/activate/:id",
+    "method": "PUT",
     "sortNum": 720000,
     "created": "2023-05-17T03:45:27.272Z",
-    "modified": "2023-05-17T03:45:38.563Z",
-    "headers": []
+    "modified": "2023-05-19T12:21:39.027Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "6116fe8b-2d0c-4954-96de-e976e5eba13d",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "UpdateTypeExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/update/:id",
+    "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-17T03:46:04.669Z",
-    "modified": "2023-05-17T03:46:04.669Z",
-    "headers": []
+    "modified": "2023-05-19T12:21:41.513Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "60f56800-dd3e-4ba6-afaf-69470e686186",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "InactiveTypeExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/inactivate/:id",
+    "method": "PUT",
     "sortNum": 725000,
     "created": "2023-05-17T03:46:46.548Z",
-    "modified": "2023-05-17T03:46:46.548Z",
-    "headers": []
+    "modified": "2023-05-19T12:21:40.591Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "972940d1-d72a-4096-9f22-73bd425f7c37",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "AllActivityExpenses",
-    "url": "",
+    "url": "{{URI}}/costs/ActivityExpenses",
     "method": "GET",
     "sortNum": 700000,
     "created": "2023-05-17T03:47:31.795Z",
-    "modified": "2023-05-17T03:47:31.795Z",
-    "headers": []
+    "modified": "2023-05-19T15:25:29.568Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "d7dc8d9e-63d5-45ab-bdc4-11b3adc762ba",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "ActivityExpensesById",
-    "url": "",
+    "url": "{{URI}}/costs/activityexpenses/:id",
     "method": "GET",
     "sortNum": 710000,
     "created": "2023-05-17T03:47:40.758Z",
-    "modified": "2023-05-17T03:47:40.758Z",
-    "headers": []
+    "modified": "2023-05-19T15:13:28.789Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "c59a03de-bd3e-4fbf-80d5-a48f62e4b980",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "RegisterActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/activityexpenses",
+    "method": "POST",
     "sortNum": 720000,
     "created": "2023-05-17T03:48:09.126Z",
-    "modified": "2023-05-17T03:48:09.126Z",
-    "headers": []
+    "modified": "2023-05-19T15:26:59.682Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Actividad 01\",\n  \"description\":\"123\",\n  \"tpcontrato\":\"2040\",\n  \"valor\": 20\n}",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "757f002f-5a58-463d-83b5-c78c1510699f",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "ActiveActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/allactivityexpenses/:id",
+    "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-17T03:48:33.604Z",
-    "modified": "2023-05-17T03:48:33.604Z",
-    "headers": []
+    "modified": "2023-05-19T15:13:30.502Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "16955077-3a66-4a55-89af-e0fb5d17d776",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "InactiveActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/inactivate/:id",
+    "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-17T03:49:21.322Z",
-    "modified": "2023-05-17T03:49:21.322Z",
-    "headers": []
+    "modified": "2023-05-19T15:13:31.189Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "323d306b-7198-4e96-83b1-9fda476ddc0e",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "UpdateActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/update/:id",
+    "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-17T03:49:40.087Z",
-    "modified": "2023-05-17T03:49:40.087Z",
-    "headers": []
+    "modified": "2023-05-19T15:13:31.909Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "dcf341a0-e306-4711-bb25-34179517ab8d",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "AllAdminExpenses",
-    "url": "",
+    "url": "{{URI}}/costs/adminexpenses",
     "method": "GET",
     "sortNum": 710000,
     "created": "2023-05-17T03:50:13.027Z",
-    "modified": "2023-05-17T03:50:13.027Z",
-    "headers": []
+    "modified": "2023-05-19T15:17:47.421Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "9a75efd2-d97e-45fd-b736-a4790f7db921",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "ActivityExpensesById",
-    "url": "",
+    "url": "{{URI}}/costs/adminexpenses/:id",
     "method": "GET",
     "sortNum": 720000,
     "created": "2023-05-17T03:50:16.979Z",
-    "modified": "2023-05-17T03:50:16.979Z",
-    "headers": []
+    "modified": "2023-05-19T15:17:54.254Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "47b50dda-ccba-4d2a-b46a-6acd7fd79ea3",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "RegisterActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/register/",
+    "method": "POST",
     "sortNum": 730000,
     "created": "2023-05-17T03:51:03.306Z",
-    "modified": "2023-05-17T03:51:03.306Z",
-    "headers": []
+    "modified": "2023-05-19T15:18:00.876Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "72a9f181-d1ce-4ba5-8340-07e053206a94",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "ActiveActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/activate/:id",
+    "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-17T03:51:21.926Z",
-    "modified": "2023-05-17T03:51:21.926Z",
-    "headers": []
+    "modified": "2023-05-19T15:18:07.383Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "21e8e4f0-48cd-49b1-8926-33d49b08c8c7",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "InactiveActivityExpenses",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/adminexpenses/activate/:id",
+    "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-17T03:51:39.071Z",
-    "modified": "2023-05-17T03:51:39.071Z",
-    "headers": []
+    "modified": "2023-05-19T15:18:13.981Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "tests": []
   },
   {
     "_id": "847e1617-5a61-4146-aeed-85567a4f1cd9",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "UpdateActivityExpenses Copy",
-    "url": "",
-    "method": "GET",
+    "url": "{{URI}}/costs/adminexpenses/update/:id",
+    "method": "PUT",
     "sortNum": 760000,
     "created": "2023-05-17T03:51:56.254Z",
-    "modified": "2023-05-17T03:51:56.254Z",
-    "headers": []
+    "modified": "2023-05-19T15:17:29.133Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

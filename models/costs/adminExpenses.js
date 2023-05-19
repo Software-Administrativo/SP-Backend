@@ -10,6 +10,11 @@ const AdminExpensesSchema = new Schema(
       type: String,
       default: ""
     },
+    farm: {
+      type: Schema.Types.ObjectId,
+      ref: "Farm",
+      required: true,
+    },
     type: {
       type: String,
       required: true

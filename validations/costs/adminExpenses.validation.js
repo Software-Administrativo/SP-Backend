@@ -5,7 +5,6 @@ import { adminExpensesHelper } from "../../helpers/costs/adminExpenses.helper.js
 
 const { validateExistAdminExpensesById, } = adminExpensesHelper;
 const { validateToken, validateFarm } = webToken;
-
 const adminExpensesVali = {};
 
 //Validate if exist expenses of administration 

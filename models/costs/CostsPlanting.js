@@ -11,8 +11,9 @@ const CostsPlantingSchema = new Schema(
       default: ""
     },
     farm: {
-      type: String,
-      required: true
+      type: Schema.Types.ObjectId,
+      ref: "Farm",
+      required: true,
     },
     lote: {
       type: String,
