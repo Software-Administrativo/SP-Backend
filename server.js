@@ -16,17 +16,17 @@ import { routerUnitTypes } from "./routes/maintenance/unitTypes.routes.js";
 import { routerEps } from "./routes/maintenance/eps.routes.js";
 import { routerTypeDocument } from "./routes/maintenance/typeDocument.routes.js";
 
+//inventory
 import { routerCellars } from "./routes/inventory/cellars.routes.js";
 import { routerCategory } from "./routes/inventory/category.routes.js";
 import { routerMark } from "./routes/inventory/mark.routes.js";
 import { routerProduct } from "./routes/inventory/product.routes.js"; 
 
 // costs 
-import ActivityExpenses from "../../models/costs/activityExpenses.js"
-import AdminExpenses from "../../models/costs/adminExpenses.js";
-import Costs from "../../models/costs/costsPlanting.js";
-import TypeExpenses from "../../models/costs/typeExpenses.js";
-
+import {routerActivityExpenses} from "./routes/costs/activityExpenses.routes.js";
+import {routerAdminExpenses} from "./routes/costs/adminExpenses.routes.js";
+import {routerCosts} from "./routes/costs/costsPlanting.routes.js";
+import {routerTypeExpenses} from "./routes/costs/typeExpenses.routes.js";
 
 dotenv.config();
 
@@ -50,10 +50,6 @@ class Server {
       res.send("Hello World!");
     });
     this.app.use("/users", routerUsers);
-     this.app.use("/inventory/cellar", routerCellars);
-    this.app.use("/inventory/category", routerCategory);
-    this.app.use("/inventory/mark", routerMark);
-    this.app.use("/inventory/product", routerProduct); 
     this.app.use("/maintenance/pays", routerPays);
     this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);
@@ -64,12 +60,18 @@ class Server {
     this.app.use("/maintenance/farm", routerFarm);
     this.app.use("/maintenance/stage", routerStages);
     this.app.use("/maintenance/people", routerPeople);
+
+    //inventory
+    this.app.use("/inventory/cellar", routerCellars);
+    this.app.use("/inventory/category", routerCategory);
+    this.app.use("/inventory/mark", routerMark);
+    this.app.use("/inventory/product", routerProduct); 
     
     //costs
-    this.app.use("/costs/activityExpenses",);
-    this.app.use("/costs/adminExpenses",);
-    this.app.use("/costs/costsPlanting",);
-    this.app.use("/costs/typeExpenses",);
+    this.app.use("/costs/activityExpenses",routerActivityExpenses);
+    this.app.use("/costs/adminExpenses",routerAdminExpenses);
+    this.app.use("/costs/costsPlanting",routerCosts);
+    this.app.use("/costs/typeExpenses",routerTypeExpenses);
 
 
 
