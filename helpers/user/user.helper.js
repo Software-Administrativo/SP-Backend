@@ -4,28 +4,31 @@ const userHelper = {};
 
 userHelper.validateExistUser = async (document, farm) => {
   try {
-
-
     const user = await User.findOne({ numdocument: document });
-    console.log('user', user)
-    const existUserFarm = user.farms.find(f => f._id == farm)
+    console.log("user", user);
+    if (user) {
+      const existUserFarm = user.farms.find((f) => f._id == farm);
 
-    if (user && existUserFarm) {
-      throw new Error("El usuario ya existe");
+      console.log("user", user);
+      console.log("existUserFarm", existUserFarm);
+
+      if (user && existUserFarm) {
+        throw new Error("El usuario ya existe");
+      }
     }
   } catch (error) {
+    console.log(error);
     throw new Error("El usuario ya existe");
   }
 };
 
-
 userHelper.validateExistUserById = async (id, farm) => {
-  console.log(id, farm)
+  console.log(id, farm);
   try {
     //search user by id and farm //farms: [ { status: 0, _id: new ObjectId("645c7705f193f332d5a760bc") } ]
-    const user = await User.findById(id)
-    console.log('user', user)
-    const existUserFarm = user.farms.find(f => f._id == farm)
+    const user = await User.findById(id);
+    console.log("user", user);
+    const existUserFarm = user.farms.find((f) => f._id == farm);
     if (!user) {
       throw new Error("El usuario no existe");
     }
