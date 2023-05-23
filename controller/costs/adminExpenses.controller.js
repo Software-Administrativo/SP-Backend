@@ -1,4 +1,4 @@
-import AdminExpenses  from "../../models"
+import AdminExpenses  from "../../models/costs/adminExpenses.js"
 const adminExpensesCtrl = {};
 
 //get all admin of the expenses 

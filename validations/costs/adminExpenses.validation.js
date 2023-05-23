@@ -39,7 +39,6 @@ adminExpensesVali.validateUpdateAdminExpenses = [
         await validateExistAdminExpensesById(id);
     }),
     check("name","El nombre del gasto de actividad es obligatorio").notEmpty().isString(),
-   // check("descripcion","Descripcion de la categoria es obligatoria").notEmpty().isString(),
    check('token').custom(async (token, {req}) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
