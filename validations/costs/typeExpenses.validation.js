@@ -1,7 +1,7 @@
 import { check } from "express-validator";
-import webToken from "../../middlewares/webToken";
-import { validateFields } from "../../middlewares/validateFields";
-import { typeExpensesHelper } from "../../helpers/costs/typeExpenses.helper";
+import webToken from "../../middlewares/webToken.js";
+import { validateFields } from "../../middlewares/validateFields.js";
+import { typeExpensesHelper } from "../../helpers/costs/typeExpenses.helper.js";
 
 const { validateExistTypeExpensesById } = typeExpensesHelper;
 const { validateToken, validateFarm } = webToken;
@@ -48,7 +48,7 @@ typeExpensesVali.validateUpdateTypeExpenses = [
 ];
 
 //validate token 
-costsVali.validateToken =[
+typeExpensesVali.validateToken =[
   check('token').custom(async (token, {req}) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);

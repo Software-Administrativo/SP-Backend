@@ -3,7 +3,7 @@ import { Schema, model } from 'mongoose';
 const TypeExpensesSchema = new Schema(
   {
     name: {
-      type: stringify,
+      type: String,
       required: true
     },
     description: {

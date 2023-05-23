@@ -2409,11 +2409,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "RegisterActivityExpenses",
-    "url": "{{URI}}/costs/activityexpenses",
+    "url": "{{URI}}/costs/activityexpenses/register",
     "method": "POST",
     "sortNum": 720000,
     "created": "2023-05-17T03:48:09.126Z",
-    "modified": "2023-05-19T15:26:59.682Z",
+    "modified": "2023-05-23T16:33:54.830Z",
     "headers": [
       {
         "name": "token",

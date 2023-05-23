@@ -3,7 +3,7 @@ import { Schema, model } from 'mongoose';
 const AdminExpensesSchema = new Schema(
   {
     name: {
-      type: stringify,
+      type: String,
       required: true
     },
     description: {

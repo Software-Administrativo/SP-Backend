@@ -74,8 +74,6 @@ class Server {
     this.app.use("/costs/typeExpenses",routerTypeExpenses);
 
 
-
-
     this.app.use("*", (req, res) => {
       res.status(404).json({
         msg: "Page not found",
