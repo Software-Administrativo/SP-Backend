@@ -2105,11 +2105,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "CostsPlantingById",
-    "url": "{{URI}}/costs/costsplanting",
+    "url": "{{URI}}/costs/costsplanting/:id",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-17T03:39:59.528Z",
-    "modified": "2023-05-17T03:39:59.528Z",
+    "modified": "2023-05-25T14:52:09.012Z",
     "headers": [
       {
         "name": "token",
@@ -2128,11 +2128,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
     "name": "RegisterCostsPlanting",
-    "url": "{{URI}}/costs/coststplanting/register",
+    "url": "{{URI}}/costs/costsplanting/register",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-17T03:41:03.758Z",
-    "modified": "2023-05-19T11:59:39.877Z",
+    "modified": "2023-05-25T14:58:58.853Z",
     "headers": [
       {
         "name": "token",
@@ -2269,13 +2269,13 @@
   {
     "_id": "c688dd45-da0d-4488-9448-a07a81959246",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
-    "containerId": "44a3fc71-87bf-43ed-bee0-f5608dbf7567",
+    "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "RegisterTypeExpenses",
-    "url": "{{URI}}/costs/typeexpenses",
+    "url": "{{URI}}/costs/typeexpenses/register",
     "method": "POST",
-    "sortNum": 25000,
+    "sortNum": 710000,
     "created": "2023-05-17T03:44:31.283Z",
-    "modified": "2023-05-19T15:10:29.749Z",
+    "modified": "2023-05-25T15:04:33.158Z",
     "headers": [
       {
         "name": "token",
@@ -2287,6 +2287,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"type\": \"AAAA\",\n  \"value\": 20000\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -2317,11 +2322,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "fb8c70dc-8f70-4724-8fca-52970dc73e30",
     "name": "UpdateTypeExpenses",
-    "url": "{{URI}}/costs/update/:id",
+    "url": "{{URI}}/costs/typeexpenses/update/:id",
     "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-17T03:46:04.669Z",
-    "modified": "2023-05-19T12:21:41.513Z",
+    "modified": "2023-05-25T15:06:47.789Z",
     "headers": [
       {
         "name": "token",
@@ -2333,6 +2338,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"type\": \"AAAA\",\n  \"value\": 20000\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -2437,11 +2447,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "ActiveActivityExpenses",
-    "url": "{{URI}}/costs/allactivityexpenses/:id",
+    "url": "{{URI}}/costs/activityexpenses/activate/:id",
     "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-17T03:48:33.604Z",
-    "modified": "2023-05-19T15:13:30.502Z",
+    "modified": "2023-05-25T14:34:06.789Z",
     "headers": [
       {
         "name": "token",
@@ -2460,11 +2470,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "InactiveActivityExpenses",
-    "url": "{{URI}}/costs/inactivate/:id",
+    "url": "{{URI}}/costs/activityexpenses/inactivate/:id",
     "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-17T03:49:21.322Z",
-    "modified": "2023-05-19T15:13:31.189Z",
+    "modified": "2023-05-25T14:34:49.642Z",
     "headers": [
       {
         "name": "token",
@@ -2483,11 +2493,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f41c13d2-6e6a-4522-8e41-bc24f3b6c5f6",
     "name": "UpdateActivityExpenses",
-    "url": "{{URI}}/costs/update/:id",
+    "url": "{{URI}}/costs/activityexpenses/update/:id",
     "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-17T03:49:40.087Z",
-    "modified": "2023-05-19T15:13:31.909Z",
+    "modified": "2023-05-25T14:41:35.839Z",
     "headers": [
       {
         "name": "token",
@@ -2499,6 +2509,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Actividad actualizada\",\n  \"description\":\"321\",\n  \"tpcontrato\":\"2040\",\n  \"valor\": 22\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -2552,11 +2567,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "RegisterActivityExpenses",
-    "url": "{{URI}}/costs/register/",
+    "url": "{{URI}}/costs/adminexpenses/register/",
     "method": "POST",
     "sortNum": 730000,
     "created": "2023-05-17T03:51:03.306Z",
-    "modified": "2023-05-19T15:18:00.876Z",
+    "modified": "2023-05-25T14:48:07.900Z",
     "headers": [
       {
         "name": "token",
@@ -2568,6 +2583,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesario\",\n  \"description\": \"Lo gasto en gastos necesario XD\",\n  \"type\": \"Gasto tipo necesario :C\",\n  \"value\": 200000\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -2575,11 +2595,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ed1cbb2e-a7f7-4b90-985f-58db79a48a37",
     "name": "ActiveActivityExpenses",
-    "url": "{{URI}}/costs/activate/:id",
+    "url": "{{URI}}/costs/adminexpenses/activate/:id",
     "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-17T03:51:21.926Z",
-    "modified": "2023-05-19T15:18:07.383Z",
+    "modified": "2023-05-25T14:48:53.477Z",
     "headers": [
       {
         "name": "token",
@@ -2625,7 +2645,7 @@
     "method": "PUT",
     "sortNum": 760000,
     "created": "2023-05-17T03:51:56.254Z",
-    "modified": "2023-05-23T12:39:13.406Z",
+    "modified": "2023-05-25T14:50:41.125Z",
     "headers": [
       {
         "name": "token",
@@ -2637,6 +2657,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesariop pero era fake\",\n  \"description\": \"Lo gasto en gastos innecesario \",\n  \"type\": \"Gasto tipo innecesario :C\",\n  \"value\": 600000\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
