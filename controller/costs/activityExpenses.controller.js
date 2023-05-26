@@ -29,8 +29,8 @@ activityExpensesCtrl.registerActivityExpenses = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newActivityExpenses = new ActivityExpenses({
-      name,
-      description,
+      name: name.trim().toUpperCase(),
+      description: description.trim(),
       farm,
       value
     });
@@ -49,7 +49,7 @@ activityExpensesCtrl.updateActivityExpenses = async (req, res) => {
   const { name, description, value } = req.body;
   try {
     await ActivityExpenses.findByIdAndUpdate(id, {
-      name,
+      name: name.trim().toUpperCase(),
       description,
       farm,
       value
