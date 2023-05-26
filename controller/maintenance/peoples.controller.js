@@ -35,7 +35,7 @@ peopleCtrl.registerPeople = async (req, res) => {
             document,
             phone,
             eps,
-            typePeople,
+            typePeople: typePeople.trim().toUpperCase(),
             farm,
         });
         const people = await newPeople.save();
@@ -57,7 +57,7 @@ peopleCtrl.updatePeoples = async (req, res) => {
             document,
             phone,
             eps,
-            typePeople,
+            typePeople: typePeople.trim().toUpperCase(),
             farm,
         });
 

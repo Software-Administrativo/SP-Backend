@@ -1,5 +1,4 @@
 import People from "../../models/maintenance/People.js";
-import TypeDocument from "../../models/maintenance/TypeDocument.js";
 import Eps from "../../models/maintenance/Eps.js";
 const peoplesHelper = {};
 
@@ -16,27 +15,56 @@ peoplesHelper.validateExistPeopleById = async (id) => {
 };
 
 //validate if exist type document
-peoplesHelper.validateExistTypeDocumentById = async (id) => {
-    try {
-        const typeDocument = await TypeDocument.findById(id, { status: 0 });
-        if (!typeDocument) {
-            throw new Error();
-        }
-    } catch (error) {
-        throw new Error(`El tipo de documento con el id ${id} no existe, o no esta disponible`);
+
+peoplesHelper.validateExistDocument = async (document, farm, idPeople = null) => {
+  try {
+    const people = await People.findOne({ document, farm });
+
+    if (idPeople) {
+      if (people._id != idPeople) {
+        throw new Error();
+      }
     }
-}
+
+    if (people) {
+      throw new Error();
+    }
+
+  } catch (error) {
+    throw new Error(`La persona con el documento ${document} ya existe`);
+  }
+};
+
+peoplesHelper.validateExistNumber = async (phone, farm, idPeople = null) => {
+  try {
+    const people = await People.findOne({ phone, farm });
+
+    if (idPeople) {
+      if (people._id != idPeople) {
+        throw new Error();
+      }
+    }
+
+    if (people) {
+      throw new Error();
+    }
+
+  } catch (error) {
+    throw new Error(`La persona con el telefono ${phone} ya existe`);
+  }
+};
+
 
 //validate if exist eps
 peoplesHelper.validateExistEpsById = async (id) => {
-    try {
-        const eps = await Eps.findById(id);
-        if (!eps) {
-            throw new Error();
-        }
-    } catch (error) {
-        throw new Error(`La eps con el id ${id} no existe`);
+  try {
+    const eps = await Eps.findById(id);
+    if (!eps) {
+      throw new Error();
     }
+  } catch (error) {
+    throw new Error(`La eps con el id ${id} no existe`);
+  }
 }
 
 export { peoplesHelper };

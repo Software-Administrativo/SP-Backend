@@ -1162,13 +1162,20 @@
     "method": "POST",
     "sortNum": 530000,
     "created": "2023-05-15T12:39:06.515Z",
-    "modified": "2023-05-15T12:39:06.515Z",
+    "modified": "2023-05-26T16:18:50.075Z",
     "headers": [
       {
         "name": "token",
         "value": "{{token}}"
       }
-    ]
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Finca Napoleon\",\n  \"address\":\"ni idea\",\n  \"owner\":\"yo\"\n}",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "1e0a6e3e-1d28-4aee-b564-5e07126da3f5",
@@ -1412,7 +1419,7 @@
     "method": "POST",
     "sortNum": 650000,
     "created": "2023-05-15T12:39:06.528Z",
-    "modified": "2023-05-26T13:38:51.523Z",
+    "modified": "2023-05-26T16:09:18.542Z",
     "headers": [
       {
         "name": "token",
@@ -1426,7 +1433,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"123421214\",\n  \"phone\":\"3333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typePeople\":\"Administrador\"\n}",
+      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"CC\",\n  \"document\":\"12342124\",\n  \"phone\":\"33331111112\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typePeople\":\"ADMINISTRADOR\"\n}",
       "form": []
     },
     "tests": []

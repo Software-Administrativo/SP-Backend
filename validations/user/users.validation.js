@@ -8,6 +8,7 @@ const { validateExistUser, validateExistUserById, validateUserByDocuAndId } =
   const { validateToken,validateFarm } = webToken;
 
 const usersVali = {};
+const typeDocument = ["CC", "CE", "NIT", "NIP", "NUIP", "PA","CC", "CE", "NIT", "NIP", "NUIP", "PA"];
 
 const roles = ["ADMIN", "OPERADOR"];
 
@@ -15,6 +16,7 @@ const roles = ["ADMIN", "OPERADOR"];
 usersVali.validateRegisterUser = [
   check("name", "El nombre es obligatorio").notEmpty(),
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
+  check("tpdocument", "El tipo de documento no es valido").isIn(typeDocument),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
   check("numdocument").custom(async (numdocument, { req }) => {
     await validateExistUser(numdocument, req.headers.farm);
@@ -60,6 +62,7 @@ usersVali.validateUpdateUser = [
   }),
   check("name", "El nombre es obligatorio").notEmpty(),
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
+  check("tpdocument", "El tipo de documento no es valido").isIn(typeDocument),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
   //pasar el id y el numero de documento para validar si el numero de documento ya existe pero no para el mismo id
   check("numdocument").custom(async (numdocument, { req }) => {
@@ -93,6 +96,8 @@ usersVali.validateUpdateUser = [
 //validate fields for login
 usersVali.validateLoginUser = [
   check("tpdocument", "El tipo de documento es obligatorio").notEmpty(),
+  check("tpdocument", "El tipo de documento no es valido").isIn(typeDocument),
+  check("tpdocument", "El tipo de documento no es valido").isIn(typeDocument),
   check("numdocument", "El numero de documento es obligatorio").notEmpty(),
   check("password", "La contraseña es obligatoria").notEmpty(),
   validateFields,
