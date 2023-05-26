@@ -15,9 +15,9 @@ clientHelper.validateExistClientById = async (id) => {
 };
 
 
-clientHelper.validateUniquePhone = async (phone, id = null) => {
+clientHelper.validateUniquePhone = async (phone, id = null, farm) => {
     try {
-        const client = await Client.findOne({ phone });
+        const client = await Client.findOne({ phone, farm });
         if (client) {
             if (id) {
                 if (client._id.toString() !== id.toString()) {
@@ -34,7 +34,7 @@ clientHelper.validateUniquePhone = async (phone, id = null) => {
 };
 
 
-clientHelper.validateEmail = (email) => {
+/* clientHelper.validateEmail = (email) => {
     const reg = /\S+@\S+\.\S+/;
     if (!reg.test(email)) {
         throw new Error(`El email ${email} no es valido`);
@@ -56,12 +56,12 @@ clientHelper.validateUniqueEmail = async (email, id = null) => {
     }catch (error) {
         throw new Error(`El email ${email} ya se encuentra registrado`);
     }
-};
+}; */
 
 
-clientHelper.validateUniqueDocument = async (document, id = null) => {
+clientHelper.validateUniqueDocument = async (document, id = null, farm) => {
     try {
-        const client = await Client.findOne({ document });
+        const client = await Client.findOne({ document, farm });
         if (client) {
             if (id) {
                 if (client._id.toString() !== id.toString()) {

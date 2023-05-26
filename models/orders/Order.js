@@ -2,18 +2,11 @@ import { Schema, model } from "mongoose";
 
 const OrderSchema = new Schema(
     {
-        name: {
-            type: String,
-            required: true,
-        },
-        model: {
+        models: {
             type: [Object],
             required: true
         },
-        statusorder: {
-            type: String,
-            default: "Pendiente",
-        },
+       
         client: {
             type: String,
             required: true,
@@ -34,6 +27,14 @@ const OrderSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Farm",
             required: true,
+        },
+        statusorder: {
+            type: String,
+            default: "PENDIENTE",
+        },
+        total: {
+            type: Number,
+            default: 0,
         },
         status: {
             type: Number,

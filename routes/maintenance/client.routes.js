@@ -4,11 +4,12 @@ import { clientVali } from "../../validations/maintenance/client.validation.js";
 
 const { validateExistClient, validateRegisterClient, validateUpdateClient, validateHeaders } = clientVali;
 
-const { getClientId, getClients, registerClient, updateClient, activeClient, inactiveClient } =
+const { getClientId,searchClient, getClients, registerClient, updateClient, activeClient, inactiveClient } =
     clientCtrl;
 
 const routerClient = Router();
 
+routerClient.get("/search", searchClient);
 routerClient.get("/:id", validateExistClient, getClientId);
 routerClient.get("/", validateHeaders, getClients);
 routerClient.post("/register", validateRegisterClient, registerClient);

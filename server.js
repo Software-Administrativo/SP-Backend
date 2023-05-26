@@ -26,6 +26,7 @@ import { routerProduct } from "./routes/inventory/product.routes.js";
 import { routerOrder } from "./routes/orders/orders.routes.js";
 
 import { routerModelTrans } from "./routes/transformation/modelTrans.routes.js";
+import { routerCostTrans } from "./routes/transformation/costTrans.routes.js";
 
 dotenv.config();
 
@@ -70,6 +71,7 @@ class Server {
     this.app.use("/orders", routerOrder);
 
     this.app.use("/transformation/modeltrans", routerModelTrans);
+    this.app.use("/transformation/costtrans", routerCostTrans);
 
     this.app.use("*", (req, res) => {
       res.status(404).json({

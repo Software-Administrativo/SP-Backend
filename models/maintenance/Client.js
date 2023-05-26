@@ -11,10 +11,6 @@ const ClientSquema = new Schema(
             type: String,
             required: true,
         },
-        email: {
-            type: String,
-            default: "",
-        },
         document: {
             type: String,
             required: true,

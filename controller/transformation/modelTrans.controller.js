@@ -18,8 +18,8 @@ modelTransCtrl.getModelTrans = async (req, res) => {
 modelTransCtrl.getModelTransId = async (req, res) => {
   const { id } = req.params;
   try {
-    const models = await ModelTrans.findById(id);
-    res.json({ models });
+    const model = await ModelTrans.findById(id);
+    res.json({ model });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -36,8 +36,8 @@ modelTransCtrl.registerModelTrans = async (req, res) => {
       unitvalue,
       farm,
     });
-    const models = await newModelTrans.save();
-    res.json({ msg: "Modelo de panela creado correctamente", models });
+    const model = await newModelTrans.save();
+    res.json({ msg: "Modelo de panela creado correctamente", model });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }
@@ -57,7 +57,7 @@ modelTransCtrl.updateModelTrans = async (req, res) => {
     });
 
     const updateModelTrans = await ModelTrans.findById(id);
-    res.json({ msg: "Modelo de panela actualizado correctamente", models: updateModelTrans });
+    res.json({ msg: "Modelo de panela actualizado correctamente", model: updateModelTrans });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
   }

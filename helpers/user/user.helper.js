@@ -39,7 +39,6 @@ userHelper.validateExistUserById = async (id, farm) => {
 
 //validate if one user exist by document but not for the same id
 userHelper.validateUserByDocuAndId = async (document, id) => {
-  console.log(document, id);
   try {
     const user = await User.findOne({ numdocument: document });
     if (user && user._id != id) {
