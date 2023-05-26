@@ -11,7 +11,7 @@ const CellarSchema = new Schema(
             ref: "Farm",
             required: true,
           },
-        tpcontrato:{
+        tpcontract:{
             type: String,
             required: true,
         },
@@ -19,7 +19,7 @@ const CellarSchema = new Schema(
             type: String,
             required: true,
         },
-        valor: {
+        value: {
             type: Number,
             required: true,
         },

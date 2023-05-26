@@ -1,4 +1,4 @@
-import Costs from "../../models/costs/CostsPlanting.js"
+import Costs from "../../models/costs/costsPlanting.js";
 const costsHelper = {};
 
 costsHelper.validateExistCostsById = async (id) => {
@@ -8,7 +8,7 @@ costsHelper.validateExistCostsById = async (id) => {
       throw new Error();
       }
     }catch (error) {
-        throw new Error (`La categoría con el id ${id} no existe`);
+        throw new Error (`El costo de siembra con el id ${id} no existe`);
     }
   };
   export { costsHelper };

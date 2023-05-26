@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const CostsPlantingSchema = new Schema(
+const TypeExpensesSchema = new Schema(
   {
     name: {
       type: String,
@@ -15,9 +15,13 @@ const CostsPlantingSchema = new Schema(
       ref: "Farm",
       required: true,
     },
-    lote: {
+    type: {
       type: String,
       required: true
+    },
+    value: {
+      type: Number,
+      default: 0
     },
     status: {
       type: Number,
@@ -29,4 +33,4 @@ const CostsPlantingSchema = new Schema(
     timestamps: true,
   }
 );
-export default model("CostsPlanting", CostsPlantingSchema)
+export default model("TypeExpenses", TypeExpensesSchema)

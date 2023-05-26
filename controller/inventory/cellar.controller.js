@@ -25,13 +25,13 @@ cellarCtrl.getCellarId = async (req, res) => {
 
 //register cellar in the db
 cellarCtrl.registerCellar = async (req, res) => {
-    const { name,tpcontrato,description,valor } = req.body;
+    const { name,tpcontract,description,valor } = req.body;
     const { farm} = req.headers;
     try {
         const newCellar = new Cellar({
             name,
             farm,
-            tpcontrato,
+            tpcontract,
             description,
             valor
         });
@@ -46,13 +46,13 @@ cellarCtrl.registerCellar = async (req, res) => {
 //update cellar in the db
 cellarCtrl.updateCellar = async (req, res) => {
     const { id } = req.params;
-    const { name,tpcontrato,description,valor } = req.body;
+    const { name,tpcontract,description,valor } = req.body;
     const { farm} = req.headers;
     try {
         await Cellar.findByIdAndUpdate(id, {
             name,
             farm,
-            tpcontrato,
+            tpcontract,
             description,
             valor,
         });
