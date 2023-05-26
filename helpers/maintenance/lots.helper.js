@@ -15,7 +15,7 @@ lotsHelper.validateExistLotById = async (id) => {
 lotsHelper.validateExistLotFatherById = async (id) => {
     try {
         //search the lots with the id and the class PADRE
-        const lot = await Lot.findOne({ _id: id, classlote: "PADRE" });
+        const lot = await Lot.findOne({ _id: id, classlote: "PADRE", status: 1 });
         if (!lot) {
             throw new Error();
         }
