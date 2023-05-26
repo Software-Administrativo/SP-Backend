@@ -24,7 +24,7 @@ const PeopleSquema = new Schema(
         ref: "Eps",
         required: true,
     },
-    typePeople: {
+    typepeople: {
         type: String,
         default: "TRABAJADOR",
         required: true,

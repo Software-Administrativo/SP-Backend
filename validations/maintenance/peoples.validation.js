@@ -43,8 +43,8 @@ peoplesVali.validateRegisterPeople = [
     check("eps").custom(async (eps) => {
         await validateExistEpsById(eps);
     }),
-    check("typePeople", "El tipo de persona es obligatorio").notEmpty(),
-    check("typePeople", "El tipo de persona no es valido").isIn(typePeople),
+    check("typepeople", "El tipo de persona es obligatorio").notEmpty(),
+    check("typepeople", "El tipo de persona no es valido").isIn(typePeople),
     check('token').custom(async (token, { req }) => {
         await validateToken(token);
         await validateFarm(req.headers.farm);

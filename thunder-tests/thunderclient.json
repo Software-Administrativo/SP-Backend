@@ -1419,7 +1419,7 @@
     "method": "POST",
     "sortNum": 650000,
     "created": "2023-05-15T12:39:06.528Z",
-    "modified": "2023-05-26T16:09:18.542Z",
+    "modified": "2023-05-26T20:32:01.592Z",
     "headers": [
       {
         "name": "token",
@@ -1433,7 +1433,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"CC\",\n  \"document\":\"12342124\",\n  \"phone\":\"33331111112\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typePeople\":\"ADMINISTRADOR\"\n}",
+      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"CC\",\n  \"document\":\"12342124\",\n  \"phone\":\"33331111112\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typepeople\":\"ADMINISTRADOR\"\n}",
       "form": []
     },
     "tests": []

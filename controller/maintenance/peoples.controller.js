@@ -26,7 +26,7 @@ peopleCtrl.getPeopleId = async (req, res) => {
 
 //register people in the db
 peopleCtrl.registerPeople = async (req, res) => {
-    const { name, tpdct, document, phone, eps, typePeople } = req.body;
+    const { name, tpdct, document, phone, eps, typepeople } = req.body;
     const { farm } = req.headers;
     try {
         const newPeople = new People({
@@ -35,7 +35,7 @@ peopleCtrl.registerPeople = async (req, res) => {
             document,
             phone,
             eps,
-            typePeople: typePeople.trim().toUpperCase(),
+            typepeople: typepeople.trim().toUpperCase(),
             farm,
         });
         const people = await newPeople.save();
@@ -48,7 +48,7 @@ peopleCtrl.registerPeople = async (req, res) => {
 //update people in the db
 peopleCtrl.updatePeoples = async (req, res) => {
     const { id } = req.params;
-    const { name, tpdct, document, phone, eps, typePeople } = req.body;
+    const { name, tpdct, document, phone, eps, typepeople } = req.body;
     const { farm } = req.headers;
     try {
         await People.findByIdAndUpdate(id, {
@@ -57,7 +57,7 @@ peopleCtrl.updatePeoples = async (req, res) => {
             document,
             phone,
             eps,
-            typePeople: typePeople.trim().toUpperCase(),
+            typepeople: typepeople.trim().toUpperCase(),
             farm,
         });
 
