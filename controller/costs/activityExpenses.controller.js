@@ -50,7 +50,7 @@ activityExpensesCtrl.updateActivityExpenses = async (req, res) => {
   try {
     await ActivityExpenses.findByIdAndUpdate(id, {
       name: name.trim().toUpperCase(),
-      description,
+      description: description.trim(),
       farm,
       value
     });

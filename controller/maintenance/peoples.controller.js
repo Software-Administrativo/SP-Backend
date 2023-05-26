@@ -30,7 +30,7 @@ peopleCtrl.registerPeople = async (req, res) => {
     const { farm } = req.headers;
     try {
         const newPeople = new People({
-            name,
+            name:name.trim().toUpperCase(),
             tpdct,
             document,
             phone,
@@ -52,7 +52,7 @@ peopleCtrl.updatePeoples = async (req, res) => {
     const { farm } = req.headers;
     try {
         await People.findByIdAndUpdate(id, {
-            name,
+            name:name.trim().toUpperCase(),
             tpdct,
             document,
             phone,

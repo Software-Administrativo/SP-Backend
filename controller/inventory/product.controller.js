@@ -30,10 +30,10 @@ productCtrl.registerProduct = async (req, res) => {
     const { farm} = req.headers;
     try {
         const newProduct = new Product({
-            name,
+            name:name.trim().toUpperCase(),
             category,
             amount,
-            description,
+            description:description.trim(),
             mark,
             farm
         });
@@ -54,11 +54,11 @@ productCtrl.updateProduct = async (req, res) => {
     try {
         await Product.findByIdAndUpdate(id,{
             farm,
-            name,
+            name:name.trim().toUpperCase(),
             category,
             mark,
             amount,
-            description,
+            description:description.trim(),
         });
 
         const product = await Product.findById(id);

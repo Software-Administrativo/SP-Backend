@@ -30,10 +30,10 @@ markCtrl.registerMark = async (req, res) => {
     const { farm} = req.headers;
     try {
         const newMark = new Mark({
-            name,
+            name:name.trim().toUpperCase(),
             farm,
             category,
-            description
+            description:description.trim(),
         });
     await newMark.save();
     res.json({ msg: "Marca creada correctamente" });
@@ -52,7 +52,7 @@ markCtrl.updateMark = async (req, res) => {
             name,
             farm,
             category,
-            description,    
+            description,
         });
         const mark = await Mark.findById(id);
         res.json({ msg: "Marca actualizado correctamente" , mark});
@@ -83,6 +83,5 @@ markCtrl.inactiveMark = async (req, res) => {
         res.json({ msg: "No fue posible terminar la operacion" });
     }
 }
-
 
 export { markCtrl };

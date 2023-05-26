@@ -29,7 +29,7 @@ farmCtrl.registerFarm = async (req, res) => {
   const { name, address, owner } = req.body;
   try {
     const newfarm = new Farm({
-      name,
+      name:name.trim().toUpperCase(),
         address,
         owner,
     });
@@ -46,7 +46,7 @@ farmCtrl.updateFarms = async (req, res) => {
   const { name, address, owner } = req.body;
   try {
     await Farm.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
         address,
         owner,
     });

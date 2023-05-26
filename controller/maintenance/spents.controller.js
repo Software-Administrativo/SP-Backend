@@ -30,8 +30,8 @@ spentCtrl.registerSpent = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newSpent = new Spent({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
     });
     const spent = await newSpent.save();
@@ -48,8 +48,8 @@ spentCtrl.updateSpents = async (req, res) => {
   const { farm } = req.headers;
   try {
     await Spent.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
     });
 

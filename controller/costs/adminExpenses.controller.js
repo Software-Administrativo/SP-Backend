@@ -29,8 +29,8 @@ adminExpensesCtrl.registerAdminExpenses = async (req, res) => {
   const {name, description, value} = req.body;
   try {
     const newAdminExpenses = new AdminExpenses({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description: description.trim(),
       farm,
       value
     });
@@ -48,8 +48,8 @@ adminExpensesCtrl.updateAdminExpenses = async (req, res) => {
   const {name, description, value} = req.body;
   try {
     await AdminExpenses.findByIdAndUpdate(id,{
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
       value
     });

@@ -11,10 +11,15 @@ const MarkSchema = new Schema(
             ref: "Farm",
             required: true,
           },
-        category: {
+/*         category: {
             type: String,
             default: true,
-        },
+        }, */
+        category: {
+            type: Schema.Types.ObjectId,
+            ref: "Category",
+            required: true
+          },
         description: {
             type: String,
             required: true,

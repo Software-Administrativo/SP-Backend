@@ -30,8 +30,8 @@ stagesCtrl.registerStage = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newStage = new Stage({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       lot,
       farm
     });
@@ -49,8 +49,8 @@ stagesCtrl.updateStages = async (req, res) => {
   const { farm } = req.headers;
   try {
     await Stage.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       lot,
       farm
     });

@@ -45,7 +45,7 @@ clientCtrl.registerClient = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newClient = new Client({
-      name,
+      name:name.trim().toUpperCase(),
       phone,
       document,
       address,
@@ -65,7 +65,7 @@ clientCtrl.updateClient = async (req, res) => {
   const { farm } = req.headers;
   try {
     await Client.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       phone,
       document,
       address,

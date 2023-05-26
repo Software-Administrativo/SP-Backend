@@ -30,8 +30,8 @@ typeDocumentCtrl.registerTypeDocument = async (req, res) => {
   const {farm} = req.headers;
   try {
     const newTypeDocument = new TypeDocument({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
     });
     const typeDocument = await newTypeDocument.save();
@@ -48,9 +48,9 @@ typeDocumentCtrl.updateTypeDocuments = async (req, res) => {
   const {farm} = req.headers;
   try {
     await TypeDocument.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       // tpcontrato,
-      description,
+      description:description.trim(),
       // valor,
       farm,
     });

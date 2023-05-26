@@ -47,7 +47,7 @@ orderCtrl.registerOrder = async (req, res) => {
     }
 
     const newOrder = new Order({
-      name,
+      name:name.trim().toUpperCase(),
       client,
       address,
       models: newModels,
@@ -85,7 +85,7 @@ orderCtrl.updateOrders = async (req, res) => {
     }
 
     await Order.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       client,
       address,
       models: newModels,

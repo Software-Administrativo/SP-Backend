@@ -27,8 +27,8 @@ typeExpensesCtrl.registerTypeExpenses = async (req, res) => {
   const {name, description, type, value} = req.body;
   try {
     const newtypeExpenses = new TypeExpenses({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       type,
       value
     });
@@ -45,8 +45,8 @@ typeExpensesCtrl.updateTypeExpenses = async (req, res) => {
   const {name, description, type, value} = req.body;
   try {
     await typeExpenses.findByIdAndUpdate(id,{
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description(),
       type,
       value
     });

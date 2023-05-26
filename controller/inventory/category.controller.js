@@ -29,8 +29,8 @@ categoryCtrl.registerCategory = async (req, res) => {
   const { farm} = req.headers;
   try {
     const newCategory = new Category({
-      name, 
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
     });
     const category = await newCategory.save();
@@ -47,8 +47,8 @@ categoryCtrl.updateCategory = async (req, res) => {
   const { farm} = req.headers;
   try{
     await Category.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm
     });
     const category = await Category.findById(id);

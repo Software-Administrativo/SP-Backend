@@ -30,8 +30,8 @@ epsCtrl.registerEps = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newEps = new Eps({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       observation,
       farm,
     });
@@ -49,8 +49,8 @@ epsCtrl.updateEps = async (req, res) => {
   const { farm } = req.headers;
   try {
     await Eps.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       observation,
       farm,
     });

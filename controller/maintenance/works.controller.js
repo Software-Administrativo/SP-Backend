@@ -30,8 +30,8 @@ worksCtrl.registerWork = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newWork = new Work({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
     });
     const works = await newWork.save();
@@ -48,8 +48,8 @@ worksCtrl.updateWorks = async (req, res) => {
   const { farm } = req.headers;
   try {
     await Work.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:name.trim().toUpperCase(),
       farm,
     });
 

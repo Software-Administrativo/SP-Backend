@@ -29,10 +29,10 @@ cellarCtrl.registerCellar = async (req, res) => {
     const { farm} = req.headers;
     try {
         const newCellar = new Cellar({
-            name,
+            name: name.trim().toUpperCase(),
             farm,
             tpcontract,
-            description,
+            description:description.trim(),
             valor
         });
         console.log(newCellar)
@@ -50,10 +50,10 @@ cellarCtrl.updateCellar = async (req, res) => {
     const { farm} = req.headers;
     try {
         await Cellar.findByIdAndUpdate(id, {
-            name,
+            name:name.trim().toUpperCase(),
             farm,
             tpcontract,
-            description,
+            description:description.trim(),
             valor,
         });
         const cellar =  await Cellar.findById(id);

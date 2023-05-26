@@ -39,14 +39,14 @@ lotsCtrl.registerLot = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newLot = new Lot({
-      name,
+      name:name.trim().toUpperCase(),
       areasize,
       lotestate,
       soildstate,
       classlote,
       fatherlot,
       sowingdensity,
-      description,
+      description:description.trim(),
       farm,
     });
     const lot = await newLot.save();
@@ -72,14 +72,14 @@ lotsCtrl.updateLots = async (req, res) => {
   } = req.body;
   try {
     await Lot.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       areasize,
       lotestate,
       soildstate,
       classlote,
       fatherlot,
       sowingdensity,
-      description,
+      description:description.trim().toUpperCase(),
       farm,
     });
 

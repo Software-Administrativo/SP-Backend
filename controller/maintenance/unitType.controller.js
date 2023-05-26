@@ -30,7 +30,7 @@ unitTypesCtrl.registerUnitTypes = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newUnitType = new UnitType({
-      name,
+      name:name.trim().toUpperCase(),
       unittype,
       farm,
     });
@@ -48,7 +48,7 @@ unitTypesCtrl.updateUnitTypes = async (req, res) => {
   const { farm } = req.headers;
   try {
     await UnitType.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       unittype,
       farm,
     });

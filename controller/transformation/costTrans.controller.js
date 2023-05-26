@@ -30,9 +30,9 @@ costTransCtrl.registerCostTrans = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newCostTrans = new CostTrans({
-      name,
+      name:name.trim().toUpperCase(),
       lot,
-      description,
+      description:description.trim(),
       cost,
       farm,
     });
@@ -50,9 +50,9 @@ costTransCtrl.updateCostTrans = async (req, res) => {
   const { farm } = req.headers;
   try {
     await CostTrans.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       lot,
-      description,
+      description:description.trim(),
       cost,
       farm,
     });

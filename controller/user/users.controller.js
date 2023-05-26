@@ -38,7 +38,7 @@ userCtrl.registerUser = async (req, res) => {
   const { name, tpdocument, numdocument, role, password, farms } = req.body;
   try {
     const newUser = new User({
-      name,
+      name:name.trim().toUpperCase(),
       tpdocument,
       numdocument,
       role,
@@ -65,16 +65,16 @@ userCtrl.updateUser = async (req, res) => {
     const user = await User.findById(id);
     if (user.role == "SUPER") {
       await User.findByIdAndUpdate(id, {
-        name,
-        tpdocument,
+        name:name.trim().toUpperCase(),
+        tpdocument:tpdocument.toUpperCase(),
         numdocument,
         password: passwordEncrypt.password,
         farms,
       });
     } else {
       await User.findByIdAndUpdate(id, {
-        name,
-        tpdocument,
+        name:name.trim().toUpperCase(),
+        tpdocument:tpdocument.toUpperCase(),
         numdocument,
         role,
         password: passwordEncrypt.password,

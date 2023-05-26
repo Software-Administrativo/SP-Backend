@@ -29,8 +29,8 @@ costsCtrl.registerCosts = async (req, res) => {
   const {name, description,value, lot} = req.body;
   try {
     const newCosts = new Costs({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
       value,
       lot
@@ -49,8 +49,8 @@ costsCtrl.updateCost = async (req, res) => {
   const {name, description,value, lot} = req.body;
   try {
     await Costs.findByIdAndUpdate(id,{
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       farm,
       value,
       lot

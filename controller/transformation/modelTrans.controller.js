@@ -31,8 +31,8 @@ modelTransCtrl.registerModelTrans = async (req, res) => {
   const { farm } = req.headers;
   try {
     const newModelTrans = new ModelTrans({
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:description.trim(),
       unitvalue,
       farm,
     });
@@ -50,8 +50,8 @@ modelTransCtrl.updateModelTrans = async (req, res) => {
   const { farm } = req.headers;
   try {
     await ModelTrans.findByIdAndUpdate(id, {
-      name,
-      description,
+      name:name.trim().toUpperCase(),
+      description:name.trim().toUpperCase(),
       unitvalue,
       farm,
     });

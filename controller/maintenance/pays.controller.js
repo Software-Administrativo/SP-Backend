@@ -30,9 +30,9 @@ paysCtrl.registerPay = async (req, res) => {
   const {farm} = req.headers;
   try {
     const newPay = new Pay({
-      name,
+      name:name.trim().toUpperCase(),
       // tpcontrato,
-      description,
+      description:description.trim(),
       // valor,
       farm,
     });
@@ -50,9 +50,9 @@ paysCtrl.updatePays = async (req, res) => {
   const {farm} = req.headers;
   try {
     await Pay.findByIdAndUpdate(id, {
-      name,
+      name:name.trim().toUpperCase(),
       // tpcontrato,
-      description,
+      description:description.trim(),
       // valor,
       farm,
     });
