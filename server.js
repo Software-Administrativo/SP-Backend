@@ -59,11 +59,6 @@ class Server {
     this.app.use("/users", routerUsers);
 
 
-    this.app.use("/inventory/cellar", routerCellars);
-    this.app.use("/inventory/category", routerCategory);
-    this.app.use("/inventory/mark", routerMark);
-    this.app.use("/inventory/product", routerProduct); 
-
     this.app.use("/maintenance/pays", routerPays);
     this.app.use("/maintenance/spents", routerSpents);
     this.app.use("/maintenance/works", routerWorks);
