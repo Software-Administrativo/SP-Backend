@@ -29,7 +29,7 @@ userCtrl.loginUser = async (req, res) => {
       farms: user.farms,
     });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -49,7 +49,7 @@ userCtrl.registerUser = async (req, res) => {
     await newUser.save();
     res.status(201).json({ msg: "Usuario creado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -85,7 +85,7 @@ userCtrl.updateUser = async (req, res) => {
     res.json({ msg: "Usuario actualizado correctamente" });
   } catch (error) {
     console.log(error);
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -96,11 +96,9 @@ userCtrl.getUsers = async (req, res) => {
     const users = await User.find({ farms: farm });
     res.json(users);
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
-
-
 
 //get user by id in the db
 userCtrl.getUserId = async (req, res) => {
@@ -109,7 +107,7 @@ userCtrl.getUserId = async (req, res) => {
     const user = await User.findById(id).populate("farms");
     res.json({ user });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -117,9 +115,11 @@ userCtrl.getUserId = async (req, res) => {
 userCtrl.activeUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id)
-    if(user.farms.length == 0 && user.role != "SUPER"){
-      return res.json({ msg: "El usuario debe tener al menos una finca asignada" });
+    const user = await User.findById(id);
+    if (user.farms.length == 0 && user.role != "SUPER") {
+      return res.json({
+        msg: "El usuario debe tener al menos una finca asignada",
+      });
     }
 
     console.log(user.farms.length);
@@ -127,7 +127,7 @@ userCtrl.activeUser = async (req, res) => {
 
     res.json({ msg: "Usuario activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -138,7 +138,7 @@ userCtrl.inactiveUser = async (req, res) => {
     await User.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Usuario desactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -147,7 +147,7 @@ userCtrl.logoutUser = async (req, res) => {
   try {
     res.json({ msg: "Usuario deslogueado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

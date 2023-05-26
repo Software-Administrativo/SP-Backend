@@ -10,7 +10,7 @@ orderCtrl.getOrders = async (req, res) => {
     const orders = await Order.find({ farm });
     res.json({ orders });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -21,7 +21,7 @@ orderCtrl.getOrderId = async (req, res) => {
     const order = await Order.findById(id);
     res.json({ order });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -59,7 +59,7 @@ orderCtrl.registerOrder = async (req, res) => {
     res.json({ msg: "Pedido creado correctamente", order });
   } catch (error) {
     console.log(error);
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -97,7 +97,7 @@ orderCtrl.updateOrders = async (req, res) => {
     const updateOrder = await Order.findById(id);
     res.json({ msg: "Pedido actualizado correctamente", order: updateOrder });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -108,7 +108,7 @@ orderCtrl.payOrder = async (req, res) => {
     await Order.findByIdAndUpdate(id, { statusorder: "PAGADO" });
     res.json({ msg: "Pedido pagado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -119,7 +119,7 @@ orderCtrl.activeOrders = async (req, res) => {
     await Order.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Pedido activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -130,7 +130,7 @@ orderCtrl.inactiveOrders = async (req, res) => {
     await Order.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Pedido inactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

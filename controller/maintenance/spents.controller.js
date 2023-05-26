@@ -9,7 +9,7 @@ spentCtrl.getSpents = async (req, res) => {
     const spents = await Spent.find({ farm });
     res.json({ spents });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -20,7 +20,7 @@ spentCtrl.getSpentId = async (req, res) => {
     const spent = await Spent.findById(id);
     res.json({ spent });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -37,7 +37,7 @@ spentCtrl.registerSpent = async (req, res) => {
     const spent = await newSpent.save();
     res.json({ msg: "Gasto creado correctamente", spent });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -56,7 +56,7 @@ spentCtrl.updateSpents = async (req, res) => {
     const updateSpent = await Spent.findById(id);
     res.json({ msg: "Gasto actualizado correctamente", spent: updateSpent });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -67,7 +67,7 @@ spentCtrl.activeSpents = async (req, res) => {
     await Spent.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Gasto activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -78,7 +78,7 @@ spentCtrl.inactiveSpents = async (req, res) => {
     await Spent.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Gasto inactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

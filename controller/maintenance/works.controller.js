@@ -9,7 +9,7 @@ worksCtrl.getWorks = async (req, res) => {
     const works = await Work.find({ farm });
     res.json({ works });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -20,7 +20,7 @@ worksCtrl.getWorkId = async (req, res) => {
     const works = await Work.findById(id);
     res.json({ works });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -37,7 +37,7 @@ worksCtrl.registerWork = async (req, res) => {
     const works = await newWork.save();
     res.json({ msg: "Labor creado correctamente", works });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -56,7 +56,7 @@ worksCtrl.updateWorks = async (req, res) => {
     const updateWork = await Work.findById(id);
     res.json({ msg: "Labor actualizado correctamente", works: updateWork });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -67,7 +67,7 @@ worksCtrl.activeWorks = async (req, res) => {
     await Work.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Labor activada correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -78,7 +78,7 @@ worksCtrl.inactiveWorks = async (req, res) => {
     await Work.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Labor inactivada correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

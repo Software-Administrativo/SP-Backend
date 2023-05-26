@@ -9,7 +9,7 @@ clientCtrl.getClients = async (req, res) => {
     const client = await Client.find({ farm });
     res.json({ client });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -24,7 +24,7 @@ clientCtrl.searchClient = async (req, res) => {
     });
     res.json({ client });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -35,7 +35,7 @@ clientCtrl.getClientId = async (req, res) => {
     const client = await Client.findById(id);
     res.json({ client });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -54,7 +54,7 @@ clientCtrl.registerClient = async (req, res) => {
     const client = await newClient.save();
     res.json({ msg: "Cliente creado correctamente", client });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -75,7 +75,7 @@ clientCtrl.updateClient = async (req, res) => {
     const client = await Client.findById(id);
     res.json({ msg: "Cliente actualizado correctamente", client });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -86,7 +86,7 @@ clientCtrl.activeClient = async (req, res) => {
     await Client.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Cliente activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -97,7 +97,7 @@ clientCtrl.inactiveClient = async (req, res) => {
     await Client.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Cliente inactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
