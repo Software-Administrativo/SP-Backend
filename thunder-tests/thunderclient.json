@@ -1410,7 +1410,7 @@
     "method": "POST",
     "sortNum": 650000,
     "created": "2023-05-15T12:39:06.528Z",
-    "modified": "2023-05-26T12:28:34.032Z",
+    "modified": "2023-05-26T13:38:51.523Z",
     "headers": [
       {
         "name": "token",
@@ -1424,7 +1424,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"123421214\",\n  \"phone\":\"3333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"tipePeople\":\"Administrador\"\n}",
+      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"123421214\",\n  \"phone\":\"3333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typePeople\":\"Administrador\"\n}",
       "form": []
     },
     "tests": []
@@ -1480,7 +1480,7 @@
     "method": "PUT",
     "sortNum": 680000,
     "created": "2023-05-15T12:39:06.531Z",
-    "modified": "2023-05-15T12:39:06.531Z",
+    "modified": "2023-05-26T13:38:56.035Z",
     "headers": [
       {
         "name": "token",
@@ -1491,10 +1491,13 @@
         "value": "{{farm}}"
       }
     ],
+    "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"yo1\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"12342121114\",\n  \"phone\":\"3333333333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"tipePeople\":\"Administrador\"\n}"
-    }
+      "raw": "{\n  \"name\":\"yo1\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"12342121114\",\n  \"phone\":\"3333333333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"typePeople\":\"Administrador\"\n}",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "9152ce89-c7dc-4500-92f7-4993f90114e3",
