@@ -4,7 +4,7 @@ import { validateFields } from "../../middlewares/validateFields.js";
 import { peoplesHelper } from "../../helpers/maintenance/peoples.helper.js";
 
 const { validateExistPeopleById, validateExistTypeDocumentById, validateExistEpsById } = peoplesHelper;
-const { validateToken,validateFarm } = webToken;
+const { validateToken, validateFarm } = webToken;
 
 const peoplesVali = {};
 
@@ -15,8 +15,9 @@ peoplesVali.validateExistPeople = [
     check("id").custom(async (id) => {
         await validateExistPeopleById(id);
     }),
-    check('token').custom(async ({r}) => {
+    check('token').custom(async (token, { req }) => {
         await validateToken(token);
+        await validateFarm(req.headers.farm);
     }),
     validateFields,
 ];
@@ -35,9 +36,9 @@ peoplesVali.validateRegisterPeople = [
         await validateExistEpsById(eps);
     }),
     check("tipePeople", "El tipo de persona es obligatorio").notEmpty(),
-    check('token').custom(async (token, {req}) => {
-      await validateToken(token);
-      await validateFarm(req.headers.farm);
+    check('token').custom(async (token, { req }) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
     }),
     validateFields,
 ];
@@ -61,19 +62,19 @@ peoplesVali.validateUpdatePeople = [
         await validateExistEpsById(eps);
     }),
     check("tipePeople", "El tipo de persona es obligatorio").notEmpty(),
-    check('token').custom(async (token, {req}) => {
-      await validateToken(token);
-      await validateFarm(req.headers.farm);
+    check('token').custom(async (token, { req }) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
     }),
     validateFields,
 ];
 
 //validate token 
-peoplesVali.validateHeaders =[
-    check('token').custom(async (token, {req}) => {
-      await validateToken(token);
-      await validateFarm(req.headers.farm);
+peoplesVali.validateHeaders = [
+    check('token').custom(async (token, { req }) => {
+        await validateToken(token);
+        await validateFarm(req.headers.farm);
     }),
-      validateFields,
-  ]
+    validateFields,
+]
 export { peoplesVali };

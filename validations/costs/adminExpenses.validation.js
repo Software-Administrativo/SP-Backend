@@ -9,49 +9,55 @@ const adminExpensesVali = {};
 
 //Validate if exist expenses of administration 
 adminExpensesVali.validateExistAdminExpensesById = [
-    check("id","El id es obligatorio ").notEmpty().exists(),
-    check("id","El id no es valido").isMongoId(),
-    check("id").custom(async (id) => {
-        await validateExistAdminExpensesById(id);
-    }),
-    check('token').custom(async (token, {req}) => {
+  check("id", "El id es obligatorio ").notEmpty().exists(),
+  check("id", "El id no es valido").isMongoId(),
+  check("id").custom(async (id) => {
+    await validateExistAdminExpensesById(id);
+  }),
+  check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
-    validateFields,
+  validateFields,
 ];
 
 //Validate fields for register expenses of administration 
 adminExpensesVali.validateRegisterAdminExpenses = [
-    check("name","El nombre del registro del gasto de administracion es obligatorio").notEmpty(),
-    check('token').custom(async (token, {req}) => {
+  check("name", "El nombre del gasto de actividades es obligatorio").notEmpty(),
+  check("description", "La descripción del gasto de actividades es obligatorio").notEmpty(),
+  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
-    validateFields,
+  validateFields,
 ];
 
 //validate fields for update expenses of activity
 adminExpensesVali.validateUpdateAdminExpenses = [
-    check("id","El id es obligatorio").notEmpty().exists(),
-    check("id","El id no es valido").isMongoId(),
-    check("id").custom(async (id) => {
-        await validateExistAdminExpensesById(id);
-    }),
-    check("name","El nombre del gasto de actividad es obligatorio").notEmpty().isString(),
-   check('token').custom(async (token, {req}) => {
+  check("id", "El id es obligatorio").notEmpty().exists(),
+  check("id", "El id no es valido").isMongoId(),
+  check("id").custom(async (id) => {
+    await validateExistAdminExpensesById(id);
+  }),
+  check("name", "El nombre del gasto de actividades es obligatorio").notEmpty(),
+  check("description", "La descripción del gasto de actividades es obligatorio").notEmpty(),
+  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
   }),
-    validateFields,
+  validateFields,
 ];
 
 //validate token 
-adminExpensesVali.validateHeaders =[
-    check('token').custom(async (token, {req}) => {
-        await validateToken(token);
-        await validateFarm(req.headers.farm);
-      }),
-      validateFields,
+adminExpensesVali.validateHeaders = [
+  check('token').custom(async (token, { req }) => {
+    await validateToken(token);
+    await validateFarm(req.headers.farm);
+  }),
+  validateFields,
 ];
 export { adminExpensesVali }

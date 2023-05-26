@@ -3,8 +3,9 @@ const adminExpensesCtrl = {};
 
 //get all admin of the expenses 
 adminExpensesCtrl.getAdminExpenses = async (req,res) => {
+  const { farm } = req.headers;
   try {
-    const adminExpenses = await AdminExpenses.find();
+    const adminExpenses = await AdminExpenses.find({farm});
     res.json({adminExpenses}); 
   }catch (error) {
     res.json({msg: "No fue posible terminar la operación"})
@@ -24,12 +25,13 @@ adminExpensesCtrl.adminExpensesId = async (req, res) => {
 
 //register expenses of administration in the db
 adminExpensesCtrl.registerAdminExpenses = async (req, res) => {
-  const {name, description, type, value} = req.body;
+  const { farm } = req.headers;
+  const {name, description, value} = req.body;
   try {
     const newAdminExpenses = new AdminExpenses({
       name,
       description,
-      type,
+      farm,
       value
     });
     const adminExpenses = await newAdminExpenses.save();
@@ -41,18 +43,20 @@ adminExpensesCtrl.registerAdminExpenses = async (req, res) => {
 
 //Update expenses of administration in the db
 adminExpensesCtrl.updateAdminExpenses = async (req, res) => {
-  const { id } =req.params;
-  const {name, description, type, value} = req.body;
+  const { id } = req.params;
+  const { farm } = req.headers;
+  const {name, description, value} = req.body;
   try {
-    await adminExpenses.findByIdAndUpdate(id,{
+    await AdminExpenses.findByIdAndUpdate(id,{
       name,
       description,
-      type,
+      farm,
       value
     });
     const adminExpenses = await AdminExpenses.findById(id);
     res.json({ msg:"Actualización de gasto de administracion actualizado correctamente", adminExpenses});
   } catch (error){
+    console.log(error)
     res.json({ msg: "No fue posible terminar la operación"}); 
   }
 };

@@ -6,7 +6,7 @@ const costTransCtrl = {};
 costTransCtrl.getCostTrans = async (req, res) => {
   const { farm } = req.headers;
   try {
-    const cost = await find({ farm });
+    const cost = await CostTrans.find({ farm });
     res.json({ costs: cost });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -17,7 +17,7 @@ costTransCtrl.getCostTrans = async (req, res) => {
 costTransCtrl.getCostTransId = async (req, res) => {
   const { id } = req.params;
   try {
-    const cost = await ModelTrans.findById(id);
+    const cost = await CostTrans.findById(id);
     res.json({ cost });
   } catch (error) {
     res.json({ msg: "No fue posible terminar la operacion" });
@@ -57,7 +57,7 @@ costTransCtrl.updateCostTrans = async (req, res) => {
       farm,
     });
 
-    const updateCostTrans = await ModelTrans.findById(id);
+    const updateCostTrans = await CostTrans.findById(id);
     res.json({
       msg: "Costo de transformación actualizado correctamente",
       cost: updateCostTrans,

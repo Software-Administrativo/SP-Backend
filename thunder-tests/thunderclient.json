@@ -1033,7 +1033,7 @@
     "method": "POST",
     "sortNum": 470000,
     "created": "2023-05-15T12:39:06.509Z",
-    "modified": "2023-05-15T12:39:06.509Z",
+    "modified": "2023-05-26T12:54:11.818Z",
     "headers": [
       {
         "name": "token",
@@ -1044,10 +1044,13 @@
         "value": "{{farm}}"
       }
     ],
+    "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"lote 1 test\",\n  \"areasize\":300,\n  \"lotestate\": \"DISPONIBLE\",\n  \"soildstate\":\"FERTIL\",\n  \"classlote\":\"HIJO\",\n  \"fatherlot\":\"644bc54417a36e6d869d7dab\",\n  \"sowingdensity\": 30,\n  \"description\": \"Test\"\n}"
-    }
+      "raw": "{\n  \"name\":\"lote 1 test con finca\",\n  \"areasize\":300,\n  \"lotestate\": \"DISPONIBLE\",\n  \"soildstate\":\"FERTIL\",\n  \"classlote\":\"PADRE\",\n  \"fatherlot\":\"644bc54417a36e6d869d7dab\",\n  \"sowingdensity\": 30,\n  \"description\": \"Test\"\n}",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "06a40f38-29bf-4908-8d67-a64e9ed7e8ab",
@@ -1407,7 +1410,7 @@
     "method": "POST",
     "sortNum": 650000,
     "created": "2023-05-15T12:39:06.528Z",
-    "modified": "2023-05-15T12:39:06.528Z",
+    "modified": "2023-05-26T12:28:34.032Z",
     "headers": [
       {
         "name": "token",
@@ -1418,10 +1421,13 @@
         "value": "{{farm}}"
       }
     ],
+    "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"yo\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"12342121114\",\n  \"phone\":\"3333333333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"tipePeople\":\"Administrador\"\n}"
-    }
+      "raw": "{\n  \"name\":\"yo2\",\n  \"tpdct\":\"64490f987792d850795ba517\",\n  \"document\":\"123421214\",\n  \"phone\":\"3333\",\n  \"eps\":\"6447f2142f4da5d62f11d6b9\",\n  \"tipePeople\":\"Administrador\"\n}",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "fab12fbd-2553-4e8a-8309-85abbc9164fd",
@@ -2383,11 +2389,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "5de3104e-57a5-432a-bcb4-5b42de6fb144",
     "name": "GetModelTransId",
-    "url": "{{URI}}/transformation/modeltrans/645e505ce71d2589eaeffaa5",
+    "url": "{{URI}}/transformation/modeltrans/6470ac424df6062fc79f11b7",
     "method": "GET",
     "sortNum": 5000,
     "created": "2023-05-16T16:42:25.282Z",
-    "modified": "2023-05-16T16:51:40.206Z",
+    "modified": "2023-05-26T12:55:47.471Z",
     "headers": [
       {
         "name": "token",
@@ -2457,11 +2463,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "5de3104e-57a5-432a-bcb4-5b42de6fb144",
     "name": "ActivateModelTrans",
-    "url": "{{URI}}/transformation/modeltrans/active/6463b4e5ad5cdc530a1ef3d7",
+    "url": "{{URI}}/transformation/modeltrans/active/6470ac424df6062fc79f11b7",
     "method": "PUT",
     "sortNum": 67500,
     "created": "2023-05-16T16:42:25.285Z",
-    "modified": "2023-05-16T16:53:39.224Z",
+    "modified": "2023-05-26T12:56:14.662Z",
     "headers": [
       {
         "name": "token",
@@ -2480,11 +2486,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "5de3104e-57a5-432a-bcb4-5b42de6fb144",
     "name": "InactiveModelTrans",
-    "url": "{{URI}}/transformation/modeltrans/inactive/6463b4e5ad5cdc530a1ef3d7",
+    "url": "{{URI}}/transformation/modeltrans/inactive/6470ac424df6062fc79f11b7",
     "method": "PUT",
     "sortNum": 77500,
     "created": "2023-05-16T16:42:25.286Z",
-    "modified": "2023-05-16T16:56:29.775Z",
+    "modified": "2023-05-26T12:56:08.509Z",
     "headers": [
       {
         "name": "token",
@@ -2503,11 +2509,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "5de3104e-57a5-432a-bcb4-5b42de6fb144",
     "name": "UpdateModelTrans",
-    "url": "{{URI}}/inventory/modeltrans/update/645e548bd53c030ae9448dad",
+    "url": "{{URI}}/transformation/modeltrans/update/6470ac424df6062fc79f11b7",
     "method": "PUT",
     "sortNum": 287500,
     "created": "2023-05-16T16:42:25.287Z",
-    "modified": "2023-05-26T04:41:17.363Z",
+    "modified": "2023-05-26T12:56:37.427Z",
     "headers": [
       {
         "name": "token",
@@ -2583,11 +2589,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ecb475a7-fd09-45ff-89c0-949576d0103d",
     "name": "GetCostTransId",
-    "url": "{{URI}}/transformation/costtrans/645e505ce71d2589eaeffaa5",
+    "url": "{{URI}}/transformation/costtrans/6470ad349df3e4800075bbb5",
     "method": "GET",
     "sortNum": 5000,
     "created": "2023-05-26T04:34:13.495Z",
-    "modified": "2023-05-26T04:40:35.979Z",
+    "modified": "2023-05-26T12:59:56.980Z",
     "headers": [
       {
         "name": "token",
@@ -2633,7 +2639,7 @@
     "method": "POST",
     "sortNum": 38750,
     "created": "2023-05-26T04:34:13.497Z",
-    "modified": "2023-05-26T04:40:52.290Z",
+    "modified": "2023-05-26T12:59:32.757Z",
     "headers": [
       {
         "name": "token",
@@ -2647,7 +2653,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Agua de coco 223\",\n  \"description\":\"Eooo\",\n  \"unitvalue\": 200\n}",
+      "raw": "{\n  \"name\":\"Agua de coco\",\n  \"description\":\"Eooo\",\n  \"lot\":\"6470abf34df6062fc79f11b3\",\n  \"cost\": 200\n}",
       "form": []
     },
     "tests": []
@@ -2657,11 +2663,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ecb475a7-fd09-45ff-89c0-949576d0103d",
     "name": "ActivateCostTrans",
-    "url": "{{URI}}/transformation/costtrans/active/6463b4e5ad5cdc530a1ef3d7",
+    "url": "{{URI}}/transformation/costtrans/active/6470ad349df3e4800075bbb5",
     "method": "PUT",
     "sortNum": 67500,
     "created": "2023-05-26T04:34:13.498Z",
-    "modified": "2023-05-26T04:40:56.282Z",
+    "modified": "2023-05-26T13:01:13.362Z",
     "headers": [
       {
         "name": "token",
@@ -2680,11 +2686,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ecb475a7-fd09-45ff-89c0-949576d0103d",
     "name": "InactiveModelTrans",
-    "url": "{{URI}}/transformation/costtrans/inactive/6463b4e5ad5cdc530a1ef3d7",
+    "url": "{{URI}}/transformation/costtrans/inactive/6470ad349df3e4800075bbb5",
     "method": "PUT",
     "sortNum": 77500,
     "created": "2023-05-26T04:34:13.499Z",
-    "modified": "2023-05-26T04:40:59.322Z",
+    "modified": "2023-05-26T13:01:27.252Z",
     "headers": [
       {
         "name": "token",
@@ -2703,11 +2709,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "ecb475a7-fd09-45ff-89c0-949576d0103d",
     "name": "UpdateModelTrans",
-    "url": "{{URI}}/inventory/costtrans/update/645e548bd53c030ae9448dad",
+    "url": "{{URI}}/transformation/costtrans/update/6470ad349df3e4800075bbb5",
     "method": "PUT",
     "sortNum": 287500,
     "created": "2023-05-26T04:34:13.500Z",
-    "modified": "2023-05-26T04:41:05.699Z",
+    "modified": "2023-05-26T13:02:04.671Z",
     "headers": [
       {
         "name": "token",
@@ -2721,7 +2727,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Agua de coco 223\",\n  \"description\":\"Eooo\",\n  \"unitvalue\": 200\n}",
+      "raw": "{\n  \"name\":\"Agua de coco\",\n  \"description\":\"Eooo\",\n  \"lot\":\"6470abf34df6062fc79f11b3\",\n  \"cost\": 200\n}",
       "form": []
     },
     "tests": []
@@ -2754,11 +2760,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f53d65d4-b7e6-4286-8b6e-a687eaeec62c",
     "name": "CostsPlantingById",
-    "url": "{{URI}}/costs/costsplanting/:id",
+    "url": "{{URI}}/costs/costsplanting/6470ab15863a4cd1e5002c5e",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-26T12:09:50.299Z",
-    "modified": "2023-05-26T12:09:50.299Z",
+    "modified": "2023-05-26T12:53:13.138Z",
     "headers": [
       {
         "name": "token",
@@ -2781,7 +2787,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-26T12:09:50.301Z",
-    "modified": "2023-05-26T12:09:50.301Z",
+    "modified": "2023-05-26T12:50:29.768Z",
     "headers": [
       {
         "name": "token",
@@ -2795,7 +2801,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"value\": \"123\",\n  \"type\": \"Necesario\"\n  \n}",
+      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"value\": 123\n}",
       "form": []
     },
     "tests": []
@@ -2805,11 +2811,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f53d65d4-b7e6-4286-8b6e-a687eaeec62c",
     "name": "InactivateCostsPlanting",
-    "url": "{{URI}}/costs/costsplanting",
+    "url": "{{URI}}/costs/costsplanting/inactivate/6470ab15863a4cd1e5002c5e",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-05-26T12:09:50.304Z",
-    "modified": "2023-05-26T12:09:50.304Z",
+    "modified": "2023-05-26T12:53:05.393Z",
     "headers": [
       {
         "name": "token",
@@ -2828,11 +2834,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f53d65d4-b7e6-4286-8b6e-a687eaeec62c",
     "name": "ActivateCostsPlanting",
-    "url": "{{URI}}/costs/costsplanting",
+    "url": "{{URI}}/costs/costsplanting/activate/6470ab15863a4cd1e5002c5e",
     "method": "PUT",
     "sortNum": 45000,
     "created": "2023-05-26T12:09:50.305Z",
-    "modified": "2023-05-26T12:09:50.305Z",
+    "modified": "2023-05-26T12:52:54.872Z",
     "headers": [
       {
         "name": "token",
@@ -2851,11 +2857,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f53d65d4-b7e6-4286-8b6e-a687eaeec62c",
     "name": "UpdateCostsPlanting",
-    "url": "{{URI}}/costs/costsplanting",
+    "url": "{{URI}}/costs/costsplanting/update/6470ab15863a4cd1e5002c5e",
     "method": "PUT",
     "sortNum": 55000,
     "created": "2023-05-26T12:09:50.307Z",
-    "modified": "2023-05-26T12:09:50.307Z",
+    "modified": "2023-05-26T12:51:05.782Z",
     "headers": [
       {
         "name": "token",
@@ -2867,6 +2873,11 @@
       }
     ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"value\": 123\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -2947,7 +2958,7 @@
     "method": "POST",
     "sortNum": 710000,
     "created": "2023-05-26T12:09:50.396Z",
-    "modified": "2023-05-26T12:09:50.396Z",
+    "modified": "2023-05-26T12:33:09.730Z",
     "headers": [
       {
         "name": "token",
@@ -2961,7 +2972,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"type\": \"AAAA\",\n  \"value\": 20000\n}",
+      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"value\": 20000\n}",
       "form": []
     },
     "tests": []
@@ -2971,11 +2982,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f940c9fd-cb64-4916-a8b5-d12bf8e51f56",
     "name": "ActivityExpensesById",
-    "url": "{{URI}}/costs/activityexpenses/:id",
+    "url": "{{URI}}/costs/activityexpenses/6470a64b3580a936fd4f9b81",
     "method": "GET",
     "sortNum": 710000,
     "created": "2023-05-26T12:09:50.397Z",
-    "modified": "2023-05-26T12:09:50.397Z",
+    "modified": "2023-05-26T12:30:28.657Z",
     "headers": [
       {
         "name": "token",
@@ -3044,7 +3055,7 @@
     "method": "POST",
     "sortNum": 720000,
     "created": "2023-05-26T12:09:50.400Z",
-    "modified": "2023-05-26T12:09:50.400Z",
+    "modified": "2023-05-26T12:25:21.158Z",
     "headers": [
       {
         "name": "token",
@@ -3058,7 +3069,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Actividad 01\",\n  \"description\":\"123\",\n  \"tpcontrato\":\"2040\",\n  \"valor\": 20\n}",
+      "raw": "{\n  \"name\":\"Actividad 01\",\n  \"description\":\"123\",\n  \"value\": 20\n}",
       "form": []
     },
     "tests": []
@@ -3068,11 +3079,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f3c8708a-54ce-4b32-90a5-261f40598399",
     "name": "ActivityExpensesById",
-    "url": "{{URI}}/costs/adminexpenses/:id",
+    "url": "{{URI}}/costs/adminexpenses/6470aa26c67b81f292d45659",
     "method": "GET",
     "sortNum": 720000,
     "created": "2023-05-26T12:09:50.401Z",
-    "modified": "2023-05-26T12:09:50.401Z",
+    "modified": "2023-05-26T12:46:42.859Z",
     "headers": [
       {
         "name": "token",
@@ -3142,11 +3153,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f940c9fd-cb64-4916-a8b5-d12bf8e51f56",
     "name": "ActiveActivityExpenses",
-    "url": "{{URI}}/costs/activityexpenses/activate/:id",
+    "url": "{{URI}}/costs/activityexpenses/activate/6470a64b3580a936fd4f9b81",
     "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-26T12:09:50.404Z",
-    "modified": "2023-05-26T12:09:50.404Z",
+    "modified": "2023-05-26T12:30:41.415Z",
     "headers": [
       {
         "name": "token",
@@ -3169,7 +3180,7 @@
     "method": "POST",
     "sortNum": 730000,
     "created": "2023-05-26T12:09:50.405Z",
-    "modified": "2023-05-26T12:09:50.405Z",
+    "modified": "2023-05-26T12:32:57.729Z",
     "headers": [
       {
         "name": "token",
@@ -3183,7 +3194,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesario\",\n  \"description\": \"Lo gasto en gastos necesario XD\",\n  \"type\": \"Gasto tipo necesario :C\",\n  \"value\": 200000\n}",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesario\",\n  \"description\": \"Lo gasto en gastos necesario XD\",\n  \"value\": 200000\n}",
       "form": []
     },
     "tests": []
@@ -3193,11 +3204,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f940c9fd-cb64-4916-a8b5-d12bf8e51f56",
     "name": "InactiveActivityExpenses",
-    "url": "{{URI}}/costs/activityexpenses/inactivate/:id",
+    "url": "{{URI}}/costs/activityexpenses/inactivate/6470a64b3580a936fd4f9b81",
     "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-26T12:09:50.406Z",
-    "modified": "2023-05-26T12:09:50.406Z",
+    "modified": "2023-05-26T12:30:53.874Z",
     "headers": [
       {
         "name": "token",
@@ -3216,11 +3227,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f3c8708a-54ce-4b32-90a5-261f40598399",
     "name": "ActiveActivityExpenses",
-    "url": "{{URI}}/costs/adminexpenses/activate/:id",
+    "url": "{{URI}}/costs/adminexpenses/activate/6470aa26c67b81f292d45659",
     "method": "PUT",
     "sortNum": 740000,
     "created": "2023-05-26T12:09:50.407Z",
-    "modified": "2023-05-26T12:09:50.407Z",
+    "modified": "2023-05-26T12:47:02.989Z",
     "headers": [
       {
         "name": "token",
@@ -3239,11 +3250,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f940c9fd-cb64-4916-a8b5-d12bf8e51f56",
     "name": "UpdateActivityExpenses",
-    "url": "{{URI}}/costs/activityexpenses/update/:id",
+    "url": "{{URI}}/costs/activityexpenses/update/6470a64b3580a936fd4f9b81",
     "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-26T12:09:50.408Z",
-    "modified": "2023-05-26T12:09:50.408Z",
+    "modified": "2023-05-26T12:31:08.370Z",
     "headers": [
       {
         "name": "token",
@@ -3257,7 +3268,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Actividad actualizada\",\n  \"description\":\"321\",\n  \"tpcontrato\":\"2040\",\n  \"valor\": 22\n}",
+      "raw": "{\n  \"name\":\"Actividad actualizada\",\n  \"description\":\"321\",\n  \"value\": 22\n}",
       "form": []
     },
     "tests": []
@@ -3267,11 +3278,11 @@
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f3c8708a-54ce-4b32-90a5-261f40598399",
     "name": "InactiveActivityExpenses",
-    "url": "{{URI}}/costs/adminexpenses/activate/:id",
+    "url": "{{URI}}/costs/adminexpenses/activate/6470aa26c67b81f292d45659",
     "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-26T12:09:50.409Z",
-    "modified": "2023-05-26T12:09:50.409Z",
+    "modified": "2023-05-26T12:47:14.039Z",
     "headers": [
       {
         "name": "token",
@@ -3289,12 +3300,12 @@
     "_id": "a506d62f-c2f3-4b39-8c2c-286a40dc7106",
     "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
     "containerId": "f3c8708a-54ce-4b32-90a5-261f40598399",
-    "name": "UpdateActivityExpenses Copy",
-    "url": "{{URI}}/costs/adminexpenses/update/:id",
+    "name": "UpdateActivityExpenses",
+    "url": "{{URI}}/costs/adminexpenses/update/6470aa26c67b81f292d45659",
     "method": "PUT",
     "sortNum": 760000,
     "created": "2023-05-26T12:09:50.410Z",
-    "modified": "2023-05-26T12:09:50.410Z",
+    "modified": "2023-05-26T12:47:47.431Z",
     "headers": [
       {
         "name": "token",
@@ -3308,7 +3319,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesariop pero era fake\",\n  \"description\": \"Lo gasto en gastos innecesario \",\n  \"type\": \"Gasto tipo innecesario :C\",\n  \"value\": 600000\n}",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesariop pero era fake\",\n  \"description\": \"Lo gasto en gastos innecesario \",\n  \"value\": 600000\n}",
       "form": []
     },
     "tests": []

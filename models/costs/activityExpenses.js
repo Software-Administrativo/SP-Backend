@@ -15,10 +15,10 @@ const ActivityExpensesSchema = new Schema(
       ref: "Farm",
       required: true,
     },
-    type: {
+/*     type: {
       type: String,
       required: true
-    },
+    }, */
     value: {
       type: Number,
       default: 0

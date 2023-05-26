@@ -10,7 +10,7 @@ costTransHelper.validateExistCostTransById = async (id) => {
       throw new Error();
     }
   } catch (error) {
-    throw new Error(`El modelo con el id ${id} no existe`);
+    throw new Error(`El costo con el id ${id} no existe, o esta inactivo`);
   }
 };
 

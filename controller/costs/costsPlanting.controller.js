@@ -1,10 +1,11 @@
-import Costs from "../../models/costs/costsPlanting.js"
+import Costs from "../../models/costs/CostsPlanting.js"
 const costsCtrl = {};
 
 //get all costs of planting
 costsCtrl.getCosts = async (req,res) => {
+  const { farm } = req.headers;
   try {
-    const costs = await Costs.find();
+    const costs = await Costs.find({farm});
     res.json({costs}); 
   }catch (error) {
     res.json({msg: "No fue posible terminar la operación"})
@@ -24,13 +25,15 @@ costsCtrl.getCostsId = async (req, res) => {
 
 //register cost in the db
 costsCtrl.registerCosts = async (req, res) => {
-  const {name, description, farm, lote} = req.body;
+  const { farm } = req.headers;
+  const {name, description,value, lot} = req.body;
   try {
     const newCosts = new Costs({
       name,
       description,
       farm,
-      lote
+      value,
+      lot
     });
     const costs = await newCosts.save();
     res.json({ msg:"Costo creado correctamente", costs});
@@ -42,13 +45,15 @@ costsCtrl.registerCosts = async (req, res) => {
 //update costs in the db
 costsCtrl.updateCost = async (req, res) => {
   const { id } =req.params;
-  const {name, description, farm, lote} = req.body;
+  const { farm } = req.headers;
+  const {name, description,value, lot} = req.body;
   try {
-    await costs.findByIdAndUpdate(id,{
+    await Costs.findByIdAndUpdate(id,{
       name,
       description,
       farm,
-      lote
+      value,
+      lot
     });
     const costs = await Costs.findById(id);
     res.json({ msg:"Costo actualizado correctamente", costs});
