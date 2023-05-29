@@ -19,10 +19,10 @@ const CellarSchema = new Schema(
             type: String,
             required: true,
         },
-        value: {
+        worth: {
             type: Number,
-            required: true,
-        },
+            default: 0
+          },
         status: {
             type: Number,
             default: 0,

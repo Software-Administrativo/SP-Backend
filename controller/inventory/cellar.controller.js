@@ -33,7 +33,7 @@ cellarCtrl.registerCellar = async (req, res) => {
             farm,
             tpcontract,
             description:description.trim(),
-            valor
+            worth,
         });
         console.log(newCellar)
         const cellar = await newCellar.save();
@@ -54,7 +54,7 @@ cellarCtrl.updateCellar = async (req, res) => {
             farm,
             tpcontract,
             description:description.trim(),
-            valor,
+            worth,
         });
         const cellar =  await Cellar.findById(id);
         res.json({ msg: "Bodega actualizado correctamente" , cellar});

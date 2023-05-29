@@ -20,9 +20,14 @@ const MarkSchema = new Schema(
             ref: "Category",
             required: true
           },
-        description: {
+/*         description: {
             type: String,
             required: true,
+        }, */
+        description: {
+            type: Schema.Types.ObjectId,
+            ref: "Description",
+            required: true
         },
         status: {
             type: Number,

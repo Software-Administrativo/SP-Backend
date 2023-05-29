@@ -26,13 +26,13 @@ adminExpensesCtrl.adminExpensesId = async (req, res) => {
 //register expenses of administration in the db
 adminExpensesCtrl.registerAdminExpenses = async (req, res) => {
   const { farm } = req.headers;
-  const {name, description, value} = req.body;
+  const {name, description, worth} = req.body;
   try {
     const newAdminExpenses = new AdminExpenses({
       name:name.trim().toUpperCase(),
       description: description.trim(),
       farm,
-      value
+      worth
     });
     const adminExpenses = await newAdminExpenses.save();
     res.json({ msg:"Registro de gasto de administracion creado correctamente", adminExpenses});
@@ -45,13 +45,13 @@ adminExpensesCtrl.registerAdminExpenses = async (req, res) => {
 adminExpensesCtrl.updateAdminExpenses = async (req, res) => {
   const { id } = req.params;
   const { farm } = req.headers;
-  const {name, description, value} = req.body;
+  const {name, description, worth} = req.body;
   try {
     await AdminExpenses.findByIdAndUpdate(id,{
       name:name.trim().toUpperCase(),
       description:description.trim(),
       farm,
-      value
+      worth
     });
     const adminExpenses = await AdminExpenses.findById(id);
     res.json({ msg:"Actualización de gasto de administracion actualizado correctamente", adminExpenses});

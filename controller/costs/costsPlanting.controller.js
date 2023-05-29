@@ -26,13 +26,13 @@ costsCtrl.getCostsId = async (req, res) => {
 //register cost in the db
 costsCtrl.registerCosts = async (req, res) => {
   const { farm } = req.headers;
-  const {name, description,value, lot} = req.body;
+  const {name, description,worth, lot} = req.body;
   try {
     const newCosts = new Costs({
       name:name.trim().toUpperCase(),
       description:description.trim(),
       farm,
-      value,
+      worth,
       lot
     });
     const costs = await newCosts.save();
@@ -46,13 +46,13 @@ costsCtrl.registerCosts = async (req, res) => {
 costsCtrl.updateCost = async (req, res) => {
   const { id } =req.params;
   const { farm } = req.headers;
-  const {name, description,value, lot} = req.body;
+  const {name, description,worth, lot} = req.body;
   try {
     await Costs.findByIdAndUpdate(id,{
       name:name.trim().toUpperCase(),
       description:description.trim(),
       farm,
-      value,
+      worth,
       lot
     });
     const costs = await Costs.findById(id);

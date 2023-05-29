@@ -19,7 +19,7 @@ const ActivityExpensesSchema = new Schema(
       type: String,
       required: true
     }, */
-    value: {
+    worth: {
       type: Number,
       default: 0
     },

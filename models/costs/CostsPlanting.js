@@ -20,7 +20,7 @@ const CostsPlantingSchema = new Schema(
       ref: "Lot",
       required: true
     },
-    value : {
+    worth : {
       type: Number,
       default: 0
     },

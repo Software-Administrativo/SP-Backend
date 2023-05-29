@@ -10,10 +10,15 @@ const ProductSchema = new Schema(
         type: String,
         required: true,
     },
-    mark: {
+/*     mark: {
       type: String,
       required: true,
-    },
+    }, */
+    mark: {
+      type: Schema.Types.ObjectId,
+      ref: "Mark",
+      required: true,
+  },
     amount: {
         type: String,
         required: true,

@@ -52,7 +52,7 @@ peopleCtrl.updatePeoples = async (req, res) => {
     const { farm } = req.headers;
     try {
         await People.findByIdAndUpdate(id, {
-            name:name.trim().toUpperCase(),
+            name: name.trim().toUpperCase(),
             tpdct,
             document,
             phone,

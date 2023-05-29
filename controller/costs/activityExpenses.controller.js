@@ -25,14 +25,14 @@ activityExpensesCtrl.activityExpensesId = async (req, res) => {
 
 //register expenses of activity in the db
 activityExpensesCtrl.registerActivityExpenses = async (req, res) => {
-  const { name, description, value } = req.body;
+  const { name, description, worth } = req.body;
   const { farm } = req.headers;
   try {
     const newActivityExpenses = new ActivityExpenses({
       name: name.trim().toUpperCase(),
       description: description.trim(),
       farm,
-      value
+      worth
     });
     const activityExpenses = await newActivityExpenses.save();
     res.json({ msg: "Registro de gasto de actividades creado correctamente", activityExpenses });
@@ -46,13 +46,13 @@ activityExpensesCtrl.registerActivityExpenses = async (req, res) => {
 activityExpensesCtrl.updateActivityExpenses = async (req, res) => {
   const { id } = req.params;
   const { farm } = req.headers;
-  const { name, description, value } = req.body;
+  const { name, description, worth } = req.body;
   try {
     await ActivityExpenses.findByIdAndUpdate(id, {
       name: name.trim().toUpperCase(),
       description: description.trim(),
       farm,
-      value
+      worth
     });
     const activityExpenses = await ActivityExpenses.findById(id);
     res.json({ msg: "Actualización de gasto de actividades actualizado correctamente", activityExpenses });
