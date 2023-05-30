@@ -4,24 +4,24 @@ const peopleCtrl = {};
 
 //get all people
 peopleCtrl.getPeoples = async (req, res) => {
-    const { farm } = req.headers;
-    try {
-        const people = await People.find({ farm });
-        res.json({ people });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
+  const { farm } = req.headers;
+  try {
+    const people = await People.find({ farm });
+    res.json({ people });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
 };
 
 //get people by id in the db
 peopleCtrl.getPeopleId = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const people = await People.findById(id);
-        res.json({ people });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
+  const { id } = req.params;
+  try {
+    const people = await People.findById(id);
+    res.json({ people });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
 };
 
 //register people in the db
@@ -61,33 +61,36 @@ peopleCtrl.updatePeoples = async (req, res) => {
             farm,
         });
 
-        const updatePeople = await People.findById(id);
-        res.json({ msg: "Persona actualizada correctamente", people: updatePeople });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
+    const updatePeople = await People.findById(id);
+    res.json({
+      msg: "Persona actualizada correctamente",
+      people: updatePeople,
+    });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
 };
 
 //active people in the db
 peopleCtrl.activePeoples = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await People.findByIdAndUpdate(id, { status: 0 });
-        res.json({ msg: "Persona activada correctamente" });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
+  const { id } = req.params;
+  try {
+    await People.findByIdAndUpdate(id, { status: 0 });
+    res.json({ msg: "Persona activada correctamente" });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
 };
 
 //inactive people in the db
 peopleCtrl.inactivePeoples = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await People.findByIdAndUpdate(id, { status: 1 });
-        res.json({ msg: "Persona inactivada correctamente" });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
+  const { id } = req.params;
+  try {
+    await People.findByIdAndUpdate(id, { status: 1 });
+    res.json({ msg: "Persona inactivada correctamente" });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
 };
 
 export { peopleCtrl };

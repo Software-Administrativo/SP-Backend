@@ -4,12 +4,12 @@ const typeDocumentCtrl = {};
 
 //get all type of documents
 typeDocumentCtrl.getTypeDocuments = async (req, res) => {
-  const {farm} = req.headers;
+  const { farm } = req.headers;
   try {
     const typeDocuments = await TypeDocument.find({ farm });
     res.json({ typeDocuments });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -20,14 +20,14 @@ typeDocumentCtrl.getTypeDocumentId = async (req, res) => {
     const typeDocument = await TypeDocument.findById(id);
     res.json({ typeDocument });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
 //register type of document in the db
 typeDocumentCtrl.registerTypeDocument = async (req, res) => {
   const { name, tpcontrato, description, valor } = req.body;
-  const {farm} = req.headers;
+  const { farm } = req.headers;
   try {
     const newTypeDocument = new TypeDocument({
       name:name.trim().toUpperCase(),
@@ -37,7 +37,7 @@ typeDocumentCtrl.registerTypeDocument = async (req, res) => {
     const typeDocument = await newTypeDocument.save();
     res.json({ msg: "Tipo de documento creado correctamente", typeDocument });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -45,7 +45,7 @@ typeDocumentCtrl.registerTypeDocument = async (req, res) => {
 typeDocumentCtrl.updateTypeDocuments = async (req, res) => {
   const { id } = req.params;
   const { name, tpcontrato, description, valor } = req.body;
-  const {farm} = req.headers;
+  const { farm } = req.headers;
   try {
     await TypeDocument.findByIdAndUpdate(id, {
       name:name.trim().toUpperCase(),
@@ -56,9 +56,12 @@ typeDocumentCtrl.updateTypeDocuments = async (req, res) => {
     });
 
     const typeDocument = await TypeDocument.findById(id);
-    res.json({ msg: "Tipo de documento actualizado correctamente", typeDocument });
+    res.json({
+      msg: "Tipo de documento actualizado correctamente",
+      typeDocument,
+    });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -69,7 +72,7 @@ typeDocumentCtrl.activeTypeDocuments = async (req, res) => {
     await TypeDocument.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Tipo de documento activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -80,7 +83,7 @@ typeDocumentCtrl.inactiveTypeDocuments = async (req, res) => {
     await TypeDocument.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Pago inactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

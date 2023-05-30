@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 import Farm from "../../models/maintenance/Farm.js";
 import User from "../../models/user/User.js";
 
@@ -9,7 +11,7 @@ farmCtrl.getFarms = async (req, res) => {
     const farms = await Farm.find();
     res.json({ farms });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -20,12 +22,21 @@ farmCtrl.getFarmId = async (req, res) => {
     const farm = await Farm.findById(id);
     res.json({ farm });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
 //register farm in the db
 farmCtrl.registerFarm = async (req, res) => {
+  const { token } = req.headers;
+  const { id, rol } = jwt_decode(token);
+
+  if (rol != "SUPER")
+    res
+      .status(401)
+      .json({ msg: "No tienes permisos para realizar esta accion" });
+
+
   const { name, address, owner } = req.body;
   try {
     const newfarm = new Farm({
@@ -34,14 +45,29 @@ farmCtrl.registerFarm = async (req, res) => {
         owner,
     });
     const farm = await newfarm.save();
-    res.json({ msg: "Finca creada correctamente", farm });
+
+    //agregar a farms del usuario la nueva finca
+    const user = await User.findById(id);
+    user.farms.push(farm._id);
+    await user.save();
+
+    return res.json({ msg: "Finca creada correctamente", farm });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
 //update farm in the db
 farmCtrl.updateFarms = async (req, res) => {
+  const { token } = req.headers;
+  const tokenDecode = jwt_decode(token);
+  const rol = tokenDecode.rol;
+
+  if (rol != "SUPER")
+    res
+      .status(401)
+      .json({ msg: "No tienes permisos para realizar esta accion" });
+
   const { id } = req.params;
   const { name, address, owner } = req.body;
   try {
@@ -54,7 +80,7 @@ farmCtrl.updateFarms = async (req, res) => {
     const farm = await Farm.findById(id);
     res.json({ msg: "Finca actualizada correctamente", farm });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -65,7 +91,7 @@ farmCtrl.activeFarms = async (req, res) => {
     await Farm.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Finca activada correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -74,7 +100,7 @@ farmCtrl.inactiveFarms = async (req, res) => {
   const { id } = req.params;
   try {
     let newUsers = [];
-    //search all users with the farm id 
+    //search all users with the farm id
     const users = await User.find({
       farms: id,
       status: 0,
@@ -88,13 +114,13 @@ farmCtrl.inactiveFarms = async (req, res) => {
       newUsers.push(user);
     }
     for (let user of newUsers) {
-       await User.findByIdAndUpdate(user._id, user);
+      await User.findByIdAndUpdate(user._id, user);
     }
 
-    await Farm.findByIdAndUpdate(id, { status: 1 }); 
+    await Farm.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Finca inactivada correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

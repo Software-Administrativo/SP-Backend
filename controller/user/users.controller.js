@@ -1,5 +1,6 @@
 import User from "../../models/user/User.js";
 import webToken from "../../middlewares/webToken.js";
+import sendEmail from "../../utils/emails/sendEmail.js";
 
 const userCtrl = {};
 
@@ -29,16 +30,18 @@ userCtrl.loginUser = async (req, res) => {
       farms: user.farms,
     });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
 //register new user in the db
 userCtrl.registerUser = async (req, res) => {
-  const { name, tpdocument, numdocument, role, password, farms } = req.body;
+  const { name, email, tpdocument, numdocument, role, password, farms } =
+    req.body;
   try {
     const newUser = new User({
       name:name.trim().toUpperCase(),
+      email,
       tpdocument,
       numdocument,
       role,
@@ -49,14 +52,15 @@ userCtrl.registerUser = async (req, res) => {
     await newUser.save();
     res.status(201).json({ msg: "Usuario creado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
 //update user in the db
 userCtrl.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, tpdocument, numdocument, role, password, farms } = req.body;
+  const { name, email, tpdocument, numdocument, role, password, farms } =
+    req.body;
 
   const passwordEncrypt = new User({ password });
   passwordEncrypt.password = await passwordEncrypt.encryptPassword(password);
@@ -65,8 +69,11 @@ userCtrl.updateUser = async (req, res) => {
     const user = await User.findById(id);
     if (user.role == "SUPER") {
       await User.findByIdAndUpdate(id, {
-        name:name.trim().toUpperCase(),
+
         tpdocument:tpdocument.toUpperCase(),
+        name,
+        email,
+        tpdocument,
         numdocument,
         password: passwordEncrypt.password,
         farms,
@@ -75,6 +82,8 @@ userCtrl.updateUser = async (req, res) => {
       await User.findByIdAndUpdate(id, {
         name:name.trim().toUpperCase(),
         tpdocument:tpdocument.toUpperCase(),
+        email,
+        tpdocument,
         numdocument,
         role,
         password: passwordEncrypt.password,
@@ -85,7 +94,7 @@ userCtrl.updateUser = async (req, res) => {
     res.json({ msg: "Usuario actualizado correctamente" });
   } catch (error) {
     console.log(error);
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -96,11 +105,9 @@ userCtrl.getUsers = async (req, res) => {
     const users = await User.find({ farms: farm });
     res.json(users);
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
-
-
 
 //get user by id in the db
 userCtrl.getUserId = async (req, res) => {
@@ -109,7 +116,7 @@ userCtrl.getUserId = async (req, res) => {
     const user = await User.findById(id).populate("farms");
     res.json({ user });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -117,9 +124,11 @@ userCtrl.getUserId = async (req, res) => {
 userCtrl.activeUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id)
-    if(user.farms.length == 0 && user.role != "SUPER"){
-      return res.json({ msg: "El usuario debe tener al menos una finca asignada" });
+    const user = await User.findById(id);
+    if (user.farms.length == 0 && user.role != "SUPER") {
+      return res.json({
+        msg: "El usuario debe tener al menos una finca asignada",
+      });
     }
 
     console.log(user.farms.length);
@@ -127,9 +136,52 @@ userCtrl.activeUser = async (req, res) => {
 
     res.json({ msg: "Usuario activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
+
+//request reset password
+userCtrl.reqResetPassword = async (req, res) => {
+  const { email } = req.body;
+  try {
+    const { name } = await User.findOne({ email });
+
+    const token = await webToken.generateToken({ email });
+
+    await sendEmail(
+      email,
+      "Restablecer Contraseña",
+      { name, url: `${process.env.SITE_FRONTEND}/newpassword/${token}` },
+      "./template/resetPass.hbs"
+    );
+    res.json({ msg: "Se ha enviado un correo para restablecer la contraseña" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
+
+//change password user
+userCtrl.changePassword = async (req, res) => {
+  const { token, password } = req.body;
+
+  const id = await webToken.decodeTempToken(token);
+
+  const passwordEncrypt = new User({ password });
+  passwordEncrypt.password = await passwordEncrypt.encryptPassword(password);
+
+  try {
+    await User.findByIdAndUpdate(id, {
+      password: passwordEncrypt.password,
+    });
+    
+    res.json({ msg: "Contraseña actualizada correctamente" });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
+  
+
 
 //deactive user in the db
 userCtrl.inactiveUser = async (req, res) => {
@@ -138,7 +190,7 @@ userCtrl.inactiveUser = async (req, res) => {
     await User.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Usuario desactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -147,7 +199,7 @@ userCtrl.logoutUser = async (req, res) => {
   try {
     res.json({ msg: "Usuario deslogueado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

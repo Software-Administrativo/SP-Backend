@@ -4,25 +4,25 @@ const markCtrl = {};
 
 //get all marks
 markCtrl.getMarks = async (req, res) => {
-    const { farm} = req.headers;
-    try {
-        const mark = await Mark.find({farm});
-        res.json({ mark });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
-}
+  const { farm } = req.headers;
+  try {
+    const mark = await Mark.find({ farm });
+    res.json({ mark });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
 
 //get mark by id in the db
 markCtrl.getMarkId = async (req, res) => {
-    const { id } = req.params;
-    try {
-        const mark = await Mark.findById(id);
-        res.json({ mark });
-    } catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
-}
+  const { id } = req.params;
+  try {
+    const mark = await Mark.findById(id);
+    res.json({ mark });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
 
 //register mark in the db
 markCtrl.registerMark = async (req, res) => {
@@ -37,15 +37,15 @@ markCtrl.registerMark = async (req, res) => {
         });
     await newMark.save();
     res.json({ msg: "Marca creada correctamente" });
-    }catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
-}
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
 
 //update mark in the db
 markCtrl.updateMark = async (req, res) => {
     const { id } = req.params;
-    const { name,category,description,  } = req.body;
+    const { name,category,description  } = req.body;
     const { farm} = req.headers;
     try {
         await Mark.findByIdAndUpdate(id, {
@@ -61,17 +61,16 @@ markCtrl.updateMark = async (req, res) => {
     }
 }
 
-
 //activate mark in the db
 markCtrl.activateMark = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await Mark.findByIdAndUpdate(id, { status: 0 });
-        res.json({ msg: "Marca activada correctamente" });
-    }catch (error) {
-        res.json({ msg: "No fue posible terminar la operacion" });
-    }
-}
+  const { id } = req.params;
+  try {
+    await Mark.findByIdAndUpdate(id, { status: 0 });
+    res.json({ msg: "Marca activada correctamente" });
+  } catch (error) {
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
+  }
+};
 
 //inactive mark in the db
 markCtrl.inactiveMark = async (req, res) => {
@@ -85,3 +84,4 @@ markCtrl.inactiveMark = async (req, res) => {
 }
 
 export { markCtrl };
+

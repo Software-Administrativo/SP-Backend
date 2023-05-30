@@ -9,7 +9,7 @@ costTransCtrl.getCostTrans = async (req, res) => {
     const cost = await CostTrans.find({ farm });
     res.json({ costs: cost });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -20,7 +20,7 @@ costTransCtrl.getCostTransId = async (req, res) => {
     const cost = await CostTrans.findById(id);
     res.json({ cost });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -37,9 +37,12 @@ costTransCtrl.registerCostTrans = async (req, res) => {
       farm,
     });
     const costTrans = await newCostTrans.save();
-    res.json({ msg: "Costo de transformación registrado correctamente", cost: costTrans });
+    res.json({
+      msg: "Costo de transformación registrado correctamente",
+      cost: costTrans,
+    });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -63,7 +66,7 @@ costTransCtrl.updateCostTrans = async (req, res) => {
       cost: updateCostTrans,
     });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -74,7 +77,7 @@ costTransCtrl.activeCostTrans = async (req, res) => {
     await CostTrans.findByIdAndUpdate(id, { status: 0 });
     res.json({ msg: "Costo de transformación activado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 
@@ -85,7 +88,7 @@ costTransCtrl.inactiveCostTrans = async (req, res) => {
     await CostTrans.findByIdAndUpdate(id, { status: 1 });
     res.json({ msg: "Costo de transformación desactivado correctamente" });
   } catch (error) {
-    res.json({ msg: "No fue posible terminar la operacion" });
+    res.status(400).json({ msg: "No fue posible terminar la operacion" });
   }
 };
 

@@ -7,9 +7,9 @@ const PeopleSquema = new Schema(
       required: true,
     },
     tpdct: {
-        type: Schema.Types.ObjectId,
-        ref: "TypeDocument",
+        type: String,
         required: true,
+        default: "CC",
     },
     document: {
         type: String,
@@ -24,9 +24,9 @@ const PeopleSquema = new Schema(
         ref: "Eps",
         required: true,
     },
-    tipePeople: {
+    typepeople: {
         type: String,
-        default: "Empleado",
+        default: "TRABAJADOR",
         required: true,
     },
     farm: {

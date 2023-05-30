@@ -25,12 +25,16 @@ const UserSquema = new Schema(
     },
     farms: [
       {
-          type: Schema.Types.ObjectId,
-          ref: "Farm",
+        type: Schema.Types.ObjectId,
+        ref: "Farm",
       },
     ],
+    email: {
+      type: String,
+      default: "",
+    },
     status: {
-      type: Number, 
+      type: Number,
       default: 0,
     },
   },
