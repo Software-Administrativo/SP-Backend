@@ -25,14 +25,14 @@ activityExpensesCtrl.activityExpensesId = async (req, res) => {
 
 //register expenses of activity in the db
 activityExpensesCtrl.registerActivityExpenses = async (req, res) => {
-  const { name, description, value } = req.body;
+  const { name, description, cost } = req.body;
   const { farm } = req.headers;
   try {
     const newActivityExpenses = new ActivityExpenses({
       name: name.trim().toUpperCase(),
       description: description.trim(),
       farm,
-      value,
+      cost,
     });
     const activityExpenses = await newActivityExpenses.save();
     res.json({
@@ -49,13 +49,13 @@ activityExpensesCtrl.registerActivityExpenses = async (req, res) => {
 activityExpensesCtrl.updateActivityExpenses = async (req, res) => {
   const { id } = req.params;
   const { farm } = req.headers;
-  const { name, description, value } = req.body;
+  const { name, description, cost } = req.body;
   try {
     await ActivityExpenses.findByIdAndUpdate(id, {
       name: name.trim().toUpperCase(),
       description,
       farm,
-      value,
+      cost,
     });
     const activityExpenses = await ActivityExpenses.findById(id);
     res.json({

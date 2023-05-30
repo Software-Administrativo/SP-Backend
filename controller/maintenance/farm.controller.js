@@ -59,6 +59,15 @@ farmCtrl.registerFarm = async (req, res) => {
 
 //update farm in the db
 farmCtrl.updateFarms = async (req, res) => {
+  const { token } = req.headers;
+  const tokenDecode = jwt_decode(token);
+  const rol = tokenDecode.rol;
+
+  if (rol != "SUPER")
+    res
+      .status(401)
+      .json({ msg: "No tienes permisos para realizar esta accion" });
+
   const { id } = req.params;
   const { name, address, owner } = req.body;
   try {

@@ -69,7 +69,7 @@
     "method": "POST",
     "sortNum": 40000,
     "created": "2023-05-15T12:39:06.466Z",
-    "modified": "2023-05-23T12:37:24.386Z",
+    "modified": "2023-05-29T05:32:51.556Z",
     "headers": [
       {
         "name": "token",
@@ -83,7 +83,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"TEST3\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"515115151GHNGFNFGN51\",\n  \"role\":\"ADMIN\",\n  \"farms\":[\"644bf8ff92ec73c9fa60201c\",\"6456f212f4929b21c7546993\"],\n  \"password\":\"fA12345\"\n}",
+      "raw": "{\n  \"name\":\"Jorge\",\n  \"tpdocument\":\"CC\",\n  \"numdocument\":\"10594849400094\",\n  \"role\":\"ADMIN\",\n  \"farms\":[\"644bf8ff92ec73c9fa60201c\",\"6456f212f4929b21c7546993\"],\n  \"password\":\"fA12345\",\n  \"email\":\"jroatoro362@gmail.com\"\n}",
       "form": []
     },
     "tests": []
@@ -2803,7 +2803,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-26T12:09:50.301Z",
-    "modified": "2023-05-26T12:50:29.768Z",
+    "modified": "2023-05-30T03:11:12.312Z",
     "headers": [
       {
         "name": "token",
@@ -2817,7 +2817,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"value\": 123\n}",
+      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"cost\": 123\n}",
       "form": []
     },
     "tests": []
@@ -2877,7 +2877,7 @@
     "method": "PUT",
     "sortNum": 55000,
     "created": "2023-05-26T12:09:50.307Z",
-    "modified": "2023-05-26T12:51:05.782Z",
+    "modified": "2023-05-30T03:11:15.037Z",
     "headers": [
       {
         "name": "token",
@@ -2891,7 +2891,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"value\": 123\n}",
+      "raw": "{\n  \"name\": \"No respare en gastos \",\n  \"description\": \"AAA\",\n  \"lot\":\"644bc672973f8e3db60a160d\",\n  \"cost\": 123\n}",
       "form": []
     },
     "tests": []
@@ -2974,7 +2974,7 @@
     "method": "POST",
     "sortNum": 710000,
     "created": "2023-05-26T12:09:50.396Z",
-    "modified": "2023-05-26T12:33:09.730Z",
+    "modified": "2023-05-30T03:11:19.445Z",
     "headers": [
       {
         "name": "token",
@@ -2988,7 +2988,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"value\": 20000\n}",
+      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"cost\": 20000\n}",
       "form": []
     },
     "tests": []
@@ -3071,7 +3071,7 @@
     "method": "POST",
     "sortNum": 720000,
     "created": "2023-05-26T12:09:50.400Z",
-    "modified": "2023-05-26T12:25:21.158Z",
+    "modified": "2023-05-30T03:09:11.561Z",
     "headers": [
       {
         "name": "token",
@@ -3085,7 +3085,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Actividad 01\",\n  \"description\":\"123\",\n  \"value\": 20\n}",
+      "raw": "{\n  \"name\":\"Actividad 01\",\n  \"description\":\"123\",\n  \"cost\": 20\n}",
       "form": []
     },
     "tests": []
@@ -3145,7 +3145,7 @@
     "method": "PUT",
     "sortNum": 730000,
     "created": "2023-05-26T12:09:50.403Z",
-    "modified": "2023-05-26T12:09:50.403Z",
+    "modified": "2023-05-30T03:11:22.325Z",
     "headers": [
       {
         "name": "token",
@@ -3159,7 +3159,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"type\": \"AAAA\",\n  \"value\": 20000\n}",
+      "raw": "{\n  \"name\": \"Gasto en zapatosss\",\n  \"description\": \"Compro zapatos\",\n  \"type\": \"AAAA\",\n  \"cost\": 20000\n}",
       "form": []
     },
     "tests": []
@@ -3196,7 +3196,7 @@
     "method": "POST",
     "sortNum": 730000,
     "created": "2023-05-26T12:09:50.405Z",
-    "modified": "2023-05-26T12:32:57.729Z",
+    "modified": "2023-05-30T03:11:04.029Z",
     "headers": [
       {
         "name": "token",
@@ -3210,7 +3210,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesario\",\n  \"description\": \"Lo gasto en gastos necesario XD\",\n  \"value\": 200000\n}",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesario\",\n  \"description\": \"Lo gasto en gastos necesario XD\",\n  \"cost\": 200000\n}",
       "form": []
     },
     "tests": []
@@ -3270,7 +3270,7 @@
     "method": "PUT",
     "sortNum": 750000,
     "created": "2023-05-26T12:09:50.408Z",
-    "modified": "2023-05-26T12:31:08.370Z",
+    "modified": "2023-05-30T03:09:10.498Z",
     "headers": [
       {
         "name": "token",
@@ -3284,7 +3284,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Actividad actualizada\",\n  \"description\":\"321\",\n  \"value\": 22\n}",
+      "raw": "{\n  \"name\":\"Actividad actualizada\",\n  \"description\":\"321\",\n  \"cost\": 22\n}",
       "form": []
     },
     "tests": []
@@ -3321,7 +3321,7 @@
     "method": "PUT",
     "sortNum": 760000,
     "created": "2023-05-26T12:09:50.410Z",
-    "modified": "2023-05-26T12:47:47.431Z",
+    "modified": "2023-05-30T03:11:07.397Z",
     "headers": [
       {
         "name": "token",
@@ -3335,7 +3335,63 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesariop pero era fake\",\n  \"description\": \"Lo gasto en gastos innecesario \",\n  \"value\": 600000\n}",
+      "raw": "{\n  \"name\": \"Gasto que el admin dijo que era necesariop pero era fake\",\n  \"description\": \"Lo gasto en gastos innecesario \",\n  \"cost\": 600000\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f7a8202a-041f-4739-9752-c96c94c76807",
+    "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
+    "containerId": "b95ae534-6efb-4c3a-a692-384808554e35",
+    "name": "resetPassword",
+    "url": "{{URI}}/users/requestresetpass",
+    "method": "POST",
+    "sortNum": 85000,
+    "created": "2023-05-29T05:07:57.523Z",
+    "modified": "2023-05-29T05:49:23.598Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\":\"jroatoro362@gmail.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d83b0871-7146-4774-9421-d362de4af6ef",
+    "colId": "2aa05aae-efc5-47e9-8ac9-f9fc0444ec4b",
+    "containerId": "b95ae534-6efb-4c3a-a692-384808554e35",
+    "name": "changePassword",
+    "url": "{{URI}}/users/changePassword",
+    "method": "POST",
+    "sortNum": 95000,
+    "created": "2023-05-30T01:45:27.190Z",
+    "modified": "2023-05-30T01:48:13.750Z",
+    "headers": [
+      {
+        "name": "token",
+        "value": "{{token}}"
+      },
+      {
+        "name": "farm",
+        "value": "{{farm}}"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"token\" : \"\",\n  \"password\" : \"123Admin123\"\n}",
       "form": []
     },
     "tests": []

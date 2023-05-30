@@ -31,8 +31,8 @@ costsVali.validateRegisterCosts = [
   check("lot").custom(async (lot) => {
     await validateExistLotById(lot);
   }),
-  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check("cost", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("cost", "El valor del gasto de actividades no es valido").isNumeric(),
   check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
@@ -54,8 +54,8 @@ costsVali.validateUpdateCosts = [
   check("lot").custom(async (lot) => {
     await validateExistLotById(lot);
   }),
-  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check("cost", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("cost", "El valor del gasto de actividades no es valido").isNumeric(),
   check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);

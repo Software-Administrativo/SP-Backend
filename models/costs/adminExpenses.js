@@ -19,7 +19,7 @@ const AdminExpensesSchema = new Schema(
       type: String,
       required: true
     }, */
-    value: {
+    cost: {
       type: Number,
       default: 0
     },

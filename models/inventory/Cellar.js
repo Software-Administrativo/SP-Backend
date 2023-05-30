@@ -19,7 +19,7 @@ const CellarSchema = new Schema(
             type: String,
             required: true,
         },
-        value: {
+        cost: {
             type: Number,
             required: true,
         },

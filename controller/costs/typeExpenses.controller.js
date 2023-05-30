@@ -24,13 +24,13 @@ typeExpensesCtrl.getTypeExpensesId = async (req, res) => {
 
 //register Creation type of expenses in the db
 typeExpensesCtrl.registerTypeExpenses = async (req, res) => {
-  const {name, description, type, value} = req.body;
+  const {name, description, type, cost} = req.body;
   try {
     const newtypeExpenses = new TypeExpenses({
       name,
       description,
       type,
-      value
+      cost
     });
     const typeExpenses = await newtypeExpenses.save();
     res.json({ msg:"Gasto creado correctamente", typeExpenses});
@@ -42,13 +42,13 @@ typeExpensesCtrl.registerTypeExpenses = async (req, res) => {
 //update in the db
 typeExpensesCtrl.updateTypeExpenses = async (req, res) => {
   const { id } =req.params;
-  const {name, description, type, value} = req.body;
+  const {name, description, type, cost} = req.body;
   try {
     await typeExpenses.findByIdAndUpdate(id,{
       name,
       description,
       type,
-      value
+      cost
     });
     const typeExpenses = await TypeExpenses.findById(id);
     res.json({ msg:"Tipo de gastos actualizado correctamente", typeExpenses});

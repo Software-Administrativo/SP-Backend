@@ -25,8 +25,8 @@ adminExpensesVali.validateExistAdminExpensesById = [
 adminExpensesVali.validateRegisterAdminExpenses = [
   check("name", "El nombre del gasto de actividades es obligatorio").notEmpty(),
   check("description", "La descripción del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check("cost", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("cost", "El valor del gasto de actividades no es valido").isNumeric(),
   check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
@@ -43,8 +43,8 @@ adminExpensesVali.validateUpdateAdminExpenses = [
   }),
   check("name", "El nombre del gasto de actividades es obligatorio").notEmpty(),
   check("description", "La descripción del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades es obligatorio").notEmpty(),
-  check("value", "El valor del gasto de actividades no es valido").isNumeric(),
+  check("cost", "El valor del gasto de actividades es obligatorio").notEmpty(),
+  check("cost", "El valor del gasto de actividades no es valido").isNumeric(),
   check('token').custom(async (token, { req }) => {
     await validateToken(token);
     await validateFarm(req.headers.farm);
