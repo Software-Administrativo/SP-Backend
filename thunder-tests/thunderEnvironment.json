@@ -1,16 +1,24 @@
 [
   {
-    "_id": "d396529c-bda9-4498-a8b7-b484eba6ad7e",
+    "_id": "d0a746bb-206c-4402-9a88-81d758d3af6b",
     "name": "(Global Env)",
     "default": false,
     "global": true,
     "sortNum": -2,
-    "created": "2023-04-14T23:15:50.648Z",
-    "modified": "2023-04-14T23:15:50.648Z",
+    "created": "2023-05-15T12:39:48.183Z",
+    "modified": "2023-05-15T12:39:48.183Z",
     "data": [
       {
         "name": "URI",
-        "value": "http://localhost:4500"
+        "value": "http://localhost:4500/api"
+      },
+      {
+        "name": "farm",
+        "value": "644bf8ff92ec73c9fa60201c"
+      },
+      {
+        "name": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2VjMGRhMWMzOWViMjM5MTJlMzI3YyIsInJvbCI6IlNVUEVSIiwibmFtZSI6IlNVUEVSIiwiZmFybXMiOlt7Il9pZCI6IjY0NGJmOGZmOTJlYzczYzlmYTYwMjAxYyIsIm5hbWUiOiJGaW5jYSBOYXBvbGVvbiIsImFkZHJlc3MiOiJuaSBpZGUiLCJvd25lciI6InlvIiwic3RhdHVzIjowLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTI4VDE2OjQ5OjAzLjkyMFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTEwVDEzOjA0OjI4LjYyOFoiLCJfX3YiOjB9LHsiX2lkIjoiNjQ4YmFlNWZhM2JkNjM0Yjk0ODY0YTdlIiwibmFtZSI6IkRFTU8iLCJhZGRyZXNzIjoiZGVtbyIsIm93bmVyIjoieW8iLCJzdGF0dXMiOjAsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMTZUMDA6MzU6NDMuMzYxWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMTZUMDA6MzY6MzAuMDg4WiIsIl9fdiI6MH0seyJfaWQiOiI2NDhjNmE0OWJjMzdkYzBjMTRiOTI2NTciLCJuYW1lIjoiRUwgTUFJWkFMIiwiYWRkcmVzcyI6IkJhcmF5YSIsIm93bmVyIjoiVGhlIGJhZCIsInN0YXR1cyI6MCwiY3JlYXRlZEF0IjoiMjAyMy0wNi0xNlQxMzo1NzoyOS42OTdaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0xNlQxMzo1NzoyOS42OTdaIiwiX192IjowfV0sImlhdCI6MTY4NzQ0MDg2NywiZXhwIjoxNjkwMDMyODY3fQ.fgMufmdCRddbSoKlrHMFCKXJuv5mNm3Bmd6ZXKCzfK4"
       }
     ]
   }
